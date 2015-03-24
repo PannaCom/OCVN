@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, MainActivity!</string>
+    <string name="app_name">Crossword</string>
+    <string name="exception_file_not_found">Tập tin không tìm thấy</string>
+    <string name="exception_grid_not_found">Level này chưa có</string>
+    <string name="exception_sav_not_found">Không tìm thấy bài này</string>
+    <string name="exception_unknow">Có lỗi xảy ra</string>
+    <string name="exception_network">Không kết nối được, kiểm tra đường truyền</string>
+    <string name="dialog_display_correction">Bạn có chắc chắn muốn hiển thị màn hình?</string>
+    <string name="yes">Có</string>
+    <string name="clear">Ô trống</string>
+    <string name="no">Không</string>
+    <string name="display">pin up</string>
+    <string name="cancel">hủy</string>
+    <string name="random">ngẫu nhiên</string>
+    <string name="list">Danh sách</string>
+    <string name="category">Danh mục</string>
+    <string name="search">Tìm kiếm</string>
+    <string name="author_format">Tác giả: %s</string>
+    <string name="level_format">Độ khó: %d</string>
+    <string name="button_last">Lặp lại game cuối</string>
+    <string name="button_list">Danh sách bài chơi</string>
+    <string name="button_category">Ô chữ chủ đề</string>
+    <string name="button_search">Tìm kiếm một từ</string>
+    <string name="percent">Tỷ lệ %</string>
+    <string name="save_dialog_title">Check in</string>
+    <string name="save_dialog_content">Bản ghi trong lưới</string>
+    <string name="today">"Hôm nay"</string>
+    <string name="one_day_ago">Một ngày trước</string>
+    <string name="one_week_ago">Một tuần trước</string>
+    <string name="one_month_ago">Một tháng trước</string>
+    <string name="one_year_ago">Một năm trước</string>
+    <string name="menu_solution">Đáp án ô chữ</string>
+    <string name="menu_settings">Tùy chỉnh</string>
+    <string name="menu_refresh">Làm mới</string>
+    <string name="menu_information">Thông tin</string>
+    <string name="notification_check_grids">Kiểm tra ô chữ mới...</string>
+    <string name="notification_update_grids">Cập nhật ô chữ mới...</string>
+    <string name="notification_update_grids_complete">Tập tin tải lên hoàn tất</string>
+    <string formatted="false" name="notification_update_grids_status">Ô chữ %d của %d</string>
+    <string name="grid_list_up_to_date">Không có ô chữ mới</string>
+    <string name="grid_list_new">%d ô chữ mới</string>
+    <string name="grid_list_is_empty">Danh sách ô chữ trống</string>
+    <string name="feedback_send_success">Tin nhắn được gửi</string>
+    <string name="feedback_send_fail">Không thể gửi tin nhắn</string>
+    <string name="feedback_send">Gửi</string>
+    <string name="feedback_sending">Gửi tin nhắn..</string>
+    <string name="feedback_text">
+Dự án ô chữ Việt Nam:\n
+- Kho tàng ô chữ khổng lồ với khối lượng kiến thức đa dạng\n
+- Xin đóng góp ô chữ cho chúng tôi qua email: vnnvh80@gmail.com\n
+- Xin chân thành cảm ơn đã ủng hộ dự án\n</string>
+    <string name="preferences_clear_cache_warning">Các sao lưu sẽ bị xóa, tiếp tục ?</string>
+    <string name="preferences_clear_cache_toast">Xóa lưới...</string>
+    <string name="preferences_clear_cache_title">Xóa bộ nhớ đệm</string>
+    <string name="preferences_clear_cache_summary">Cảnh báo: Các bản sao lưu sẽ bị xóa</string>
+    <string name="preferences_feedback_summary">Bình luận về ứng dụng hoặc báo cáo lỗi</string>
+    <string name="preferences_solid_selection_title">Đánh dấu ô đã chọn</string>
+    <string name="preferences_solid_selection_summary">Chạm vào ô khác không xóa các ô đã chọn</string>
+    <string name="preferences_grid_is_lower_title">Ô chữ kiểu Tiny</string>
+    <string name="preferences_check_summary">Ký tự sai hiển thị bằng màu đỏ</string>
+    <string name="preferences_check_title">Gợi ý</string>
+    <string name="preferences_feedback_title">Phản hồi</string>
+
+</resources>

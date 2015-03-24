@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Tổng hợp 1</name>
+  <date>03/01/2015</date>
+  <author>Isshun</author>
+  <level>1</level>
+  <width>9</width>
+  <height>9</height>
+  <horizontal>
+    <word x="0" y="0" description="Terminer triomphalement">apotheose</word>
+    <word x="2" y="1" description="Dedans">ceans</word>
+    <word x="0" y="2" description="Enferma">barricada</word>
+    <word x="0" y="3" description="Colère">ire</word>
+    <word x="4" y="3" description="Le tien">ta</word>
+    <word x="7" y="3" description="Badine">ri</word>
+    <word x="0" y="4" description="Aigre">amer</word>
+    <word x="5" y="4" description="Découpe">scie</word>
+    <word x="0" y="5" description="Non">ne</word>
+    <word x="3" y="5" description="Matière précieuse">or</word>
+    <word x="6" y="5" description="Avion sans moteur">ulm</word>
+    <word x="0" y="6" description="Alligator">crocodile</word>
+    <word x="2" y="7" description="Faire des nœuds">nouer</word>
+    <word x="0" y="8" description="Repérait">situerait</word>
+  </horizontal>
+  <vertical>
+    <word x="0" y="0" description="Câu hỏi ví dụ dọc">ambiances</word>
+    <word x="1" y="2" description="Équiper">armer</word>
+    <word x="2" y="0" description="Qui est coloré de jaune">ocree</word>
+    <word x="2" y="6" description="Être en possession">ont</word>
+    <word x="3" y="0" description="Transport régional">ter</word>
+    <word x="3" y="4" description="Colorant rouge orangé">rocou</word>
+    <word x="4" y="0" description="Déteste">hait</word>
+    <word x="4" y="5" description="Disque tournant">roue</word>
+    <word x="5" y="0" description="Repas léger">encas</word>
+    <word x="5" y="6" description="Région de Champagne">der</word>
+    <word x="6" y="0" description="Tenta">osa</word>
+    <word x="6" y="4" description="Chauffera">cuira</word>
+    <word x="7" y="2" description="Cousin mandrill">drill</word>
+    <word x="8" y="0" description="Fait d'étayer">etaiement</word>
+  </vertical>
+</grid>
