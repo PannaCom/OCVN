@@ -29,6 +29,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.Display;
 import android.view.Gravity;
 import android.view.View;
@@ -54,6 +55,8 @@ public class GameGridAdapter extends BaseAdapter {
 	private int 						height;
 	private String 						tempword="";
 	private String 						tempword2="";
+	private ArrayList 					allTheWord=new ArrayList();
+	private ArrayList 					allTheWordPlay=new ArrayList();
 	public GameGridAdapter(Activity act, ArrayList<Word> entries, int width, int height) {
 		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(act);
 		this.isLower = preferences.getBoolean("grid_is_lower", false);
@@ -72,6 +75,7 @@ public class GameGridAdapter extends BaseAdapter {
 	    for (Word entry: entries) {
 	    	String tmp = entry.getTmp();
 	    	String text = entry.getText();
+	    	Log.e("Tu khoa thu 1 la", text);
 	    	boolean horizontal = entry.getHorizontal();
 	    	int x = entry.getX();
 	    	int y = entry.getY();
@@ -114,7 +118,7 @@ public class GameGridAdapter extends BaseAdapter {
 				}
 			}
 			//Tăng lên cho đến khi gặp ""
-			xx=x;
+			xx=x+1;
 			while(xx<this.width && this.area[y][xx]!=null && this.area[y][xx]!=""){
 				tempword+=this.area[y][xx];
 				tempword2+=this.correctionArea[y][xx];
@@ -143,7 +147,7 @@ public class GameGridAdapter extends BaseAdapter {
 				}
 			}
 			//Tăng lên cho đến khi gặp ""
-			yy=y;
+			yy=y+1;
 			while(yy<this.height && this.area[yy][x]!=null && this.area[yy][x]!=""){
 				tempword+=this.area[yy][x];
 				tempword2+=this.correctionArea[yy][x];

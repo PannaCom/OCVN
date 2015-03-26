@@ -39,10 +39,15 @@ import com.crossword.data.Word;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.media.AudioManager;
+import android.media.SoundPool;
+import android.media.SoundPool.OnLoadCompleteListener;
+import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.util.TypedValue;
 import android.view.Display;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -70,16 +75,16 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 
 	private Grid			grid;
 	private ArrayList<Word> entries;		// Liste des mots
-	private ArrayList<View>	selectedArea = new ArrayList<View>(); // Liste des cases selectionnées
+	private ArrayList<View>	selectedArea = new ArrayList<View>(); // Liste des cases selectionnĂ©es
 
-	private boolean			downIsPlayable;	// false si le joueur à appuyé sur une case noire 
-	private int 			downPos;		// Position ou le joueur à appuyé
-    private int 			downX;			// Ligne ou le joueur à appuyé
-    private int 			downY;			// Colonne ou le joueur à appuyé
+	private boolean			downIsPlayable;	// false si le joueur Ă  appuyĂ© sur une case noire 
+	private int 			downPos;		// Position ou le joueur Ă  appuyĂ©
+    private int 			downX;			// Ligne ou le joueur Ă  appuyĂ©
+    private int 			downY;			// Colonne ou le joueur Ă  appuyĂ©
 	private int 			currentPos;		// Position actuelle du curseur
 	private int 			currentX;		// Colonne actuelle du curseur
 	private int 			currentY;		// Ligne actuelle du curseur
-	private Word			currentWord;	// Mot actuellement selectionné
+	private Word			currentWord;	// Mot actuellement selectionnĂ©
 	private boolean 		horizontal;		// Sens de la selection
 
 	private String 			filename;		// Nom de la grille
@@ -89,7 +94,11 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	
 	private int width;
 	private int height;
-
+	private int soundIDTrue;
+	private AudioManager audio;
+	private ToneGenerator generator;
+	private SoundPool soundPool;
+	
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -170,7 +179,15 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	    setContentView(R.layout.game);
 	    
 		readPreferences();
-	    
+		soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
+	    soundPool.setOnLoadCompleteListener(new OnLoadCompleteListener() {
+	      @Override
+	      public void onLoadComplete(SoundPool soundPool, int sampleId,
+	          int status) {
+	    	  //loaded = true;
+	      }
+	    });
+	    soundIDTrue = soundPool.load(this,R.raw.ftrue, 1);
 	    try {
 		    this.filename = getIntent().getExtras().getString("filename");
 			File file = new File(String.format(Crossword.GRID_LOCAL_PATH, this.filename));
@@ -272,7 +289,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 
             case MotionEvent.ACTION_UP:
             {
-            	// Si le joueur à appuyé sur une case noire, aucun traitement 
+            	// Si le joueur Ă  appuyĂ© sur une case noire, aucun traitement 
             	if (this.downIsPlayable == false)
             		return true;
             	
@@ -427,9 +444,9 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 			y = (this.horizontal ? y: y + 1);
 		}
 		if (gridAdapter.isTheSame(this.currentX, this.currentY,this.horizontal)){
-    		this.txtUserinfo.setText("Giong nhau "+gridAdapter.getTempWord1()+"="+gridAdapter.getTempWord2());
+			showInfo();//this.txtUserinfo.setText("Giong nhau "+gridAdapter.getTempWord1()+"="+gridAdapter.getTempWord2());
     	}else{
-    		this.txtUserinfo.setText("khac nhau "+gridAdapter.getTempWord1()+"!="+gridAdapter.getTempWord2());
+    		//this.txtUserinfo.setText("khac nhau "+gridAdapter.getTempWord1()+"!="+gridAdapter.getTempWord2());
     	}
 		// Si la case suivante est disponible, met la case en jaune, remet l'ancienne en bleu, et set la nouvelle position
 		if (x >= 0 && x < this.width
@@ -441,7 +458,15 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 			this.currentY = y;
 		}
 	}
-	
+	private void showInfo(){
+		//Context context = getApplicationContext();
+		CharSequence text = "BẠN ĐÃ GIẢI ĐÚNG MỘT Ô CHỮ, THÊM 10 ĐIỂM!";
+		int duration = Toast.LENGTH_LONG;
+		Toast toast = Toast.makeText(this.getApplicationContext(), text, duration);
+		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+		toast.show();
+		soundPool.play(soundIDTrue, 1.0f, 1.0f, 1, 0, 1.5f);
+	}
     private void save() {
 		// writre new XML file
 
