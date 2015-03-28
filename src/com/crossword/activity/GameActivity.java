@@ -91,7 +91,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 
 	private boolean 		solidSelection;	// PREFERENCES: Selection persistante
 	private boolean			gridIsLower;	// PREFERENCES: Grille en minuscule
-	
+	private int totallaurel=0;
 	private int width;
 	private int height;
 	private int soundIDTrue;
@@ -168,11 +168,22 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		this.solidSelection = preferences.getBoolean("solid_selection", false);
 		this.gridIsLower = preferences.getBoolean("grid_is_lower", false);
+		this.totallaurel=preferences.getInt("totallaurel", 0);
 		if (currentMode != GRID_MODE.SOLVE)
 			currentMode = preferences.getBoolean("grid_check", false) ? GRID_MODE.CHECK : GRID_MODE.NORMAL;
 		
 	}
-
+	private void setPreferences(){
+		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+//		int temptotallaurel=preferences.getInt("totallaurel", 0);
+//		totallaurel+=temptotallaurel;
+		//SharedPreferences sharedPreferences = this.getSharedPreferences(packageName, Context.MODE_PRIVATE);
+	    SharedPreferences.Editor editor = preferences.edit();
+	    editor.putInt("totallaurel", totallaurel);
+	    editor.commit();
+		//preferences.
+		
+	}
 	public void onCreate(Bundle savedInstanceState)
 	{
 	    super.onCreate(savedInstanceState);
@@ -229,7 +240,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
         int keyboardHeight = (int)(height / 4.4);
 		
 		this.txtDescription = (TextView)findViewById(R.id.description);
-		this.txtUserinfo = (TextView)findViewById(R.id.userinfo);
+		//this.txtUserinfo = (TextView)findViewById(R.id.userinfo);
         this.gridView = (GridView)findViewById(R.id.grid);
         this.gridView.setOnTouchListener(this);
         this.gridView.setNumColumns(this.width);
@@ -332,7 +343,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
                 	this.currentPos = this.currentY * this.width + this.currentX;
             	}
 
-            	this.txtDescription.setText(this.currentWord.getDescription());
+            	this.txtDescription.setText(this.currentWord.getDescription().toUpperCase()+"?");
             	//int tempx=this.currentX;
             	//int tempy= this.currentY;
             	//if (this.horizontal) tempx=0; else tempy=0;
@@ -444,7 +455,13 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 			y = (this.horizontal ? y: y + 1);
 		}
 		if (gridAdapter.isTheSame(this.currentX, this.currentY,this.horizontal)){
-			showInfo();//this.txtUserinfo.setText("Giong nhau "+gridAdapter.getTempWord1()+"="+gridAdapter.getTempWord2());
+			//this.txtUserinfo.setText("Giong nhau "+gridAdapter.getTempWord1()+"="+gridAdapter.getTempWord2());
+			totallaurel+=10;
+			setPreferences();
+			showInfo();
+			if (gridAdapter.equalLists()){
+				showNextLevel();
+			}
     	}else{
     		//this.txtUserinfo.setText("khac nhau "+gridAdapter.getTempWord1()+"!="+gridAdapter.getTempWord2());
     	}
@@ -460,7 +477,15 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	}
 	private void showInfo(){
 		//Context context = getApplicationContext();
-		CharSequence text = "BẠN ĐÃ GIẢI ĐÚNG MỘT Ô CHỮ, THÊM 10 ĐIỂM!";
+		CharSequence text = "BẠN ĐÃ GIẢI ĐÚNG MỘT Ô CHỮ, THÊM 10 ĐIỂM!\r\nTỔNG ĐIỂM: "+totallaurel;
+		int duration = Toast.LENGTH_LONG;
+		Toast toast = Toast.makeText(this.getApplicationContext(), text, duration);
+		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+		toast.show();
+		soundPool.play(soundIDTrue, 1.0f, 1.0f, 1, 0, 1.5f);
+	}
+	private void showNextLevel(){
+		CharSequence text = "CHÚC MỪNG BẠN ĐÃ HOÀN THÀNH TOÀN BỘ Ô CHỮ\r\nTỔNG ĐIỂM: "+totallaurel;
 		int duration = Toast.LENGTH_LONG;
 		Toast toast = Toast.makeText(this.getApplicationContext(), text, duration);
 		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);

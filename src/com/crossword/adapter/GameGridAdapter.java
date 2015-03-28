@@ -18,6 +18,7 @@
 package com.crossword.adapter;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import com.crossword.R;
@@ -57,13 +58,16 @@ public class GameGridAdapter extends BaseAdapter {
 	private String 						tempword2="";
 	private ArrayList 					allTheWord=new ArrayList();
 	private ArrayList 					allTheWordPlay=new ArrayList();
+	private ArrayList<Word> AllEntries;
 	public GameGridAdapter(Activity act, ArrayList<Word> entries, int width, int height) {
 		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(act);
 		this.isLower = preferences.getBoolean("grid_is_lower", false);
 		this.context = (Context)act;
 		this.width = width;
 		this.height = height;
-		
+		this.AllEntries=entries;
+//		allTheWord=new ArrayList();
+//		allTheWordPlay=new ArrayList();
 		// Calcul area height
         Display display = act.getWindowManager().getDefaultDisplay();
         this.displayHeight = display.getWidth() / this.width;
@@ -75,7 +79,9 @@ public class GameGridAdapter extends BaseAdapter {
 	    for (Word entry: entries) {
 	    	String tmp = entry.getTmp();
 	    	String text = entry.getText();
-	    	Log.e("Tu khoa thu 1 la", text);
+	    	Log.e("Tu khoa thu 1 la", tmp);
+//	    	if (!allTheWord.contains(text)) allTheWord.add(text.toUpperCase());
+//	    	if (!allTheWordPlay.contains(text)) allTheWordPlay.add(tmp.toUpperCase());
 	    	boolean horizontal = entry.getHorizontal();
 	    	int x = entry.getX();
 	    	int y = entry.getY();
@@ -131,6 +137,7 @@ public class GameGridAdapter extends BaseAdapter {
 				for(int t=x1;t<=x2;t++){
 					this.statusarea[y][t]=1;
 				}
+				//if (!allTheWordPlay.contains(tempword)) allTheWordPlay.add(tempword);
 				return true;
 			}
 		}else{
@@ -160,10 +167,48 @@ public class GameGridAdapter extends BaseAdapter {
 				for(int t=y1;t<=y2;t++){
 					this.statusarea[t][x]=1;
 				}	
+				//if (!allTheWordPlay.contains(tempword)) allTheWordPlay.add(tempword);
 				return true;
 			}
 		}
 		return false;
+	}
+	public  boolean equalLists(){   
+		for (int y = 0; y < this.height; y++)
+			for (int x = 0; x < this.width; x++)
+				if (this.area[y][x]!=null && this.correctionArea[y][x]!=null && !this.area[y][x].toUpperCase().equals(this.correctionArea[y][x].toUpperCase())) {
+					Log.e("KHAC NHAU", "_______________________");
+					return false;
+				}
+		Log.e("GIONG NHAU", "_______________________");
+		return true;
+//	    // Check for sizes and nulls
+//	    if ((allTheWordPlay.size() != allTheWord.size()) || (allTheWordPlay == null && allTheWord!= null) || (allTheWordPlay != null && allTheWord== null)){
+//	        return false;
+//	    }
+//
+//	    if (allTheWordPlay == null && allTheWord == null) return true;
+//	    allTheWord=new ArrayList();
+//		allTheWordPlay=new ArrayList();
+//		for (Word entry: this.AllEntries) {
+//			    	String tmp = entry.getTmp();
+//			    	String text = entry.getText();
+//			    	//Log.e("Tu khoa thu 1 la", tmp);
+//			    	if (!allTheWord.contains(text)) allTheWord.add(text.toUpperCase());
+//			    	if (!allTheWordPlay.contains(text)) allTheWordPlay.add(tmp.toUpperCase());
+//		}
+//	    // Sort and compare the two lists          
+//	    Collections.sort(allTheWordPlay);
+//	    Collections.sort(allTheWord); 
+//	    Log.e("Day la o chu da choi", "________________");
+//	    for(int i=0;i<allTheWordPlay.size();i++){
+//	    	 Log.e("Tukhoa:",allTheWordPlay.get(i).toString());
+//	    }
+////	    Log.e("Day la o chu chuan", "________________");
+////	    for(int i=0;i<allTheWord.size();i++){
+////	    	 Log.e("Tukhoa:",allTheWord.get(i).toString());
+////	    }
+//	    return allTheWordPlay.equals(allTheWord);
 	}
 	@Override
 	public int getCount() {
@@ -204,7 +249,7 @@ public class GameGridAdapter extends BaseAdapter {
 			v.setLayoutParams(new GridView.LayoutParams(GridView.LayoutParams.FILL_PARENT, this.displayHeight));
 			v.setTextSize((context.getResources().getConfiguration().screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) == 4 ? 30 : 20);
 			v.setGravity(Gravity.CENTER);
-
+			
 			if (data != null) {
 				v.setBackgroundResource(R.drawable.area_empty);
 				v.setTag(AREA_WRITABLE);
@@ -247,10 +292,15 @@ public class GameGridAdapter extends BaseAdapter {
 	    			else
 	    				v.setTextColor(context.getResources().getColor(R.color.normal));
 	    			v.setText(this.isLower ? data.toLowerCase() : data.toUpperCase());
+	    			if (data != null && data.toUpperCase().equals(correction.toUpperCase())){
+	    				v.setTextColor(context.getResources().getColor(R.color.solved));
+	    				v.setBackgroundColor(context.getResources().getColor(R.color.solvedbg));
+	    			}
 	    		}
     		}else{
     			if (data != null) {	
-	    			v.setTextColor(context.getResources().getColor(R.color.right));
+	    			v.setTextColor(context.getResources().getColor(R.color.solved));
+	    			v.setBackgroundColor(context.getResources().getColor(R.color.solvedbg));
 	    			v.setText(data.toUpperCase());
 	    		}
     		}

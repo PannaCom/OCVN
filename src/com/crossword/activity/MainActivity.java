@@ -43,6 +43,12 @@ public class MainActivity extends CrosswordParentActivity implements OnClickList
         findViewById(R.id.button_list).setOnClickListener(this);
         findViewById(R.id.button_category).setOnClickListener(this);
         findViewById(R.id.button_search).setOnClickListener(this);
+//        String last = PreferenceManager.getDefaultSharedPreferences(this).getString("last_grid", null);
+//		if (last != null) {
+//			Intent intent = new Intent(this, GameActivity.class);
+//			intent.putExtra("filename", last);
+//			startActivity(intent);
+//		}
     }
     
 	public void onClick(View view) {
