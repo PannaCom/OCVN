@@ -41,6 +41,10 @@
             android:launchMode="singleTop"
             android:name=".activity.FeedbackActivity" />
         <activity
+            android:label="@string/app_name"
+            android:launchMode="singleTop"
+            android:name=".activity.SubmitScoreActivity" />
+        <activity
             android:label="Preferences"
             android:launchMode="singleTop"
             android:name=".activity.PeferencesActivity" />
