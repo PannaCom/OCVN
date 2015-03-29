@@ -47,6 +47,7 @@ import android.media.SoundPool.OnLoadCompleteListener;
 import android.media.ToneGenerator;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.Gravity;
@@ -514,9 +515,12 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 //					alertDialog.hide();						
 //	        		GameActivity.this.finish();
 //	        		System.exit(0);	
+					Log.e("_____", "1111");
 					Intent intent = new Intent(GameActivity.this, SubmitScoreActivity.class);
+					Log.e("_____", "2222");
 					//intent.putExtra("filename", last);
 					startActivity(intent);
+					Log.e("_____", "33333");
 	        		
 				}
 			  });
