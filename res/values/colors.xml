@@ -5,6 +5,8 @@
     <color name="draft">#999</color>
     <color name="wrong">#F00</color>
     <color name="right">#0F0</color>
+    <color name="solved">#ffff00</color>
+    <color name="solvedbg">#0000ff</color>
     <color name="gridlist_divider">#BBB</color>
 
 </resources>

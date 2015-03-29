@@ -46,7 +46,7 @@
     <string name="feedback_send_success">Tin nhắn được gửi</string>
     <string name="feedback_send_fail">Không thể gửi tin nhắn</string>
     <string name="feedback_send">Gửi</string>
-    <string name="feedback_sending">Gửi tin nhắn..</string>
+    <string name="feedback_sending">Đang gửi phản hồi..</string>
     <string name="feedback_text">
 Dự án ô chữ Việt Nam:\n
 - Kho tàng ô chữ khổng lồ với khối lượng kiến thức đa dạng\n

@@ -16,7 +16,6 @@
             android:listSelector="@null"
             android:verticalSpacing="1dp" >
         </GridView>
-
         <TextView
             android:id="@+id/description"
             android:layout_width="fill_parent"
@@ -24,17 +23,9 @@
             android:layout_weight="0"
             android:gravity="center"
             android:padding="5dp"
-            android:textColor="#DDDDDD" />
-		<TextView
-            android:id="@+id/userinfo"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="0"
-            android:gravity="center"
-            android:padding="5dp"
-            android:text="Tổng điểm: "
-            android:textSize="20dp"
-            android:textColor="#FFFFFF"/>
+            android:textColor="#ffff00"
+            android:textSize="18dp"
+            android:textStyle="bold"/>
         <com.crossword.keyboard.KeyboardView
             android:id="@+id/keyboard"
             android:layout_width="fill_parent"

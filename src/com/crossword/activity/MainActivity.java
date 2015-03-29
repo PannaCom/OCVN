@@ -71,8 +71,8 @@ public class MainActivity extends CrosswordParentActivity implements OnClickList
 				break;
 			}
 			case R.id.button_search: {
-//				Intent intent = new Intent(this, CategoryActivity.class);
-//				startActivity(intent);
+				Intent intent = new Intent(this, SubmitScoreActivity.class);
+				startActivity(intent);
 				break;
 			}
 		}

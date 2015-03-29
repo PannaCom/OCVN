@@ -37,6 +37,8 @@ import com.crossword.adapter.GameGridAdapter;
 import com.crossword.data.Grid;
 import com.crossword.data.Word;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.media.AudioManager;
@@ -98,7 +100,8 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	private AudioManager audio;
 	private ToneGenerator generator;
 	private SoundPool soundPool;
-	
+	private AlertDialog.Builder alertDialogBuilder;
+	private AlertDialog alertDialog;
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -454,17 +457,15 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 			x = (this.horizontal ? x + 1 : x);
 			y = (this.horizontal ? y: y + 1);
 		}
+		if (gridAdapter.equalLists()){
+			showNextLevel();
+		}else
 		if (gridAdapter.isTheSame(this.currentX, this.currentY,this.horizontal)){
 			//this.txtUserinfo.setText("Giong nhau "+gridAdapter.getTempWord1()+"="+gridAdapter.getTempWord2());
 			totallaurel+=10;
 			setPreferences();
 			showInfo();
-			if (gridAdapter.equalLists()){
-				showNextLevel();
-			}
-    	}else{
-    		//this.txtUserinfo.setText("khac nhau "+gridAdapter.getTempWord1()+"!="+gridAdapter.getTempWord2());
-    	}
+		}
 		// Si la case suivante est disponible, met la case en jaune, remet l'ancienne en bleu, et set la nouvelle position
 		if (x >= 0 && x < this.width
 				&& y >= 0 && y < this.height
@@ -491,7 +492,46 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 		toast.show();
 		soundPool.play(soundIDTrue, 1.0f, 1.0f, 1, 0, 1.5f);
+		alertDialogBuilder = new AlertDialog.Builder(this);
+		// set title
+		alertDialogBuilder.setTitle("Bạn có muốn chơi tiếp?");
+		// set dialog message
+		alertDialogBuilder
+			.setMessage("Lựa chọn.")
+			.setCancelable(false)
+			.setPositiveButton("Chọn ô chữ khác.",new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog,int id) {
+					// if this button is clicked, close
+					// current activity
+					alertDialog.hide();						
+	        		GameActivity.this.finish();
+	        		System.exit(0);	
+	        		
+				}
+			  })
+			  .setNeutralButton("Cập nhật điểm của bạn lên bảng xếp hạng",new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog,int id) {
+//					alertDialog.hide();						
+//	        		GameActivity.this.finish();
+//	        		System.exit(0);	
+					Intent intent = new Intent(GameActivity.this, SubmitScoreActivity.class);
+					//intent.putExtra("filename", last);
+					startActivity(intent);
+	        		
+				}
+			  });
+//			.setNegativeButton("Thoát",new DialogInterface.OnClickListener() {
+//				public void onClick(DialogInterface dialog,int id) {
+//					//GameActivity.this.finish();
+//			    	System.exit(0);						
+//				}
+//			  });
+			// create alert dialog
+			alertDialog = alertDialogBuilder.create();
+			// show it
+			alertDialog.show();
 	}
+	
     private void save() {
 		// writre new XML file
 

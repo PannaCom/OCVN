@@ -67,7 +67,7 @@ public class GameGridAdapter extends BaseAdapter {
 		this.height = height;
 		this.AllEntries=entries;
 //		allTheWord=new ArrayList();
-//		allTheWordPlay=new ArrayList();
+		allTheWordPlay=new ArrayList();
 		// Calcul area height
         Display display = act.getWindowManager().getDefaultDisplay();
         this.displayHeight = display.getWidth() / this.width;
@@ -82,6 +82,7 @@ public class GameGridAdapter extends BaseAdapter {
 	    	Log.e("Tu khoa thu 1 la", tmp);
 //	    	if (!allTheWord.contains(text)) allTheWord.add(text.toUpperCase());
 //	    	if (!allTheWordPlay.contains(text)) allTheWordPlay.add(tmp.toUpperCase());
+	    	if (tmp!=null && tmp.toUpperCase().equals(text.toUpperCase()) && !allTheWordPlay.contains(tmp.toUpperCase())) allTheWordPlay.add(tmp.toUpperCase());
 	    	boolean horizontal = entry.getHorizontal();
 	    	int x = entry.getX();
 	    	int y = entry.getY();
@@ -115,7 +116,8 @@ public class GameGridAdapter extends BaseAdapter {
 			while(xx>=0 && this.area[y][xx]!=null && this.area[y][xx]!=""){
 				xx--;
 			}		
-			if (xx<0) xx=0;
+			//if (xx<0) xx=0;
+			xx++;
 			int x1=xx;
 			if (xx>=0){
 				for(int jj=xx;jj<=x;jj++){
@@ -130,14 +132,20 @@ public class GameGridAdapter extends BaseAdapter {
 				tempword2+=this.correctionArea[y][xx];
 				xx++;
 			}
-			int x2=xx-1;
+			xx--;
+			int x2=xx;
 			if (tempword!="" && tempword.equalsIgnoreCase(tempword2)) 
 			{
 				//Đánh dấu những ô này được gán cho chính xác và không cho sửa nữa
 				for(int t=x1;t<=x2;t++){
 					this.statusarea[y][t]=1;
 				}
-				//if (!allTheWordPlay.contains(tempword)) allTheWordPlay.add(tempword);
+				if (!allTheWordPlay.contains(tempword.toUpperCase())) 
+				{
+					Log.e("--------------------", tempword);
+					allTheWordPlay.add(tempword.toUpperCase());
+				}
+				else return false;
 				return true;
 			}
 		}else{
@@ -145,7 +153,8 @@ public class GameGridAdapter extends BaseAdapter {
 			while(yy>=0 && this.area[yy][x]!=null && this.area[yy][x]!=""){
 				yy--;
 			}		
-			if (yy<0) yy=0;
+			//if (yy<0) yy=0;
+			yy++;
 			int y1=yy;
 			if (yy>=0){
 				for(int jj=yy;jj<=y;jj++){
@@ -160,14 +169,21 @@ public class GameGridAdapter extends BaseAdapter {
 				tempword2+=this.correctionArea[yy][x];
 				yy++;
 			}
-			int y2=yy-1;
+			yy--;
+			int y2=yy;
 			if (tempword!="" && tempword.equalsIgnoreCase(tempword2)) 
 			{
 				//Đánh dấu những ô này được gán cho chính xác và không cho sửa nữa
 				for(int t=y1;t<=y2;t++){
 					this.statusarea[t][x]=1;
 				}	
-				//if (!allTheWordPlay.contains(tempword)) allTheWordPlay.add(tempword);
+				if (!allTheWordPlay.contains(tempword.toUpperCase()))
+				{
+					Log.e("--------------------", tempword);
+					allTheWordPlay.add(tempword.toUpperCase());
+				}
+				else 
+					return false;
 				return true;
 			}
 		}
@@ -298,7 +314,7 @@ public class GameGridAdapter extends BaseAdapter {
 	    			}
 	    		}
     		}else{
-    			if (data != null) {	
+    			if (data != null) {	    				
 	    			v.setTextColor(context.getResources().getColor(R.color.solved));
 	    			v.setBackgroundColor(context.getResources().getColor(R.color.solvedbg));
 	    			v.setText(data.toUpperCase());
