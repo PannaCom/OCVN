@@ -79,7 +79,7 @@ public class GameGridAdapter extends BaseAdapter {
 	    for (Word entry: entries) {
 	    	String tmp = entry.getTmp();
 	    	String text = entry.getText();
-	    	Log.e("Tu khoa thu 1 la", tmp);
+	    	//Log.e("Tu khoa thu 1 la", tmp);
 //	    	if (!allTheWord.contains(text)) allTheWord.add(text.toUpperCase());
 //	    	if (!allTheWordPlay.contains(text)) allTheWordPlay.add(tmp.toUpperCase());
 	    	if (tmp!=null && tmp.toUpperCase().equals(text.toUpperCase()) && !allTheWordPlay.contains(tmp.toUpperCase())) allTheWordPlay.add(tmp.toUpperCase());

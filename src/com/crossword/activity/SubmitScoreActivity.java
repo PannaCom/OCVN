@@ -17,12 +17,17 @@ import org.apache.http.message.BasicNameValuePair;
 
 import com.crossword.Crossword;
 import com.crossword.R;
+import com.crossword.activity.GameActivity.GRID_MODE;
 
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
+import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
+import android.telephony.TelephonyManager;
+import android.text.Editable;
 import android.text.Html;
 import android.util.Log;
 import android.view.View;
@@ -35,56 +40,105 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 	private String error;
 	private AlertDialog alertName;
 	private AlertDialog.Builder alertDialogBuilder;
+	private AlertDialog alertDialog;
 	private List<NameValuePair>nameValuePairs = new ArrayList<NameValuePair>(2);
+	private int totallaurel,levels;
+	private String username;
+	//private EditText inputname;
 	public void onCreate(Bundle savedInstanceState) {
 		Log.e("SubmitScoreActivity", "1111");
 	    super.onCreate(savedInstanceState);
 	    Log.e("SubmitScoreActivity", "2222");
-	    setContentView(R.layout.submitscore);
-	    Button feedSend = (Button)findViewById(R.id.feed_send);
-	    feedSend.setOnClickListener(this);
+	    //setContentView(R.layout.submitscore);
+	    //Button feedSend = (Button)findViewById(R.id.feed_send);
+	    //feedSend.setOnClickListener(this);
+	    totallaurel=0;
+	    readPreferences();
 	    Log.e("SubmitScoreActivity", "3333");
-	    final EditText inputname = new EditText(this.getApplicationContext());
+	    final EditText inputname = new EditText(this);//.getApplicationContext()
+	    inputname.setText(this.username);
+	    levels=totallaurel/60;
 	    Log.e("SubmitScoreActivity", "44444");
 	    alertDialogBuilder = new AlertDialog.Builder(this);
 		// set title
 		alertDialogBuilder.setTitle("Nhập tên người chơi");
 		Log.e("SubmitScoreActivity", "55555");
+		//alertDialog
 		// set dialog message
 		alertDialogBuilder
 			.setMessage("")
+			.setView(inputname)
 			.setCancelable(false)
 			.setPositiveButton("Gửi điểm",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog,int id) {
-					nameValuePairs.add(
-			                new BasicNameValuePair("name", inputname.getText().toString())
-			                );
-					nameValuePairs.add(
-			                new BasicNameValuePair("number","0909009090")
-			                );
-					nameValuePairs.add(
-			                new BasicNameValuePair("lon","105.803189")
-			                );
-					nameValuePairs.add(
-			                new BasicNameValuePair("lat","20.991513")
-			                );
-					startSend();
+					String username = inputname.getText().toString(); 	
+//					nameValuePairs.add(
+//			                new BasicNameValuePair("iddevice",getPhoneNumber())
+//			                );
+//					nameValuePairs.add(
+//			                new BasicNameValuePair("namedevice",getDeviceName())
+//			                );
+//					nameValuePairs.add(
+//			                new BasicNameValuePair("username", inputname.getText().toString())
+//			                );
+//					nameValuePairs.add(
+//			                new BasicNameValuePair("point",String.valueOf(totallaurel))
+//			                );
+//					nameValuePairs.add(
+//			                new BasicNameValuePair("levels",String.valueOf(levels))
+//			                );
+					startSend(username);
 				}
 			  })
 			  .setNeutralButton("Bỏ qua",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog,int id) {
-					
-	        		
+					SubmitScoreActivity.this.finish();
+	        		System.exit(0);
 				}
 			  });
+		// create alert dialog
+		
+		alertDialog = alertDialogBuilder.create();
+		// show it
+		alertDialog.show();
+	}
+	private void readPreferences() {
+		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		
+		this.totallaurel=preferences.getInt("totallaurel", 0);
+		this.username=preferences.getString("username", "");		
+	}
+	private void setUsernamePreferences(String username){
+		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+
+	    SharedPreferences.Editor editor = preferences.edit();
+	    editor.putString("username", username);
+	    editor.commit();
+		//preferences.
+		
+	}
+	private String getPhoneNumber(){
+		try{
+			TelephonyManager telemamanger = (TelephonyManager) getSystemService(this.getApplicationContext().TELEPHONY_SERVICE);
+			String getSimSerialNumber = telemamanger.getSimSerialNumber();
+			String getSimNumber = telemamanger.getLine1Number();
+			if (getSimNumber=="" || getSimNumber.equals("")) 
+				{
+				getSimNumber=telemamanger.getDeviceId();
+			}
+			if (getSimNumber==null || getSimNumber=="") return "testDevice";
+			return getSimNumber;
+		}catch(Exception ex){
+			return "testDevice";
+		}
 	}
 	public String getDeviceName() {
-		   String manufacturer = Build.MANUFACTURER;
-		   String model = Build.MODEL;
+		   String manufacturer = Build.MANUFACTURER.replaceAll(" ","%20");
+		   String model = Build.MODEL.replaceAll(" ","%20");
 		   if (model.startsWith(manufacturer)) {
 		      return capitalize(model);
 		   } else {
-		      return capitalize(manufacturer) + " " + model;
+		      return capitalize(manufacturer) + "_" + model;
 		   }
 	}
 	private String capitalize(String s) {
@@ -98,11 +152,19 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 	        return Character.toUpperCase(first) + s.substring(1);
 	    }
 }
-	public void postMessage() {
+	public void postMessage(String username) {
 	    // Create a new HttpClient and Post Header
+		setUsernamePreferences(username);
 	    HttpClient httpclient = new DefaultHttpClient();
-	    String url="http://tingting.vn/map/local?";//name=hlhlk&number=0909009090&lon=105.803189&lat=20.991513
+	    String getPhoneNumber=getPhoneNumber();
+	    Log.e("runOnUiThreadrunOnUiThread333", getPhoneNumber);
+	    String getDeviceName=getDeviceName();
+	    Log.e("runOnUiThreadrunOnUiThread444", getDeviceName);
+	    
+	    String url="http://binhyen.net/ApiServer/updateRanking?iddevice="+getPhoneNumber+"&namedevice="+getDeviceName+"&username="+username+"&point="+totallaurel+"&levels="+levels;//name=hlhlk&number=0909009090&lon=105.803189&lat=20.991513
+	    Log.e("runOnUiThreadrunOnUiThread111", url);
 	    HttpPost httppost = new HttpPost(url);
+	    Log.e("runOnUiThreadrunOnUiThread222", url);
 	    try {
 	        //EditText feedMessage = (EditText)findViewById(R.id.feed_message);
 
@@ -110,13 +172,14 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 //	        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
 //	        nameValuePairs.add(new BasicNameValuePair("from", android.os.Build.MODEL + " (" + android.os.Build.VERSION.RELEASE + ")"));
 //	        nameValuePairs.add(new BasicNameValuePair("message", feedMessage.getText().toString()));
-	        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
+	        //httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
 
 	        // Execute HTTP Post Request
 	        HttpResponse response = httpclient.execute(httppost);
 	        if (response.getStatusLine().getStatusCode() == 200) {
     		    runOnUiThread(new Runnable() {
     		        public void run() {
+    		        	Log.e("runOnUiThreadrunOnUiThread", "111");
     		        	Toast.makeText(SubmitScoreActivity.this, R.string.feedback_send_success, Toast.LENGTH_SHORT).show();
     		        }
     		    });
@@ -130,6 +193,7 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 	        while ((line = rd.readLine()) != null) { 
 	            total.append(line); 
 	        }
+	        Log.e("runOnUiThreadrunOnUiThread", "2222");
 	        error = Html.fromHtml(total.toString()).toString();
 	    } catch (ClientProtocolException e) {
 	    	error = getResources().getString(R.string.exception_network);
@@ -139,13 +203,15 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 	    	e.printStackTrace();
 	    }
 	}
-	public void startSend() {
-		
+	public void startSend(final String username) {
+		Log.e("startSend", "111");	
 	        final ProgressDialog progress = ProgressDialog.show(SubmitScoreActivity.this, "", "Đang cập nhật..", true);
 	        new Thread((new Runnable() {
 	            @Override
 	            public void run() {
-	    			postMessage();
+	            	Log.e("startSend", "2222");	
+	    			postMessage(username);
+	    			Log.e("startSend", "33333");	
 	    			progress.dismiss();
 	    		    runOnUiThread(new Runnable() {
 	    		        public void run() {
@@ -171,7 +237,7 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 	        new Thread((new Runnable() {
 	            @Override
 	            public void run() {
-	    			postMessage();
+	    			postMessage("abc");
 	    			progress.dismiss();
 	    		    runOnUiThread(new Runnable() {
 	    		        public void run() {

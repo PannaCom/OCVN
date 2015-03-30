@@ -91,7 +91,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	private boolean 		horizontal;		// Sens de la selection
 
 	private String 			filename;		// Nom de la grille
-
+	private String 			filenameplay;		// Nom de la grille neu da choi roi
 	private boolean 		solidSelection;	// PREFERENCES: Selection persistante
 	private boolean			gridIsLower;	// PREFERENCES: Grille en minuscule
 	private int totallaurel=0;
@@ -173,20 +173,23 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 		this.solidSelection = preferences.getBoolean("solid_selection", false);
 		this.gridIsLower = preferences.getBoolean("grid_is_lower", false);
 		this.totallaurel=preferences.getInt("totallaurel", 0);
+		this.filenameplay=preferences.getString("filename", "");
 		if (currentMode != GRID_MODE.SOLVE)
 			currentMode = preferences.getBoolean("grid_check", false) ? GRID_MODE.CHECK : GRID_MODE.NORMAL;
 		
 	}
 	private void setPreferences(){
 		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-//		int temptotallaurel=preferences.getInt("totallaurel", 0);
-//		totallaurel+=temptotallaurel;
-		//SharedPreferences sharedPreferences = this.getSharedPreferences(packageName, Context.MODE_PRIVATE);
-	    SharedPreferences.Editor editor = preferences.edit();
+		SharedPreferences.Editor editor = preferences.edit();
 	    editor.putInt("totallaurel", totallaurel);
 	    editor.commit();
 		//preferences.
-		
+	}
+	private void setLevelPassed(){
+		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		SharedPreferences.Editor editor = preferences.edit();
+		editor.putString("filename", this.filenameplay+","+this.filename);
+	    editor.commit();
 	}
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -262,6 +265,9 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
         this.keyboardView.setLayoutParams(KeyboardParams);
 
         this.keyboardOverlay = (TextView)findViewById(R.id.keyboard_overlay);
+        if (this.filenameplay!=null && this.filenameplay!="" && this.filenameplay.contains(this.filename)){
+        	showNextLevel();
+        }
 	}
 
 	@Override
@@ -459,6 +465,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 			y = (this.horizontal ? y: y + 1);
 		}
 		if (gridAdapter.equalLists()){
+			setLevelPassed();
 			showNextLevel();
 		}else
 		if (gridAdapter.isTheSame(this.currentX, this.currentY,this.horizontal)){
@@ -488,17 +495,17 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	}
 	private void showNextLevel(){
 		CharSequence text = "CHÚC MỪNG BẠN ĐÃ HOÀN THÀNH TOÀN BỘ Ô CHỮ\r\nTỔNG ĐIỂM: "+totallaurel;
-		int duration = Toast.LENGTH_LONG;
-		Toast toast = Toast.makeText(this.getApplicationContext(), text, duration);
-		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
-		toast.show();
+//		int duration = Toast.LENGTH_LONG;
+//		Toast toast = Toast.makeText(this.getApplicationContext(), text, duration);
+//		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
+//		toast.show();
 		soundPool.play(soundIDTrue, 1.0f, 1.0f, 1, 0, 1.5f);
 		alertDialogBuilder = new AlertDialog.Builder(this);
 		// set title
-		alertDialogBuilder.setTitle("Bạn có muốn chơi tiếp?");
+		alertDialogBuilder.setTitle(text);
 		// set dialog message
 		alertDialogBuilder
-			.setMessage("Lựa chọn.")
+			.setMessage("Bạn có muốn chơi tiếp?")
 			.setCancelable(false)
 			.setPositiveButton("Chọn ô chữ khác.",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog,int id) {
