@@ -308,10 +308,10 @@ public class GameGridAdapter extends BaseAdapter {
 	    			else
 	    				v.setTextColor(context.getResources().getColor(R.color.normal));
 	    			v.setText(this.isLower ? data.toLowerCase() : data.toUpperCase());
-	    			if (data != null && data.toUpperCase().equals(correction.toUpperCase())){
-	    				v.setTextColor(context.getResources().getColor(R.color.solved));
-	    				v.setBackgroundColor(context.getResources().getColor(R.color.solvedbg));
-	    			}
+//	    			if (data != null && data.toUpperCase().equals(correction.toUpperCase())){
+//	    				v.setTextColor(context.getResources().getColor(R.color.solved));
+//	    				v.setBackgroundColor(context.getResources().getColor(R.color.solvedbg));
+//	    			}
 	    		}
     		}else{
     			if (data != null) {	    				

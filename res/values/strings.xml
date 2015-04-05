@@ -20,10 +20,10 @@
     <string name="search">Tìm kiếm</string>
     <string name="author_format">Tác giả: %s</string>
     <string name="level_format">Độ khó: %d</string>
-    <string name="button_last">Lặp lại game cuối</string>
-    <string name="button_list">Danh sách bài chơi</string>
-    <string name="button_category">Ô chữ chủ đề</string>
-    <string name="button_search">Tìm kiếm một từ</string>
+    <string name="button_last">Bắt Đầu</string>
+    <string name="button_list">Danh Sách Ô Chữ</string>
+    <string name="button_category">Bảng Xếp Hạng</string>
+    <string name="button_search">Cập Nhật Điểm</string>
     <string name="percent">Tỷ lệ %</string>
     <string name="save_dialog_title">Check in</string>
     <string name="save_dialog_content">Bản ghi trong lưới</string>
@@ -43,8 +43,8 @@
     <string name="grid_list_up_to_date">Không có ô chữ mới</string>
     <string name="grid_list_new">%d ô chữ mới</string>
     <string name="grid_list_is_empty">Danh sách ô chữ trống</string>
-    <string name="feedback_send_success">Tin nhắn được gửi</string>
-    <string name="feedback_send_fail">Không thể gửi tin nhắn</string>
+    <string name="feedback_send_success">Cập nhật thành công!</string>
+    <string name="feedback_send_fail">Không cập nhật được, kiểm tra đường truyền!</string>
     <string name="feedback_send">Gửi</string>
     <string name="feedback_sending">Đang gửi phản hồi..</string>
     <string name="feedback_text">

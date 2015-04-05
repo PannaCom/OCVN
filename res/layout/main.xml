@@ -28,6 +28,8 @@
                 android:background="#a000"
                 android:drawableTop="@drawable/icon_crossword"
                 android:padding="7dp"
+                android:textSize="22dip"
+			    android:textStyle="bold"
                 android:text="@string/button_last"
                 android:textColor="#fff" />
         </FrameLayout>
@@ -46,6 +48,8 @@
                 android:background="#a000"
                 android:drawableTop="@drawable/icon_list"
                 android:padding="7dp"
+                android:textSize="22dip"
+			    android:textStyle="bold"
                 android:text="@string/button_list"
                 android:textColor="#fff" />
         </FrameLayout>
@@ -70,8 +74,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="#a000"
-                android:drawableTop="@drawable/icon_category"
+                android:drawableTop="@drawable/ranking"
                 android:padding="7dp"
+                android:textSize="22dip"
+			    android:textStyle="bold"
                 android:text="@string/button_category"
                 android:textColor="#fff" />
         </FrameLayout>
@@ -88,8 +94,10 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="#a000"
-                android:drawableTop="@drawable/icon_search"
+                android:drawableTop="@drawable/score"
                 android:padding="7dp"
+                android:textSize="22dip"
+			    android:textStyle="bold"
                 android:text="@string/button_search"
                 android:textColor="#fff" />
         </FrameLayout>

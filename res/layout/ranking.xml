@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/list_selector"
+    android:divider="@drawable/list_divider" 
+    android:dividerHeight="10dip"
+    android:orientation="horizontal"
+    android:padding="2dip">    
+     <TextView
+			        android:id="@+id/no"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="1dip"
+			        android:text="239"        
+			        android:textColor="#ffffff"
+			        android:typeface="sans" 
+			        android:textSize="18dip"
+			        android:textStyle="bold"
+			        android:gravity="left"			        
+			        android:singleLine="true"
+			        android:width="25dip"			        
+			        /> 
+			        <!--username -->
+			    <TextView
+			        android:id="@+id/username"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="10dip"			           
+			        android:textColor="#ffff00"
+			        android:textStyle="bold"			       
+			        android:textSize="18dip"			              
+			        android:layout_toRightOf="@+id/no"
+			        android:gravity="left"
+			        android:singleLine="true"     
+			        android:width="145dip"       
+			        android:text="cobekinhcan" />
+				 <!--username -->
+			    <TextView
+			        android:id="@+id/point"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="10dip"			           
+			        android:textColor="#ffff00"
+			        android:textStyle="bold"			       
+			        android:textSize="18dip"			              
+			        android:layout_toRightOf="@+id/username"
+			        android:gravity="left"
+			        android:width="85dip"    
+			        android:singleLine="true"            
+			        android:text="121212" />	
+			     <TextView
+			        android:id="@+id/level"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="10dip"			           
+			        android:textColor="#ffffff"
+			        android:textStyle="bold"			       
+			        android:textSize="18dip"			              
+			        android:layout_toRightOf="@+id/point"
+			        android:gravity="left"
+			        android:width="35dip"    
+			        android:singleLine="true"            
+			        android:text="14" />
+</RelativeLayout>

@@ -494,7 +494,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 		soundPool.play(soundIDTrue, 1.0f, 1.0f, 1, 0, 1.5f);
 	}
 	private void showNextLevel(){
-		CharSequence text = "CHÚC MỪNG BẠN ĐÃ HOÀN THÀNH TOÀN BỘ Ô CHỮ\r\nTỔNG ĐIỂM: "+totallaurel;
+		CharSequence text = "Bạn đã chơi xong ô chữ này!";
 //		int duration = Toast.LENGTH_LONG;
 //		Toast toast = Toast.makeText(this.getApplicationContext(), text, duration);
 //		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
@@ -505,7 +505,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 		alertDialogBuilder.setTitle(text);
 		// set dialog message
 		alertDialogBuilder
-			.setMessage("Bạn có muốn chơi tiếp?")
+			.setMessage("Tổng điểm:"+totallaurel+", Bạn có muốn chơi tiếp?")
 			.setCancelable(false)
 			.setPositiveButton("Chọn ô chữ khác.",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog,int id) {
@@ -517,7 +517,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	        		
 				}
 			  })
-			  .setNeutralButton("Cập nhật điểm của bạn lên bảng xếp hạng",new DialogInterface.OnClickListener() {
+			  .setNeutralButton("Cập nhập điểm lên bảng xếp hạng",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog,int id) {
 //					alertDialog.hide();						
 //	        		GameActivity.this.finish();
@@ -527,6 +527,8 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 					Log.e("_____", "2222");
 					//intent.putExtra("filename", last);
 					startActivity(intent);
+					GameActivity.this.finish();
+	        		System.exit(0);
 					Log.e("_____", "33333");
 	        		
 				}
