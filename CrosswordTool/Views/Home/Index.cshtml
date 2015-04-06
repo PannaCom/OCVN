@@ -1,0 +1,193 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    int rows = (int)ViewBag.rows;
+    int cols = (int)ViewBag.cols;
+}
+<script src="/Scripts/jquery-1.8.2.js"></script>
+<script>
+    function make() {
+        window.location.href = "/?rows=" + document.getElementById("irows").value + "&cols=" + document.getElementById("irows").value;
+
+    }
+</script>
+<div>
+<h4>Ô chữ @rows hàng @cols cột, chọn kích cỡ
+<select id="irows">
+    @for (int ii = 8; ii <= 101; ii++)
+    { 
+        <option value="@ii">@ii x @ii</option>
+    }
+</select>
+<input type="button" value="Make" onclick="make();"/>, nhập dữ liệu vào ô chữ
+</h4>
+</div>
+<div>
+<table>
+@for (int i = 0; i < rows; i++) {
+    <tr>
+    @for (int j = 0; j < cols; j++) { 
+        <td class="td"><input type="text" name="cell-@i-@j" id=""cell-@i-@j" style="width:30px;border:1px solid;" maxlength="1" ></td>
+    }
+    </tr>
+}
+</table>
+</div>
+<div><input type="button" value="Make All" id="makeall" name="makeall"/></div>
+<div id="description">
+
+</div>
+<pre><span id="xml"></span></pre>
+<script>
+    function Word(word, x, y, desc) {
+        var word;
+        var x;
+        var y;
+        var desc;
+
+        this.word = word;
+        this.x = x;
+        this.y = y;
+        this.desc = desc;
+    }
+    var rows=@rows;
+    var cols=@cols;
+    var size=rows;
+    var vertical=false;
+    document.getElementById("irows").value = "@rows";
+    //document.getElementById("icols").value = "@cols";
+    $('input').keyup(function(event) {
+        if (event.keyCode == 27) {
+            vertical = !vertical;
+            //$('#vertical').attr('checked', vertical ? 'checked' : null);
+        }
+
+        if (event.keyCode == 8 || event.keyCode == 37 || event.keyCode == 38 ||
+			event.keyCode == 39 || event.keyCode == 40) {
+            var y = parseInt($(this).attr('name').split('-')[1]);
+            var x = parseInt($(this).attr('name').split('-')[2]);
+            if (event.keyCode == 8) {
+                $(this).val('');
+                $(this).css('background', 'black');
+                if (vertical) {
+                    if (y != 0) y--;
+                    else { x--; y = size - 1;}
+                } else {
+                    if (x != 0) x--;
+                    else { y--; x = size - 1;}
+                }
+            }
+            if (event.keyCode == 37) {
+                if (x > 0) x--;
+            }
+            if (event.keyCode == 38) {
+                if (y > 0) y--;
+            }
+            if (event.keyCode == 39) {
+                if (x < size - 1) x++;
+            }
+            if (event.keyCode == 40) {
+                if (y < size - 1) y++;
+            }
+            $('input[name="cell-'+y+'-'+x+'"]').focus();
+        }
+    });
+    $('input').keypress(function(event) {
+        $(this).css('background', 'white');
+        $(this).val('');
+        var y = parseInt($(this).attr('name').split('-')[1]);
+        var x = parseInt($(this).attr('name').split('-')[2]);
+        if (vertical) {
+            if (y != size - 1) y++;
+            else { x++; y = 0;}
+        } else {
+            if (x != size - 1) x++;
+            else { y++; x = 0;}
+        }
+        $('input[name="cell-'+y+'-'+x+'"]').focus();
+    });
+    $('input[name="makeall"]').click(function() {
+        //Lấy ra các từ khóa ngang và dọc
+        var cells = $('table').find('input');       
+        var h = new Array();//Ngang
+        var v = new Array();//Dọc
+        var word_h = null;
+        var word_v = null;
+        var temp="";
+        for (var x = 0; x < size; x++) {
+            for (var y = 0; y < size; y++) {
+                j = x * size + y;
+                i = x + y * size;
+
+                if (cells[j].value.trim() != "") {
+                    if (word_h == null)
+                        word_h = new Word("", y, x, "");
+                    word_h.word += cells[j].value;
+                }
+                if (cells[j].value.trim() == "" || y == size-1) {
+                    if (word_h != null && word_h.word.length > 1) h.push(word_h);
+                    word_h = null;
+                }
+
+                if (cells[i].value.trim() != "") {
+                    if (word_v == null)
+                        word_v = new Word("", x, y, "");
+                    word_v.word += cells[i].value;
+                }
+                if (cells[i].value.trim() == "" || y == size-1) {
+                    if (word_v != null && word_v.word.length > 1) v.push(word_v);
+                    word_v = null;
+                }
+            }
+        }
+        writeXML(h, v);
+        writeDescription(h, v);
+    });
+    function writeXML(h, v) {
+        var descriptions = $('#description input');
+        if (descriptions) {
+            for (var d in descriptions) {
+                if (descriptions[d] && descriptions[d].id) {
+                    var i = descriptions[d].id.split('_')[2];
+                    if (descriptions[d].id.split('_')[1] == 'h')
+                        h[i].desc = descriptions[d].value;
+                    else
+                        v[i].desc = descriptions[d].value;
+                }
+            }
+        }
+
+        var xml = "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n";
+        xml += "<grid>\n";
+        xml += "<name></name>\n";
+        xml += "<description></description>\n";
+        xml += "<author>Nguyen Huy</author>\n";
+        xml += "<type>Tổng hợp</type>\n";
+        xml += "<level>1</level>\n";
+        xml += "<date>@ViewBag.date</date>\n";
+        xml += "<width>" + size + "</width>\n";
+        xml += "<height>" + size + "</height>\n";
+        xml += "<horizontal>\n";
+        for (var i in h) {
+            xml += "<word x=\"" + h[i].x + "\" y=\"" + h[i].y + "\" description=\"" + h[i].desc + "\">" + h[i].word + "</word>\n";
+        }
+        xml += "</horizontal>\n";
+        xml += "<vertical>\n";
+        for (var i in v) {
+            xml += "<word x=\"" + v[i].x + "\" y=\"" + v[i].y + "\" description=\"" + v[i].desc + "\">" + v[i].word + "</word>\n";
+        }
+        xml += "</vertical>\n";
+        xml += "</grid>\n";
+        $('#xml').text(xml);
+    }
+    function writeDescription(h, v) {
+        var html = "Horizontal(Ngang)<br />";
+        for (var i in h) {
+            html += "<div style='width:12px;color:red;font-weight:bold;'>"+h[i].word + "</div><input type=\"text\" name=\"desc_h\" id=\"desc_h_" + i + "\" value=\"" + h[i].desc + "\" placeholder=\"Nhập câu hỏi cho từ khóa này\"/><br />";
+        }
+        html += "Vertical(Dọc)<br />";
+        for (var i in v) {
+            html += "<div style='width:12px;color:red;font-weight:bold;'>"+v[i].word + "</div><input type=\"text\" name=\"desc_v\" id=\"desc_v_" + i + "\" value=\"" + v[i].desc + "\" placeholder=\"Nhập câu hỏi cho từ khóa này\"/><br />";
+        }
+        $('#description').html(html);
+    }
+</script>
