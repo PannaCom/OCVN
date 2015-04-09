@@ -74,9 +74,9 @@ public class RankingAdapter extends BaseAdapter{
 	        // Setting all values in listview
 	        
 	        username.setTypeface(typefaceTitle);
-	        point.setTypeface(typefaceTitle);
-	        level.setTypeface(typefaceTitle);
-	     
+	        point.setTypeface(typefaceInfo);
+	        level.setTypeface(typefaceInfo);
+	        no.setTypeface(typefaceInfo);
 	        username.setText(Html.fromHtml(news.get("username").toLowerCase()));
 	       
 	               

@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.crossword.R;
 import com.crossword.adapter.RankingAdapter;
@@ -25,6 +26,7 @@ public class RankingActivity extends CrosswordParentActivity{
 		setContentView(R.layout.rankingactivity);
 		list=(ListView)findViewById(R.id.RankingListView);
 		Log.e("displayNewsContent", "ok4");
+		Toast.makeText(this, "Đang cập nhật Bảng xếp hạng", Toast.LENGTH_SHORT).show();
 	    //Log.e("displayNewsContent", "ok4");
 		////////// Viec customize listview duoc thuc hien o LazayAdapter
 		new showRankFromUrlTask().execute("http://binhyen.net/ApiServer/getRankingList");		

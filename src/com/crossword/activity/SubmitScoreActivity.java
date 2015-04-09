@@ -71,7 +71,14 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 			.setCancelable(false)
 			.setPositiveButton("Gửi điểm",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog,int id) {
-					String username = inputname.getText().toString(); 	
+					String username = inputname.getText().toString(); 
+					if (username.trim().equals("")){
+						Toast.makeText(SubmitScoreActivity.this.getBaseContext(), "Nhập tên user", Toast.LENGTH_SHORT).show();
+						SubmitScoreActivity.this.finish();
+						return;
+						//alertDialog = alertDialogBuilder.create();
+						//alertDialog.show();
+					}
 //					nameValuePairs.add(
 //			                new BasicNameValuePair("iddevice",getPhoneNumber())
 //			                );
@@ -87,7 +94,7 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 //					nameValuePairs.add(
 //			                new BasicNameValuePair("levels",String.valueOf(levels))
 //			                );
-					startSend(username);
+					if (!username.trim().equals("")) startSend(username);
 				}
 			  })
 			  .setNeutralButton("Bỏ qua",new DialogInterface.OnClickListener() {

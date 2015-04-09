@@ -287,15 +287,17 @@ public class GameGridAdapter extends BaseAdapter {
     	}
 		// Si la grille est en mode correction, ajoute les bonnes lettres en verte
     	//Nếu ở chế độ đáp án ô chữ
-    	else if (((GameActivity)this.context).currentMode == GameActivity.GRID_MODE.SOLVE)
+    	else if (((GameActivity)this.context).currentMode == GameActivity.GRID_MODE.SOLVE && x==GameActivity.currentX && y==GameActivity.currentY)
     	{
-    		if (data != null && data.equalsIgnoreCase(correction)) {
-    			v.setTextColor(context.getResources().getColor(R.color.normal));
-    	    	v.setText(this.isLower ? data.toLowerCase() : data.toUpperCase());
-    		} else if (correction != null) {
+//    		if (data != null && data.equalsIgnoreCase(correction)) {
+//    			v.setTextColor(context.getResources().getColor(R.color.normal));
+//    	    	v.setText(this.isLower ? data.toLowerCase() : data.toUpperCase());
+//    		} else if (correction != null) {
     			v.setTextColor(context.getResources().getColor(R.color.right));
     	    	v.setText(this.isLower ? correction.toLowerCase() : correction.toUpperCase());
-    		}
+    		//}
+    	    this.area[y][x]=correction;
+    		GameActivity.setCurrentMode();
     		
     	}
     	// Sinon mode normal, text en noire

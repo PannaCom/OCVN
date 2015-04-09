@@ -28,6 +28,7 @@ import com.crossword.DownloadFilesInterface;
 import com.crossword.DownloadFilesTask;
 import com.crossword.R;
 import com.crossword.SAXFileHandler;
+import com.crossword.activity.GameActivity.GRID_MODE;
 import com.crossword.adapter.GridListAdapter;
 import com.crossword.data.Grid;
 import com.crossword.parser.GridParser;
@@ -59,11 +60,12 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	private TextView 		gridListMessage;
 	private Notification	notification;
 	private boolean			refreshRequested;
-
+	private String filenameplay;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.gridlist, menu);
+        
         return true;
     }
 
@@ -79,12 +81,20 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
         }
         return super.onOptionsItemSelected(item);
     }
-    
+    private void readPreferences() {
+		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		
+		this.filenameplay=preferences.getString("filename", "");
+		
+		
+	}
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 	    super.onCreate(savedInstanceState);
 	    setContentView(R.layout.gridlist);
+	    readPreferences();
 	    this.initComponents();
+	    
 	}
 	
 	@Override
@@ -134,6 +144,8 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	    	
 	    	this.gridAdapter.clear();
 	    	for (File file: files) {
+	    		//Log.e("FILE NAME", this.filenameplay+"_"+file.getName());
+	    		if (this.filenameplay.toLowerCase().contains(","+file.getName().toLowerCase())) continue;
 		    	GridParser parser = new GridParser();
 		    	parser.setFileName(file.getName());
 				SAXFileHandler.read((DefaultHandler)parser, file.getAbsolutePath());

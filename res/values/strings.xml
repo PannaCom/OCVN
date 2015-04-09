@@ -20,8 +20,8 @@
     <string name="search">Tìm kiếm</string>
     <string name="author_format">Tác giả: %s</string>
     <string name="level_format">Độ khó: %d</string>
-    <string name="button_last">Bắt Đầu</string>
-    <string name="button_list">Danh Sách Ô Chữ</string>
+    <string name="button_last">Chơi Tiếp</string>
+    <string name="button_list">Chọn Ô Chữ</string>
     <string name="button_category">Bảng Xếp Hạng</string>
     <string name="button_search">Cập Nhật Điểm</string>
     <string name="percent">Tỷ lệ %</string>
@@ -32,7 +32,7 @@
     <string name="one_week_ago">Một tuần trước</string>
     <string name="one_month_ago">Một tháng trước</string>
     <string name="one_year_ago">Một năm trước</string>
-    <string name="menu_solution">Đáp án ô chữ</string>
+    <string name="menu_solution">Hiện đáp án ô này</string>
     <string name="menu_settings">Tùy chỉnh</string>
     <string name="menu_refresh">Làm mới</string>
     <string name="menu_information">Thông tin</string>
@@ -59,7 +59,7 @@ Dự án ô chữ Việt Nam:\n
     <string name="preferences_feedback_summary">Bình luận về ứng dụng hoặc báo cáo lỗi</string>
     <string name="preferences_solid_selection_title">Đánh dấu ô đã chọn</string>
     <string name="preferences_solid_selection_summary">Chạm vào ô khác không xóa các ô đã chọn</string>
-    <string name="preferences_grid_is_lower_title">Ô chữ kiểu Tiny</string>
+    <string name="preferences_grid_is_lower_title">Kiểu chữ thường</string>
     <string name="preferences_check_summary">Ký tự sai hiển thị bằng màu đỏ</string>
     <string name="preferences_check_title">Gợi ý</string>
     <string name="preferences_feedback_title">Phản hồi</string>

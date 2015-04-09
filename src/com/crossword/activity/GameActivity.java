@@ -67,7 +67,7 @@ import android.widget.Toast;
 public class GameActivity extends CrosswordParentActivity implements OnTouchListener, KeyboardViewInterface {
 
 	public enum GRID_MODE {NORMAL, CHECK, SOLVE};
-	public GRID_MODE currentMode = GRID_MODE.NORMAL;
+	public static GRID_MODE currentMode = GRID_MODE.NORMAL;
 	
 	private GridView 		gridView;
 	private KeyboardView 	keyboardView;
@@ -85,8 +85,8 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
     private int 			downX;			// Ligne ou le joueur Ă  appuyĂ©
     private int 			downY;			// Colonne ou le joueur Ă  appuyĂ©
 	private int 			currentPos;		// Position actuelle du curseur
-	private int 			currentX;		// Colonne actuelle du curseur
-	private int 			currentY;		// Ligne actuelle du curseur
+	public static int 		currentX;		// Colonne actuelle du curseur
+	public static int 		currentY;		// Ligne actuelle du curseur
 	private Word			currentWord;	// Mot actuellement selectionnĂ©
 	private boolean 		horizontal;		// Sens de la selection
 
@@ -119,7 +119,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
     	itemSolve.setIcon(currentMode == GRID_MODE.SOLVE ? R.drawable.ic_menu_solve_enable : R.drawable.ic_menu_solve);
 		return true;
     }
-
+    
 	@Override
     public boolean onOptionsItemSelected(MenuItem item) {
 		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
@@ -137,7 +137,11 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
         		currentMode = (preferences.getBoolean("grid_check", false) ? GRID_MODE.CHECK : GRID_MODE.NORMAL);
         	else
         		currentMode = GRID_MODE.SOLVE;
+        	totallaurel-=5;        	
+        	setPreferences();
+        	Toast.makeText(this, "Bạn vừa đổi 5 điểm để hiển thị ô chữ này!", Toast.LENGTH_SHORT).show();        	
         	this.gridAdapter.notifyDataSetChanged();
+        	//currentMode=GRID_MODE.NORMAL;
         	return true;
         case R.id.menu_grid:
         	Intent intent = new Intent(this, GridActivity.class);
@@ -190,6 +194,9 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 		SharedPreferences.Editor editor = preferences.edit();
 		editor.putString("filename", this.filenameplay+","+this.filename);
 	    editor.commit();
+	}
+	public static void setCurrentMode(){
+		currentMode=GRID_MODE.NORMAL;
 	}
 	public void onCreate(Bundle savedInstanceState)
 	{
@@ -517,7 +524,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	        		
 				}
 			  })
-			  .setNeutralButton("Cập nhập điểm lên bảng xếp hạng",new DialogInterface.OnClickListener() {
+			  .setNeutralButton("Cập nhập điểm",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog,int id) {
 //					alertDialog.hide();						
 //	        		GameActivity.this.finish();

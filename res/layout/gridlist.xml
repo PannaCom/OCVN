@@ -18,6 +18,56 @@
     <ListView
         android:id="@+id/gridListView"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent" />
-
+        android:layout_height="fill_parent"
+        android:paddingTop="26dip"  />
+	<LinearLayout
+        android:id="@+id/undobar"        
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center_horizontal"
+        android:alpha="100"
+        android:background="#CC6600"
+        android:dividerPadding="1dip"
+        >    
+	<TextView
+			        android:id="@+id/no"
+			        android:layout_width="28dip"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="1dip"			            
+			        android:textColor="#ffffff"
+			        android:typeface="sans" 
+			        android:textSize="18dip"
+			        android:textStyle="bold"
+			        android:gravity="left"			        
+			        android:singleLine="true"		        
+			        			        
+			        /> 
+			        <!--username -->
+			    <TextView
+			        android:id="@+id/name"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="10dip"			           
+			        android:textColor="#ffffff"
+			        android:textStyle="bold"			       
+			        android:textSize="20dip"			              
+			        android:layout_toRightOf="@+id/no"
+			        android:gravity="left"
+			        android:singleLine="true" 
+			        android:text="Chủ đề" />
+				 <!--username -->
+			    <TextView
+			        android:id="@+id/point"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:layout_marginLeft="10dip"			           
+			        android:textColor="#ffffff"
+			        android:textStyle="bold"			       
+			        android:textSize="18dip"			              
+			        android:layout_toRightOf="@+id/name"
+			        android:gravity="left"			            
+			        android:singleLine="true"            
+			        android:text="Độ khó" />				     
+			     
+	</LinearLayout>
 </FrameLayout>

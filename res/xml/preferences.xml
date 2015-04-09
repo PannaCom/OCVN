@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
 
-    <PreferenceCategory android:title="Plateau" >
+    <PreferenceCategory android:title="Tùy Chỉnh" >
         <CheckBoxPreference
             android:key="grid_check"
             android:title="@string/preferences_check_title"
@@ -15,14 +15,14 @@
             android:summary="@string/preferences_solid_selection_summary" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Feedback" >
+    <PreferenceCategory android:title="Phản hồi" >
         <Preference
             android:key="feedback"
             android:title="@string/preferences_feedback_title"
             android:summary="@string/preferences_feedback_summary" />
     </PreferenceCategory>
 
-    <PreferenceCategory android:title="Grilles" >
+    <PreferenceCategory android:title="Nhớ ô chữ" >
         <Preference
             android:key="clear_cache"
             android:title="@string/preferences_clear_cache_title"

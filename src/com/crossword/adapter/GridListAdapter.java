@@ -24,7 +24,9 @@ import java.util.HashMap;
 
 import com.crossword.R;
 import com.crossword.data.Grid;
+
 import android.content.Context;
+import android.graphics.Typeface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -37,9 +39,10 @@ public class GridListAdapter extends BaseAdapter {
 	private HashMap<Integer, View>	views = new HashMap<Integer, View>();
 	private ArrayList<Grid>			data = new ArrayList<Grid>();
 	private LayoutInflater 			inflater;
-
+	public Typeface typefaceTitle;
 	public GridListAdapter(Context c) {
 		this.inflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+		typefaceTitle=Typeface.createFromAsset(c.getAssets(),"fonts/DroidSans-Bold.ttf");
 	}
 	
 	/**
@@ -109,8 +112,8 @@ public class GridListAdapter extends BaseAdapter {
 				
 				// Name
 				TextView name = (TextView)v.findViewById(R.id.name);
-				name.setText(this.data.get(position).getName());
-				
+				name.setText(this.data.get(position).getName().toUpperCase());
+				name.setTypeface(typefaceTitle);
 //				// Author
 //				if (this.data.get(position).getAuthor() != null) {
 //					TextView author = (TextView)v.findViewById(R.id.author);
