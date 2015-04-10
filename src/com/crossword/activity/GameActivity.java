@@ -139,6 +139,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
         		currentMode = GRID_MODE.SOLVE;
         	if (currentX==0) {
         		Toast.makeText(this, "Bạn chưa chọn ô chữ!", Toast.LENGTH_SHORT).show();
+        		setCurrentMode();
         		return true;
         	}
         	totallaurel-=5;        	
@@ -168,7 +169,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
     	super.onActivityResult(requestCode, resultCode, data);
     	switch (requestCode) {
     	case Crossword.REQUEST_PREFERENCES:
-    		if (Crossword.DEBUG) Toast.makeText(this, "PREFERENCES_UPDATED", Toast.LENGTH_SHORT).show();
+    		if (Crossword.DEBUG) Toast.makeText(this, "ĐÃ CẬP NHẬT", Toast.LENGTH_SHORT).show();
     		readPreferences();
     		this.gridAdapter.setLower(this.gridIsLower);
     		this.gridAdapter.notifyDataSetChanged();

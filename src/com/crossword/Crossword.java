@@ -25,7 +25,7 @@ import android.content.pm.ApplicationInfo;
 
 public class Crossword extends Application {
 
-	public static final String 	GRID_URL = "http://binhyen.netsss/Crossword/%s";//http://isshun.github.com/Crossword/Grids/%s";
+	public static final String 	GRID_URL = "http://ochu.binhyen.net/%s";//http://isshun.github.com/Crossword/Grids/%s";
 	public static final String	GRID_LOCAL_PATH = "/data/data/com.crossword/grid/%s";
 	public static final String	GRID_DIRECTORY = "/data/data/com.crossword/grid/";
 

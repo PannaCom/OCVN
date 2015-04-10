@@ -94,7 +94,7 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	    setContentView(R.layout.gridlist);
 	    readPreferences();
 	    this.initComponents();
-	    
+	    Toast.makeText(this, "Đang tải danh sách ô chữ", Toast.LENGTH_SHORT).show();
 	}
 	
 	@Override

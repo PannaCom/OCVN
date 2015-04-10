@@ -106,7 +106,19 @@ public class GameGridAdapter extends BaseAdapter {
 	    		}
 	    	}
 	    }
+	    //Set background for the corrected word;
+	    boolean horizontal=true;
+	    scanAllTheWordTemp(horizontal);
+	    horizontal=false;
+	    scanAllTheWordTemp(horizontal);
 	    
+	}
+	public void scanAllTheWordTemp(boolean horizontal){
+		for(int yy=0;yy<this.height;yy++){
+	    	for(int xx=0;xx<this.width;xx++){
+	    		boolean temp=isTheSame(xx, yy,horizontal);
+	    	}
+	    }
 	}
 	public boolean isTheSame(int x,int y,boolean horizontal){
 		tempword="";
@@ -142,7 +154,7 @@ public class GameGridAdapter extends BaseAdapter {
 				}
 				if (!allTheWordPlay.contains(tempword.toUpperCase())) 
 				{
-					Log.e("--------------------", tempword);
+					//Log.e("--------------------", tempword);
 					allTheWordPlay.add(tempword.toUpperCase());
 				}
 				else return false;
@@ -179,7 +191,7 @@ public class GameGridAdapter extends BaseAdapter {
 				}	
 				if (!allTheWordPlay.contains(tempword.toUpperCase()))
 				{
-					Log.e("--------------------", tempword);
+					//Log.e("--------------------", tempword);
 					allTheWordPlay.add(tempword.toUpperCase());
 				}
 				else 
