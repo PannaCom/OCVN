@@ -48,10 +48,10 @@
     <string name="feedback_send">Gửi</string>
     <string name="feedback_sending">Đang gửi phản hồi..</string>
     <string name="feedback_text">
-Dự án ô chữ Việt Nam:\n
-- Kho tàng ô chữ khổng lồ với khối lượng kiến thức đa dạng\n
-- Xin đóng góp ô chữ cho chúng tôi qua email: vnnvh80@gmail.com\n
-- Xin chân thành cảm ơn đã ủng hộ dự án\n</string>
+Góp ý cho trò chơi:\n
+- Mời bạn đóng góp ý kiến để game phục vụ bạn được tốt hơn\n
+- Nhập nội dung góp ý về tính năng, nội dung ô chữ, giao diện game tại đây\n
+- Xin chân thành cảm ơn đã ủng hộ game\n</string>
     <string name="preferences_clear_cache_warning">Các sao lưu sẽ bị xóa, tiếp tục ?</string>
     <string name="preferences_clear_cache_toast">Xóa lưới...</string>
     <string name="preferences_clear_cache_title">Xóa bộ nhớ đệm</string>

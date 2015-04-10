@@ -25,16 +25,16 @@ import android.content.pm.ApplicationInfo;
 
 public class Crossword extends Application {
 
-	public static final String 	GRID_URL = "http://binhyen.net/Crossword/%s";//http://isshun.github.com/Crossword/Grids/%s";
+	public static final String 	GRID_URL = "http://binhyen.netsss/Crossword/%s";//http://isshun.github.com/Crossword/Grids/%s";
 	public static final String	GRID_LOCAL_PATH = "/data/data/com.crossword/grid/%s";
 	public static final String	GRID_DIRECTORY = "/data/data/com.crossword/grid/";
 
-	public static final String 	GRIDLIST_URL = "http://binhyen.net/Crossword/Grids.xml";//"http://isshun.github.com/Crossword/Grids.xml";
+	public static final String 	GRIDLIST_URL = "http://ochu.binhyen.net/Grids.xml";//"http://isshun.github.com/Crossword/Grids.xml";
 	public static final String	GRIDLIST_LOCAL_PATH = "/data/data/com.crossword/gridlist.xml";
 	public static final long 	GRIDLIST_LIFE_TIME = 86400000;
 	
 	public static final String 	MAIL_URL = "http://mail.alexislauper.com/";
-	public static final String 	FEEDBACK_URL = "http://isshun.github.com/Crossword/Feedback";
+	public static final String 	FEEDBACK_URL = "http://ochu.binhyen.net/Home/addFeedback";
 	public static final int		REQUEST_PREFERENCES = 2;
 	public static final float 	KEYBOARD_OVERLAY_OFFSET = 90;
 	public static final String 	NAME = "Crossword";

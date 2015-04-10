@@ -39,7 +39,9 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
+import android.telephony.TelephonyManager;
 import android.text.Html;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -57,20 +59,39 @@ public class FeedbackActivity extends CrosswordParentActivity implements OnClick
 	    Button feedSend = (Button)findViewById(R.id.feed_send);
 	    feedSend.setOnClickListener(this);
 	}
-	
+	private String getPhoneNumber(){
+		try{
+			TelephonyManager telemamanger = (TelephonyManager) getSystemService(this.getApplicationContext().TELEPHONY_SERVICE);
+			String getSimSerialNumber = telemamanger.getSimSerialNumber();
+			String getSimNumber = telemamanger.getLine1Number();
+			if (getSimNumber=="" || getSimNumber.equals("")) 
+				{
+				getSimNumber=telemamanger.getDeviceId();
+			}
+			if (getSimNumber==null || getSimNumber=="") return "testDevice";
+			return getSimNumber;
+		}catch(Exception ex){
+			return "testDevice";
+		}
+	}
 	public void postMessage() {
 	    // Create a new HttpClient and Post Header
+		EditText feedMessage = (EditText)findViewById(R.id.feed_message);
+		String fromContent="Xin chào các bạn nhé";//getPhoneNumber()+"%20"+android.os.Build.MODEL + "%20" + android.os.Build.VERSION.RELEASE + "%20"+feedMessage.getText().toString();
+		
 	    HttpClient httpclient = new DefaultHttpClient();
-	    HttpPost httppost = new HttpPost(Crossword.MAIL_URL);
+	    String url="http://ochu.binhyen.net/Home/addFeedback";//?content="+fromContent;
+	    Log.e("Gửi lên", url);
+	    HttpPost httppost = new HttpPost(url);
 	    try {
-	        EditText feedMessage = (EditText)findViewById(R.id.feed_message);
-
+	        
 	        // Add your data
 	        List<NameValuePair> nameValuePairs = new ArrayList<NameValuePair>(2);
-	        nameValuePairs.add(new BasicNameValuePair("from", android.os.Build.MODEL + " (" + android.os.Build.VERSION.RELEASE + ")"));
-	        nameValuePairs.add(new BasicNameValuePair("message", feedMessage.getText().toString()));
-	        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs));
-
+	        //nameValuePairs.add(new BasicNameValuePair("from", android.os.Build.MODEL + " (" + android.os.Build.VERSION.RELEASE + ")"));
+	        nameValuePairs.add(new BasicNameValuePair("content", getPhoneNumber()+", "+android.os.Build.MODEL + ", " + android.os.Build.VERSION.RELEASE + ", "+feedMessage.getText().toString()));
+	        
+	        httppost.setEntity(new UrlEncodedFormEntity(nameValuePairs,"UTF-8"));
+	        
 	        // Execute HTTP Post Request
 	        HttpResponse response = httpclient.execute(httppost);
 	        if (response.getStatusLine().getStatusCode() == 200) {

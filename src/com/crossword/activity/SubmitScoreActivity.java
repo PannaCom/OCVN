@@ -168,7 +168,7 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 	    String getDeviceName=getDeviceName();
 	    Log.e("runOnUiThreadrunOnUiThread444", getDeviceName);
 	    
-	    String url="http://binhyen.net/ApiServer/updateRanking?iddevice="+getPhoneNumber+"&namedevice="+getDeviceName+"&username="+username+"&point="+totallaurel+"&levels="+levels;//name=hlhlk&number=0909009090&lon=105.803189&lat=20.991513
+	    String url="http://ochu.binhyen.net/Home/updateRanking?iddevice="+getPhoneNumber+"&namedevice="+getDeviceName+"&username="+username+"&point="+totallaurel+"&levels="+levels;//name=hlhlk&number=0909009090&lon=105.803189&lat=20.991513
 	    Log.e("runOnUiThreadrunOnUiThread111", url);
 	    HttpPost httppost = new HttpPost(url);
 	    Log.e("runOnUiThreadrunOnUiThread222", url);

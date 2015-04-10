@@ -287,7 +287,7 @@ public class GameGridAdapter extends BaseAdapter {
     	}
 		// Si la grille est en mode correction, ajoute les bonnes lettres en verte
     	//Nếu ở chế độ đáp án ô chữ
-    	else if (((GameActivity)this.context).currentMode == GameActivity.GRID_MODE.SOLVE && x==GameActivity.currentX && y==GameActivity.currentY)
+    	else if (((GameActivity)this.context).currentMode == GameActivity.GRID_MODE.SOLVE && GameActivity.currentX!=0 && x==GameActivity.currentX && y==GameActivity.currentY)
     	{
 //    		if (data != null && data.equalsIgnoreCase(correction)) {
 //    			v.setTextColor(context.getResources().getColor(R.color.normal));

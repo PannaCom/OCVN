@@ -137,6 +137,10 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
         		currentMode = (preferences.getBoolean("grid_check", false) ? GRID_MODE.CHECK : GRID_MODE.NORMAL);
         	else
         		currentMode = GRID_MODE.SOLVE;
+        	if (currentX==0) {
+        		Toast.makeText(this, "Bạn chưa chọn ô chữ!", Toast.LENGTH_SHORT).show();
+        		return true;
+        	}
         	totallaurel-=5;        	
         	setPreferences();
         	Toast.makeText(this, "Bạn vừa đổi 5 điểm để hiển thị ô chữ này!", Toast.LENGTH_SHORT).show();        	
