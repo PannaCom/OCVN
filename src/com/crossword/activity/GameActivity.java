@@ -278,7 +278,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 
         this.keyboardOverlay = (TextView)findViewById(R.id.keyboard_overlay);
         if (this.filenameplay!=null && this.filenameplay!="" && this.filenameplay.contains(this.filename)){
-        	showNextLevel();
+        	showNextLevel("Bạn đã hoàn thành ô chữ này");
         }
 	}
 
@@ -329,10 +329,11 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
                 int position = this.gridView.pointToPosition((int)event.getX(), (int)event.getY());
                 int x = position % this.width;
                 int y = position / this.width;
-                System.out.println("ACTION_DOWN, x:" + x + ", y:" + y + ", position: " + position);
+                //System.out.println("ACTION_DOWN, x:" + x + ", y:" + y + ", position: " + position);
 
             	// Si clique sur la case, inversion horizontale <> verticale
                 // Si clique sur une autre case (= mouvement) calcul en fonction de la gesture
+                //Chỉ tính hàng ngang
             	if (this.downPos == position && this.currentPos == position)
             	{
             		this.horizontal = !this.horizontal;
@@ -477,8 +478,10 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 			y = (this.horizontal ? y: y + 1);
 		}
 		if (gridAdapter.equalLists()){
+			totallaurel+=20;
+			setPreferences();
 			setLevelPassed();
-			showNextLevel();
+			showNextLevel("Bạn đã hoàn thành ô chữ này, điểm thưởng 20!");
 		}else
 		if (gridAdapter.isTheSame(this.currentX, this.currentY,this.horizontal)){
 			//this.txtUserinfo.setText("Giong nhau "+gridAdapter.getTempWord1()+"="+gridAdapter.getTempWord2());
@@ -505,8 +508,9 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 		toast.show();
 		soundPool.play(soundIDTrue, 1.0f, 1.0f, 1, 0, 1.5f);
 	}
-	private void showNextLevel(){
-		CharSequence text = "Bạn đã chơi xong ô chữ này!";
+	private void showNextLevel(CharSequence text){
+		
+		//CharSequence text = "Bạn đã chơi xong ô chữ này!";
 //		int duration = Toast.LENGTH_LONG;
 //		Toast toast = Toast.makeText(this.getApplicationContext(), text, duration);
 //		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
