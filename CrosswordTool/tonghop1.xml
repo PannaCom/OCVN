@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grid>
+<name>Ô chữ tổng hợp 1</name>
+<description></description>
+<author>Ô chữ Việt Nam</author>
+<type>Ô chữ tổng hợp</type>
+<level>1</level>
+<date>3/5/2015 4:34:33 PM</date>
+<width>10</width>
+<height>10</height>
+<horizontal>
+<word x="0" y="0" description="địa danh nổi tiếng tỉnh Lào Cai">sapa</word>
+<word x="5" y="0" description="Phố cổ bình an tỉnh Quảng Nam">hoian</word>
+<word x="0" y="3" description="đảo quốc sư tử Đông Nam Á">singapore</word>
+<word x="0" y="6" description="Người viết Bình Ngô Đại Cáo">nguyentrai</word>
+</horizontal>
+<vertical>
+<word x="1" y="0" description="Tỉnh có dân số đông thứ 4 ở miền Tây">angiang</word>
+<word x="5" y="0" description="Thành phố hoa phượng đỏ">haiphong</word>
+<word x="9" y="0" description="Putin làm tổng thống nước này">nga</word>
+</vertical>
+</grid>
