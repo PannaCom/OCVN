@@ -5,6 +5,10 @@ using System.Web;
 using System.Web.Mvc;
 using CrosswordTool.Models;
 using Newtonsoft.Json;
+using iTextSharp.text.pdf;
+using iTextSharp.text.pdf.parser;
+using System.Text;
+using System.IO;
 namespace CrosswordTool.Controllers
 {
     public class HomeController : Controller
@@ -98,5 +102,56 @@ namespace CrosswordTool.Controllers
                 return "";
             }
         }
-    }
+        public string readPdfFile() {
+            string path = "D:\\Project\\GitHub\\CrossWord\\branches\\editor\\Cau_Hoi_On_Thi_Ai_La_Trieu_Phu.pdf";
+            using (PdfReader reader = new PdfReader(path))
+            {
+                StringBuilder text = new StringBuilder();
+
+                for (int i = 1; i <= reader.NumberOfPages; i++)
+                {
+                    text.Append(PdfTextExtractor.GetTextFromPage(reader, i));
+                }
+                StreamWriter Sw = new StreamWriter("D:\\Project\\GitHub\\CrossWord\\branches\\editor\\word.txt");
+                Sw.WriteLine(text.ToString());
+                Sw.Close();
+                StreamReader Sr = new StreamReader("D:\\Project\\GitHub\\CrossWord\\branches\\editor\\word.txt");
+                string temp = "";
+                string nomark = "";
+                while ((temp = Sr.ReadLine()) != null)
+                {
+                    if (temp.Contains("A.") || temp.Contains("B.") || temp.Contains("C.") || temp.Contains("D.") || temp.Contains("E.")) {
+                        temp = temp.Replace("A.", "");
+                        temp = temp.Replace("B.", "");
+                        temp = temp.Replace("C.", "");
+                        temp = temp.Replace("D.", "");
+                        temp = temp.Replace("E.", "");
+                        nomark = OChu.unicodeToNoMark(temp).ToLowerInvariant();
+                        if (nomark.Length <= 13 && nomark.Length >= 3)
+                        {
+                            word w = new word();
+                            w.word1 = nomark;
+                            w.wordvn = temp;
+                            w.status = 0;
+                            db.words.Add(w);
+                            db.SaveChanges();
+                        }
+                    }
+                    
+
+                }
+                //return text.ToString();
+            }
+            return "ok";
+        }
+        public class key
+        {
+            public string word { get; set;}
+        }
+        public string getListKeyword(string keyword) {
+            string query = "select word from word where word like N'" + keyword + "%' order by word";
+            var p=db.Database.SqlQuery<key>(query).ToList();
+            return JsonConvert.SerializeObject(p);
+        }
+    }//Class
 }

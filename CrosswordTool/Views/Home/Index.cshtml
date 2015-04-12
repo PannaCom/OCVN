@@ -21,12 +21,17 @@
 <input type="button" value="Make" onclick="make();"/>, nhập dữ liệu vào ô chữ
 </h4>
 </div>
+<div style="float:right;right:0px;top:10px;position:fixed;width:30%;">
+    <input type="text" id="keyword" name="keyword" onkeyup="getListKeyword();"><input type="checkbox" id="chkHori" onchange="changeHorizal();">Ngang
+    <div id="suggest">
+    </div>
+</div>
 <div>
 <table>
 @for (int i = 0; i < rows; i++) {
     <tr>
     @for (int j = 0; j < cols; j++) { 
-        <td class="td"><input type="text" name="cell-@i-@j" id=""cell-@i-@j" style="width:30px;border:1px solid;" maxlength="1" ></td>
+        <td class="td"><input type="text" name="cell-@i-@j" id=""cell-@i-@j" style="width:30px;border:1px solid;" maxlength="1" onfocus="getIndex(@i,@j);"></td>
     }
     </tr>
 }
@@ -38,6 +43,44 @@
 </div>
 <pre><span id="xml"></span></pre>
 <script>
+    var horizal=true;
+    var currentX=0;
+    var currentY=0;
+    function changeHorizal(){
+        horizal=!horizal;
+        alert(horizal);
+    }
+    function getIndex(x,y){
+        currentX=x;
+        currentY=y;
+    }
+    function getListKeyword(){
+        var key=document.getElementById("keyword").value;
+        //alert(key);
+        //var formdata = new FormData(); //FormData object
+        //formdata.append("keyword", key);        
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', '/Home/getListKeyword?keyword='+key);
+        xhr.send();
+        var content = "";
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                var news = '{"news":' + xhr.responseText + '}';
+                var json_parsed = $.parseJSON(news);
+                //alert(news);
+                $("#suggest").html("");
+                for (var i = 0; i < json_parsed.news.length; i++) {
+                    if (json_parsed.news[i]) {
+                        var name = json_parsed.news[i].word;
+                        //alert(name);
+                        $("#suggest").append("<div style='width:100%;possition:relative;'>"+name+"</div>");
+                    }
+                }
+                //$("#suggest").val(value);
+                //alert(news);
+            }
+        }
+    }
     function Word(word, x, y, desc) {
         var word;
         var x;
