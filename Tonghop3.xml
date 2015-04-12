@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+<name>Ô Chữ Tổng Hợp 3</name>
+<description>Lịch Sử</description>
+<author>Ô Chữ Việt Nam</author>
+<type>Ô Chữ Tổng Hợp</type>
+<level>3</level>
+<date>4/11/2015 12:37:29 PM</date>
+<width>14</width>
+<height>13</height>
+<horizontal>
+<word x="1" y="0" description="Vua Phùng Hưng và Ngô Quyền đều sinh ra ở làng này">duonglam</word>
+<word x="2" y="1" description="Nữ sinh viên yêu nước, biệt động thành với nụ cười chiến thắng">vothithang</word>
+<word x="4" y="2" description="Vua dời đô về Thăng Long năm 1010">lyconguan</word>
+<word x="0" y="3" description="Vị trạng nguyên trẻ tuổi nhất trong lịch sử khoa bảng Việt Nam">nguyenhien</word>
+<word x="3" y="4" description="địa danh thuộc tỉnh Quảng Trị, diễn ra trận đánh lớn năm 1968">khesanh</word>
+<word x="2" y="5" description="Tên gọi chung hai chị em Trưng Trắc, Trưng Nhị">batrung</word>
+<word x="0" y="6" description="Anh hùng với câu nói nổi tiếng: Nhằm thẳng quân thù mà bắn">nguyenvietxuan</word>
+<word x="5" y="7" description="Cây cầu bắc qua sông Bến Hải chia cắt hai miền Nam Bắc 1954">hienluong</word>
+<word x="1" y="8" description="Nữ anh hùng Thanh Hóa khởi nghĩa chống quân Ngô năm 248">batrieu</word>
+<word x="3" y="9" description="Tên thật của anh hùng Lý Thường Kiệt">ngotuan</word>
+<word x="4" y="10" description="Quốc hiệu nước ta dưới thời vua Lý Nam Đế">vanxuan</word>
+<word x="1" y="11" description="người cắm lá cờ lên đỉnh nóc dinh Độc Lập ngày 30/04/1975">buiquangthan</word>
+<word x="4" y="12" description="Chiến thuật đánh giặc kỳ diệu của Nguyễn Trãi trong khởi nghĩa Lam Sơn">tamcong</word>
+</horizontal>
+<vertical>
+<word x="6" y="0" description="">lichsuvietnam</word>
+</vertical>
+</grid>
