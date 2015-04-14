@@ -31,7 +31,7 @@
 @for (int i = 0; i < rows; i++) {
     <tr>
     @for (int j = 0; j < cols; j++) { 
-        <td class="td"><input type="text" name="cell-@i-@j" id=""cell-@i-@j" style="width:30px;border:1px solid;" maxlength="1" onfocus="getIndex(@i,@j);"></td>
+        <td class="td"><input type="text" name="cell-@i-@j" id="cell-@i-@j" style="width:30px;border:1px solid;" maxlength="1" onfocus="getIndex(@i,@j);"></td>
     }
     </tr>
 }
@@ -73,13 +73,35 @@
                     if (json_parsed.news[i]) {
                         var name = json_parsed.news[i].word;
                         //alert(name);
-                        $("#suggest").append("<div style='width:100%;possition:relative;'>"+name+"</div>");
+                        $("#suggest").append("<div style='width:100%;possition:relative;cursor:pointer;' onclick=insertword('"+name+"');>"+name+"</div>");
                     }
                 }
                 //$("#suggest").val(value);
                 //alert(news);
             }
         }
+    }
+    function insertword(word){
+        
+        var rows=@rows;
+        var cols=@cols;
+        var lengthY=currentY+word.length-1;
+        var lengthX=currentX+word.length-1;
+        //alert(currentX+"-"+currentY+"-"+lengthX+"-"+lengthY+word);
+        var count=0;
+        if (horizal && lengthY<=cols){
+            for(var j=currentY;j<=lengthY;j++){
+                //alert("cell-"+currentX+"-"+j+":"+word.charAt(count));
+                document.getElementById("cell-"+currentX+"-"+j).value=word.charAt(count);
+                count++;
+            }
+        }else
+            if (!horizal && lengthX<=rows){
+                for(var j=currentX;j<=lengthX;j++){                
+                    document.getElementById("cell-"+j+"-"+currentY).value=word.charAt(count);
+                    count++;
+                }
+            }
     }
     function Word(word, x, y, desc) {
         var word;
