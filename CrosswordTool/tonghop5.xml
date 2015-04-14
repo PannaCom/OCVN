@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grid>
+<name>Ô chữ tổng hợp 5</name>
+<description></description>
+<author>Ô Chữ Việt Nam</author>
+<type>Tổng hợp</type>
+<level>3</level>
+<date>4/14/2015 10:55:17 PM</date>
+<width>10</width>
+<height>10</height>
+<horizontal>
+<word x="3" y="0" description="Kim tự tháp Nubia nằm ở nước này">aicap</word>
+<word x="4" y="1" description="Thành phố thứ 5 trực thuộc trung ương">cantho</word>
+<word x="3" y="2" description="Ba cạnh tạo ra hình này">tamgiac</word>
+<word x="5" y="3" description="được coi là kinh đô thời trang thế giới">paris</word>
+<word x="0" y="4" description="liên bang này bao gồm 6 xứ là thuộc địa cũ của Pháp">dongduong</word>
+<word x="5" y="5" description="quần thể 367 đảo phía nam vịnh Hạ Long">catba</word>
+<word x="0" y="6" description="là không gian không chứa vật chất">chankhong</word>
+<word x="0" y="7" description="tên gọi khác của Cầu Nhơn Hội ">cauthinai</word>
+<word x="5" y="8" description="nước đông dân thứ nhì thế giới">ando</word>
+</horizontal>
+<vertical>
+<word x="5" y="0" description="">campuchia</word>
+</vertical>
+</grid>
