@@ -57,7 +57,7 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 	    Log.e("SubmitScoreActivity", "3333");
 	    final EditText inputname = new EditText(this);//.getApplicationContext()
 	    inputname.setText(this.username);
-	    levels=totallaurel/60;
+	    //levels=totallaurel/60;
 	    Log.e("SubmitScoreActivity", "44444");
 	    alertDialogBuilder = new AlertDialog.Builder(this);
 		// set title
@@ -113,6 +113,7 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		
 		this.totallaurel=preferences.getInt("totallaurel", 0);
+		this.levels=preferences.getInt("level", 0);
 		this.username=preferences.getString("username", "");		
 	}
 	private void setUsernamePreferences(String username){

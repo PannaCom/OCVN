@@ -10,10 +10,10 @@
     <string name="exception_network">Không kết nối được, kiểm tra đường truyền</string>
     <string name="dialog_display_correction">Bạn có chắc chắn muốn hiển thị màn hình?</string>
     <string name="yes">Có</string>
-    <string name="clear">Ô trống</string>
+    <string name="clear">Xóa</string>
     <string name="no">Không</string>
     <string name="display">pin up</string>
-    <string name="cancel">hủy</string>
+    <string name="cancel">Bỏ qua</string>
     <string name="random">ngẫu nhiên</string>
     <string name="list">Danh sách</string>
     <string name="category">Danh mục</string>

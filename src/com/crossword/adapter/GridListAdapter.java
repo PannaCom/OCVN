@@ -22,11 +22,14 @@ import java.util.Calendar;
 import java.util.Collections;
 import java.util.HashMap;
 
+import com.crossword.Crossword;
 import com.crossword.R;
 import com.crossword.data.Grid;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,11 +43,18 @@ public class GridListAdapter extends BaseAdapter {
 	private ArrayList<Grid>			data = new ArrayList<Grid>();
 	private LayoutInflater 			inflater;
 	public Typeface typefaceTitle;
-	public GridListAdapter(Context c) {
+	private int levels;
+	public GridListAdapter(Context c,int levels) {
 		this.inflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		typefaceTitle=Typeface.createFromAsset(c.getAssets(),"fonts/DroidSans-Bold.ttf");
+		this.levels=levels;
 	}
-	
+//	private void readPreferences() {
+//		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+//		//this.totallaurel=preferences.getInt("totallaurel", 0);
+//		this.levels=preferences.getInt("levels", 0);
+//		//this.username=preferences.getString("username", "");		
+//	}
 	/**
 	 * Return list items count, including date separator
 	 */
@@ -140,20 +150,24 @@ public class GridListAdapter extends BaseAdapter {
 			// Progression
 			ImageView imgPercent = (ImageView)v.findViewById(R.id.percent);
 			int percent = this.data.get(position).getPercent();
-			if (percent == 0)
-				imgPercent.setImageResource(R.drawable.progress_0);
-			else if (percent <= 20)
-				imgPercent.setImageResource(R.drawable.progress_1);
-			else if (percent <= 40)
-				imgPercent.setImageResource(R.drawable.progress_2);
-			else if (percent <= 60)
-				imgPercent.setImageResource(R.drawable.progress_3);
-			else if (percent <= 80)
-				imgPercent.setImageResource(R.drawable.progress_4);
-			else if (percent <= 99)
-				imgPercent.setImageResource(R.drawable.progress_5);
-			else
-				imgPercent.setImageResource(R.drawable.progress_6);
+			if ((position<=Crossword.Max_Free_Levels && levels<position) || (levels>=position)){
+				if (percent == 0)
+					imgPercent.setImageResource(R.drawable.progress_0);
+				else if (percent <= 20)
+					imgPercent.setImageResource(R.drawable.progress_1);
+				else if (percent <= 40)
+					imgPercent.setImageResource(R.drawable.progress_2);
+				else if (percent <= 60)
+					imgPercent.setImageResource(R.drawable.progress_3);
+				else if (percent <= 80)
+					imgPercent.setImageResource(R.drawable.progress_4);
+				else if (percent <= 99)
+					imgPercent.setImageResource(R.drawable.progress_5);
+				else
+					imgPercent.setImageResource(R.drawable.progress_6);
+			}else{
+				if (position>Crossword.Max_Free_Levels && levels<position){imgPercent.setImageResource(R.drawable.lock);}
+			}
 		}
 
 		return v;

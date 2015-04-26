@@ -95,6 +95,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	private boolean 		solidSelection;	// PREFERENCES: Selection persistante
 	private boolean			gridIsLower;	// PREFERENCES: Grille en minuscule
 	private int totallaurel=0;
+	private int levels=0;
 	private int width;
 	private int height;
 	private int soundIDTrue;
@@ -183,6 +184,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 		this.gridIsLower = preferences.getBoolean("grid_is_lower", false);
 		this.totallaurel=preferences.getInt("totallaurel", 0);
 		this.filenameplay=preferences.getString("filename", "");
+		this.levels=preferences.getInt("levels", 0);
 		if (currentMode != GRID_MODE.SOLVE)
 			currentMode = preferences.getBoolean("grid_check", false) ? GRID_MODE.CHECK : GRID_MODE.NORMAL;
 		
@@ -198,7 +200,12 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
 		SharedPreferences.Editor editor = preferences.edit();
 		editor.putString("filename", this.filenameplay+","+this.filename);
+		editor.putInt("level", getLevel(this.filenameplay+","+this.filename));
 	    editor.commit();
+	}
+	private int getLevel(String value){
+		String[] temp=value.split(",");
+		return temp.length;
 	}
 	public static void setCurrentMode(){
 		currentMode=GRID_MODE.NORMAL;

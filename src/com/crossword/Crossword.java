@@ -40,7 +40,7 @@ public class Crossword extends Application {
 	public static final String 	NAME = "Crossword";
 	public static final int 	NOTIFICATION_DOWNLOAD_ID = 1;
 	public static boolean 		DEBUG;
-
+	public static final int Max_Free_Levels=4;
     private static Context context;
 
     public void onCreate() {

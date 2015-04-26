@@ -36,10 +36,12 @@ import com.crossword.parser.GridParser;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
@@ -61,6 +63,11 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	private Notification	notification;
 	private boolean			refreshRequested;
 	private String filenameplay;
+	private int levels;
+	private ProgressDialog dialog;
+    private Handler progressBarHandler = new Handler();
+    private int progressBarStatus = 0;
+    private Thread tPr;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -83,7 +90,7 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
     }
     private void readPreferences() {
 		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
-		
+		this.levels=preferences.getInt("level",0);
 		this.filenameplay=preferences.getString("filename", "");
 		
 		
@@ -94,7 +101,8 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	    setContentView(R.layout.gridlist);
 	    readPreferences();
 	    this.initComponents();
-	    Toast.makeText(this, "Đang tải danh sách ô chữ", Toast.LENGTH_SHORT).show();
+	    Toast.makeText(this, "Đang cập nhật danh sách ô chữ", Toast.LENGTH_SHORT).show();
+	   
 	}
 	
 	@Override
@@ -121,7 +129,7 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	private void initComponents()
 	{
 	    // Set listview
-	    this.gridAdapter = new GridListAdapter(this);
+	    this.gridAdapter = new GridListAdapter(this,this.levels);
 	    this.gridListView = (ListView)findViewById(R.id.gridListView);
 	    this.gridListView.setOnItemClickListener(this);
 	    this.gridListView.setOnItemLongClickListener(this);
@@ -131,6 +139,7 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 		
 	// Download grid list
 	private void downloadGrid() {
+		showProcess();
 		DownloadFilesTask task = new DownloadFilesTask(this, this);
 		task.execute();
 	}
@@ -165,7 +174,7 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 //	    this.gridAdapter.addSeparator(getString(R.string.one_year_ago), -365);
 
 	    // Sort gridlist by date
-		this.gridAdapter.sort();
+		//this.gridAdapter.sort();
 		
 		// Notify adapter
 		this.gridAdapter.notifyDataSetChanged();
@@ -176,6 +185,7 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 
 	@Override
 	public void onItemClick(AdapterView<?> p, View v, int i, long l) {
+		if (i>Crossword.Max_Free_Levels && this.levels<i) return;
 		Grid grid = (Grid)this.gridAdapter.getItem(i);
 
 		// Save grid name in preference (from 'last grid' on main menu)
@@ -206,6 +216,8 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	@Override
 	public void onDownloadTaskStarted()
 	{
+		 
+		   
 		Log.e("Dang download...", "Dang download list o chu");
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		
@@ -235,10 +247,50 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 			mNotificationManager.notify(Crossword.NOTIFICATION_DOWNLOAD_ID, notification);
 		}
 	}
+	public void showProcess(){
+		dialog=new ProgressDialog(this);
+		dialog.setMessage("Đang cập nhật danh sách ô chữ! Xin đợi...");
+		dialog.setCancelable(false);
+		dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+		dialog.setProgress(0);
+		dialog.setMax(100);
+		dialog.show();
+	    final int totalProgressTime = 100;
+	    tPr = new Thread(){
 
+	   @Override
+	   public void run(){
+	 
+	      int jumpTime = 0;
+	      while(jumpTime < totalProgressTime && progressBarStatus!=-1){
+	         try {
+	            sleep(1000);
+	            jumpTime += 5;
+	            progressBarStatus = jumpTime;
+	            //dialog.setProgress(jumpTime);
+	            // Update the progress bar
+				  progressBarHandler.post(new Runnable() {
+					public void run() {
+						dialog.setProgress(progressBarStatus);
+					}
+				  });
+	         } catch (InterruptedException e) {
+	           // TODO Auto-generated catch block
+	           e.printStackTrace();
+	         }
+
+	      }
+
+	   }
+	   };
+	   tPr.start();
+	}
 	@Override
 	public void onDownloadTaskCompleted(boolean completed, int progress, String errorMessage) {
 		Log.e("Download ve...", "Download ve");
+		tPr.interrupt();
+    	progressBarStatus=-1;            	
+    	dialog.dismiss();
 		// Si une notification est en cours, l'efface
 		if (notification != null) {
 			NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
