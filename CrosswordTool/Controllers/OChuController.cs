@@ -19,11 +19,13 @@ namespace CrosswordTool.Controllers
         [ValidateInput(false)]
         public string getOchu(int rows, int cols) {
             OChu O = new OChu(rows, cols);
-            string json = JsonConvert.SerializeObject(OChu.getOChu().ToList());
+            string json = "";// JsonConvert.SerializeObject(OChu.getOChu().ToList());
             return json;
             //return json;
         }
         public ActionResult Play() {
+            OChu O = new OChu(13, 13,-1,-1);
+            O.getOChu();
             return View();
         }
     }
