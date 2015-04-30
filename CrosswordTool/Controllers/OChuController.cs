@@ -24,7 +24,7 @@ namespace CrosswordTool.Controllers
             //return json;
         }
         public ActionResult Play() {
-            OChu O = new OChu(13, 13,-1,-1);
+            OChu O = new OChu(8, 8,-1,-1);
             O.getOChu();
             return View();
         }

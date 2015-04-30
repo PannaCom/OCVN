@@ -14,7 +14,11 @@ namespace CrosswordTool.Controllers
     public class HomeController : Controller
     {
         private binhyenEntities db = new binhyenEntities();
-        public ActionResult Index(int? rows,int? cols)
+        public class Items
+        {
+            public string view;
+        }
+        public ActionResult Index(int? rows,int? cols,string file)
         {
             ViewBag.Message = "Tạo ô chữ";
             //for (int i = 0; i < rows; i++) {
@@ -30,6 +34,18 @@ namespace CrosswordTool.Controllers
                 ViewBag.cols = cols;
             }
             ViewBag.date = DateTime.Now.ToString();
+            if (rows == null || cols == null) return View();
+            string path = HttpContext.Server.MapPath("") + "/OchuRaw\\"+file + ".txt";
+            StreamReader SR = new StreamReader(path);
+            rows=int.Parse(SR.ReadLine());
+            cols = int.Parse(SR.ReadLine());
+            ViewBag.Items=new Items[(int)rows];
+            for (int i = 0; i < rows; i++)
+            {
+                ViewBag.Items[i] = new Items();
+                ViewBag.Items[i].view = "";
+                ViewBag.Items[i].view = SR.ReadLine();
+            }
             return View();
         }
 

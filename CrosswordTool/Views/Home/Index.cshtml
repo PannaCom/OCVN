@@ -6,7 +6,7 @@
 <script src="/Scripts/jquery-1.8.2.js"></script>
 <script>
     function make() {
-        window.location.href = "/?rows=" + document.getElementById("irows").value + "&cols=" + document.getElementById("irows").value;
+        window.location.href = "/?rows=" + document.getElementById("irows").value + "&cols=" + document.getElementById("irows").value+ "&file=" + document.getElementById("ifile").value;
 
     }
 </script>
@@ -18,7 +18,14 @@
         <option value="@ii">@ii x @ii</option>
     }
 </select>
-<input type="button" value="Make" onclick="make();"/>, nhập dữ liệu vào ô chữ
+Chọn file
+<select id="ifile">
+    @for (int ii = 1; ii <= 101; ii++)
+    { 
+        <option value="@ii">@ii</option>
+    }
+</select>
+<input type="button" value="Make" onclick="make();"/><input type="button" value="Clear" onclick="clearall();"/>
 </h4>
 </div>
 <div style="float:right;right:0px;top:10px;position:fixed;width:30%;">
@@ -29,9 +36,14 @@
 <div>
 <table>
 @for (int i = 0; i < rows; i++) {
+    
+    string tempvalue ="";
+    if (i < @ViewBag.rows-2) { tempvalue = ViewBag.Items[i].view.ToString(); }
     <tr>
-    @for (int j = 0; j < cols; j++) { 
-        <td class="td"><input type="text" name="cell-@i-@j" id="cell-@i-@j" style="width:30px;border:1px solid;" maxlength="1" onfocus="getIndex(@i,@j);"></td>
+    @for (int j = 0; j < cols; j++) {     
+        string value="";
+        if (j < tempvalue.Length) { value = tempvalue[j] + ""; };
+        <td class="td"><input type="text" name="cell-@i-@j" id="cell-@i-@j" value="@value" style="width:30px;border:1px solid;" maxlength="1" onfocus="getIndex(@i,@j);"></td>
     }
     </tr>
 }
@@ -53,6 +65,17 @@
     function getIndex(x,y){
         currentX=x;
         currentY=y;
+    }
+    function clearall(){
+        //alert("ok");
+        var rows=@rows;
+        var cols=@cols;
+        for(var i=0;i<rows;i++){
+            for(var j=0;j<cols;j++){
+                //alert("cell-"+i+"-"+j);
+                document.getElementById("cell-"+i+"-"+j).value="";
+            }
+        }
     }
     function getListKeyword(){
         var key=document.getElementById("keyword").value;
@@ -216,6 +239,7 @@
                     if (descriptions[d].id.split('_')[1] == 'h')
                         h[i].desc = descriptions[d].value;
                     else
+                    if (descriptions[d].id.split('_')[1] == 'v')
                         v[i].desc = descriptions[d].value;
                 }
             }
