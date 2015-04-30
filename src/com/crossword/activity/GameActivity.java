@@ -260,7 +260,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	    
 	    this.width = this.grid.getWidth();
 	    this.height = this.grid.getHeight();
-
+	    Log.e("widthheight_________________________________", String.valueOf(this.width)+"x"+String.valueOf(this.height));
 	    Display display = getWindowManager().getDefaultDisplay();
         int height = display.getHeight();
         int keyboardHeight = (int)(height / 4.4);

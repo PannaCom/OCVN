@@ -43,7 +43,7 @@ public class GridActivity extends CrosswordParentActivity {
 		author.setText(grid.getAuthor());
 
 		TextView date = (TextView)findViewById(R.id.date);
-		DateFormat df = new SimpleDateFormat("d MMMM yyyy");
+		DateFormat df = new SimpleDateFormat("dd MM yyyy");
 		date.setText(df.format(grid.getDate()));
 	}
 	
