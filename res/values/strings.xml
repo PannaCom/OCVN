@@ -34,7 +34,7 @@
     <string name="one_year_ago">Một năm trước</string>
     <string name="menu_solution">Hiện đáp án ô này</string>
     <string name="menu_settings">Tùy chỉnh</string>
-    <string name="menu_refresh">Làm mới</string>
+    <string name="menu_refresh">Cập nhật mới</string>
     <string name="menu_information">Thông tin</string>
     <string name="notification_check_grids">Kiểm tra ô chữ mới...</string>
     <string name="notification_update_grids">Cập nhật ô chữ mới...</string>
@@ -57,8 +57,8 @@ Góp ý cho trò chơi:\n
     <string name="preferences_clear_cache_title">Xóa bộ nhớ đệm</string>
     <string name="preferences_clear_cache_summary">Cảnh báo: Các bản sao lưu sẽ bị xóa</string>
     <string name="preferences_feedback_summary">Bình luận về ứng dụng hoặc báo cáo lỗi</string>
-    <string name="preferences_solid_selection_title">Đánh dấu ô đã chọn</string>
-    <string name="preferences_solid_selection_summary">Chạm vào ô khác không xóa các ô đã chọn</string>
+    <string name="preferences_solid_selection_title">Đánh dấu</string>
+    <string name="preferences_solid_selection_summary">Chạm vào ô đen không xóa ô chữ đã chọn</string>
     <string name="preferences_grid_is_lower_title">Kiểu chữ thường</string>
     <string name="preferences_check_summary">Ký tự sai hiển thị bằng màu đỏ</string>
     <string name="preferences_check_title">Gợi ý</string>

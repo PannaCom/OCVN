@@ -11,9 +11,5 @@
         android:icon="@drawable/ic_menu_notifications"
         android:title="@string/preferences_feedback_title"/>
 
-    <item
-        android:id="@+id/menu_main_preferences"
-        android:icon="@android:drawable/ic_menu_preferences"
-        android:title="@string/menu_settings"/>
 
 </menu>
