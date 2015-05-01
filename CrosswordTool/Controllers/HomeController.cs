@@ -118,6 +118,18 @@ namespace CrosswordTool.Controllers
                 return "";
             }
         }
+        public int getRankingPos(int point,int levels) {
+            try
+            {
+                int? rank = (int?)db.crosswords.Count(o => o.point > point && o.levels >= levels);
+                if (rank == null) rank = 0;
+                rank++;
+                return (int)rank;
+            }
+            catch (Exception ex) {
+                return -1;
+            }
+        }
         public string readPdfFile() {
             string path = "D:\\Project\\GitHub\\CrossWord\\branches\\editor\\Cau_Hoi_On_Thi_Ai_La_Trieu_Phu.pdf";
             using (PdfReader reader = new PdfReader(path))
