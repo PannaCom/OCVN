@@ -33,6 +33,7 @@ public class RankingParser {
 	   private String point = "point";
 	   private String levels = "levels";
 	   public ArrayList<HashMap<String, String>> itemRankList;
+	   private String rank;
 	   public String urlString;
 	   
 	   public RankingParser(String url){
@@ -41,6 +42,9 @@ public class RankingParser {
 	   public String getUsername(){
 	      return username;
 	   }
+	   public String getRank(){
+		   return rank;
+	   } 
 	   public String getPoint(){
 	      return point;
 	   }
@@ -133,6 +137,47 @@ public class RankingParser {
 	      		 //Log.e("fetchJSON", data);
 	      		 readAndParseJSON(data);
 	      		 //stream.close();
+	      		 return data;
+	         } catch (Exception e) {
+	            e.printStackTrace();
+	            return "0";
+	         }	         
+	      		
+	   }
+	   public String fetchRaw() throws IOException{
+		      
+	         try {
+	            URL url = new URL(urlString);
+	            //Log.e("fetchJSON", urlString);
+	            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+	            conn.setReadTimeout(10000 /* milliseconds */);
+	            conn.setConnectTimeout(15000 /* milliseconds */);
+	            conn.setRequestMethod("GET");
+	            conn.setDoInput(true);
+	            //conn.setRequestProperty(field, newValue)
+	            // Starts the query
+	            conn.connect();
+	            //Log.e("fetchJSON", "ok1");
+		         //InputStream stream = conn.getInputStream();
+	            InputStreamReader reader = null;
+		         StringBuilder builder = new StringBuilder();
+	
+		         try {
+		             // ...
+		             reader = new InputStreamReader(conn.getInputStream(), "UTF-8");
+		             char[] buffer = new char[8192];
+	
+		             for (int length = 0; (length = reader.read(buffer)) > 0;) {
+		                 builder.append(buffer, 0, length);
+		                 
+		             }
+		         } finally {
+		             if (reader != null) try { reader.close(); } catch (IOException logOrIgnore) {}
+		         }
+	
+		         String html = builder.toString();		         
+		         String data = html;//convertStreamToString(stream);
+		         rank=data;
 	      		 return data;
 	         } catch (Exception e) {
 	            e.printStackTrace();

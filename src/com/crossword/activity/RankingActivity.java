@@ -5,27 +5,32 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import android.app.ProgressDialog;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.crossword.R;
+import com.crossword.activity.GameActivity.GRID_MODE;
 import com.crossword.adapter.RankingAdapter;
 import com.crossword.parser.RankingParser;
 
 public class RankingActivity extends CrosswordParentActivity{
 	RankingAdapter adapter;
-	RankingParser jsonP;
+	RankingParser jsonP,jsonR;
 	ListView list;
 	public ArrayList<HashMap<String, String>> itemRankList;
 	private ProgressDialog dialog;
     private Handler progressBarHandler = new Handler();
     private int progressBarStatus = 0;
     private Thread tPr;
-    
+    private int levels,totallaurel;
+    TextView rankpos,pointpos;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -33,6 +38,7 @@ public class RankingActivity extends CrosswordParentActivity{
 		setContentView(R.layout.rankingactivity);
 		list=(ListView)findViewById(R.id.RankingListView);
 		Log.e("displayNewsContent", "ok4");
+		readPreferences();
 		Toast.makeText(this, "Đang cập nhật Bảng xếp hạng", Toast.LENGTH_SHORT).show();
 		dialog=new ProgressDialog(this);
 		dialog.setMessage("Đang cập nhật bảng xếp hạng! Xin đợi...");
@@ -40,6 +46,7 @@ public class RankingActivity extends CrosswordParentActivity{
 		dialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
 		dialog.setProgress(0);
 		dialog.setMax(100);
+		
 
 dialog.show();
 	   final int totalProgressTime = 100;
@@ -75,7 +82,7 @@ dialog.show();
 	   
 	    //Log.e("displayNewsContent", "ok4");
 		////////// Viec customize listview duoc thuc hien o LazayAdapter
-		new showRankFromUrlTask().execute("http://binhyen.net/ApiServer/getRankingList");		
+		new showRankFromUrlTask().execute("http://ochu.binhyen.net/Home/getRankingList");		
 //		itemRankList = new ArrayList<HashMap<String, String>>();	
 //        adapter=new RankingAdapter(this, itemRankList,this.getBaseContext());  
 //        Log.e("displayNewsContent", "ok5");
@@ -83,12 +90,25 @@ dialog.show();
         //Log.e("displayNewsContent", "ok6");
         //Log.e("list.setAdapter(adapter);", "ok2");
 	}
+	private void readPreferences() {
+		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+		
+		this.totallaurel=preferences.getInt("totallaurel", 0);
+		
+		this.levels=preferences.getInt("levels", 0);
+		
+		
+	}
 	private void showRank(){
 		itemRankList = new ArrayList<HashMap<String, String>>();
 		itemRankList=jsonP.getItemRankList();
 		adapter=new RankingAdapter(this, itemRankList,this.getBaseContext());  
         Log.e("displayNewsContent", "ok5");
         list.setAdapter(adapter);
+        rankpos=(TextView)findViewById(R.id.rankpos);
+        pointpos=(TextView)findViewById(R.id.pointpos);
+        pointpos.setText(String.valueOf(this.totallaurel));
+        rankpos.setText(jsonR.getRank());
 	}
 	private class showRankFromUrlTask extends AsyncTask<String, Void, String> {    	
         @Override
@@ -100,6 +120,8 @@ dialog.show();
             	
             	Log.e("showNewsFromUrlTask", "ok1");
         		jsonP=new RankingParser(urls[0]);
+        		jsonR=new RankingParser("http://ochu.binhyen.net/Home/getRankingPos?point="+totallaurel+"&levels="+levels);
+        		jsonR.fetchRaw();
         		Log.e("showNewsFromUrlTask", "ok2");
         		//boolean result=
                 return jsonP.fetchJSON();
