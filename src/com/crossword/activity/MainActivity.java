@@ -18,16 +18,20 @@
 package com.crossword.activity;
 
 import com.crossword.R;
+
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
 
 public class MainActivity extends CrosswordParentActivity implements OnClickListener {
-    
+	public Typeface  typefaceTitle,typefaceInfo;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -49,6 +53,20 @@ public class MainActivity extends CrosswordParentActivity implements OnClickList
 //			intent.putExtra("filename", last);
 //			startActivity(intent);
 //		}
+        typefaceTitle=Typeface.createFromAsset(this.getAssets(),"fonts/Roboto-Bold.ttf");
+        Button buttonLast=(Button)findViewById(R.id.button_last);
+        buttonLast.setTypeface(typefaceTitle);
+        buttonLast.setShadowLayer(12, -4, -4, Color.BLUE);
+        Button buttonList=(Button)findViewById(R.id.button_list);
+        buttonList.setTypeface(typefaceTitle);
+        buttonList.setShadowLayer(12, -4, -4, Color.BLUE);
+        Button buttonCat=(Button)findViewById(R.id.button_category);
+        buttonCat.setTypeface(typefaceTitle);
+        buttonCat.setShadowLayer(12, -4, -4, Color.BLUE);
+        Button buttonSearch=(Button)findViewById(R.id.button_search);
+        buttonSearch.setTypeface(typefaceTitle);
+        buttonSearch.setShadowLayer(12, -4, -4, Color.BLUE);
+        
     }
     
 	public void onClick(View view) {

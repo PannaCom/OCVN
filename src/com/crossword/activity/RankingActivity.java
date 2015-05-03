@@ -6,6 +6,8 @@ import java.util.HashMap;
 
 import android.app.ProgressDialog;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
@@ -30,7 +32,9 @@ public class RankingActivity extends CrosswordParentActivity{
     private int progressBarStatus = 0;
     private Thread tPr;
     private int levels,totallaurel;
+    private String username;
     TextView rankpos,pointpos;
+    public Typeface  typefaceTitle,typefaceInfo;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -39,6 +43,23 @@ public class RankingActivity extends CrosswordParentActivity{
 		list=(ListView)findViewById(R.id.RankingListView);
 		Log.e("displayNewsContent", "ok4");
 		readPreferences();
+		//UI
+		typefaceTitle=Typeface.createFromAsset(this.getAssets(),"fonts/Roboto-Bold.ttf");
+		TextView username = (TextView)findViewById(R.id.username); 
+		TextView point = (TextView)findViewById(R.id.point); 
+		TextView level = (TextView)findViewById(R.id.level); 
+		TextView ranktitle = (TextView)findViewById(R.id.ranktitle); 
+		//TextView rankpos = (TextView)findViewById(R.id.rankpos); 
+		//TextView pointpos = (TextView)findViewById(R.id.pointpos); 
+		username.setTypeface(typefaceTitle);
+		point.setTypeface(typefaceTitle);
+		level.setTypeface(typefaceTitle);
+		ranktitle.setTypeface(typefaceTitle);
+		ranktitle.setShadowLayer(12, -4, -4, Color.YELLOW);
+		username.setShadowLayer(12, -4, -4, Color.BLACK);
+		point.setShadowLayer(12, -4, -4, Color.BLACK);
+		level.setShadowLayer(12, -4, -4, Color.BLACK);
+		
 		Toast.makeText(this, "Đang cập nhật Bảng xếp hạng", Toast.LENGTH_SHORT).show();
 		dialog=new ProgressDialog(this);
 		dialog.setMessage("Đang cập nhật bảng xếp hạng! Xin đợi...");
@@ -48,7 +69,7 @@ public class RankingActivity extends CrosswordParentActivity{
 		dialog.setMax(100);
 		
 
-dialog.show();
+	   dialog.show();
 	   final int totalProgressTime = 100;
 
 	   tPr = new Thread(){
@@ -96,19 +117,24 @@ dialog.show();
 		this.totallaurel=preferences.getInt("totallaurel", 0);
 		
 		this.levels=preferences.getInt("levels", 0);
+		this.username=preferences.getString("username", "");	
 		
 		
 	}
 	private void showRank(){
 		itemRankList = new ArrayList<HashMap<String, String>>();
 		itemRankList=jsonP.getItemRankList();
-		adapter=new RankingAdapter(this, itemRankList,this.getBaseContext());  
+		adapter=new RankingAdapter(this, itemRankList,this.getBaseContext(),this.username,this.totallaurel);  
         Log.e("displayNewsContent", "ok5");
         list.setAdapter(adapter);
         rankpos=(TextView)findViewById(R.id.rankpos);
         pointpos=(TextView)findViewById(R.id.pointpos);
+        rankpos.setTypeface(typefaceTitle);
+		pointpos.setTypeface(typefaceTitle);
         pointpos.setText(String.valueOf(this.totallaurel));
-        rankpos.setText(jsonR.getRank());
+        rankpos.setText(jsonR.getRank());//jsonR.getRank()
+        rankpos.setShadowLayer(12, -4, -4, Color.BLUE);
+        pointpos.setShadowLayer(12, -4, -4, Color.BLACK);
 	}
 	private class showRankFromUrlTask extends AsyncTask<String, Void, String> {    	
         @Override

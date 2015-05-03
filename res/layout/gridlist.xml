@@ -54,7 +54,8 @@
 			        android:layout_toRightOf="@+id/no"
 			        android:gravity="left"
 			        android:singleLine="true" 
-			        android:text="Chủ đề" />
+			        android:drawableLeft="@drawable/list"  
+			        android:text="Danh sách ô chữ" />
 				 <!--username -->
 			    <TextView
 			        android:id="@+id/point"

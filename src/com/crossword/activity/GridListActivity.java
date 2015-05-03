@@ -40,6 +40,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
@@ -68,6 +70,7 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
     private Handler progressBarHandler = new Handler();
     private int progressBarStatus = 0;
     private Thread tPr;
+    public Typeface  typefaceTitle,typefaceInfo;
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -101,8 +104,11 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	    setContentView(R.layout.gridlist);
 	    readPreferences();
 	    this.initComponents();
+	    typefaceTitle=Typeface.createFromAsset(this.getAssets(),"fonts/Roboto-Bold.ttf");
 	    Toast.makeText(this, "Đang cập nhật danh sách ô chữ", Toast.LENGTH_SHORT).show();
-	   
+	    TextView name=(TextView)findViewById(R.id.name);
+	    name.setTypeface(typefaceTitle);
+	    name.setShadowLayer(12, -4, 4, Color.BLUE);
 	}
 	
 	@Override
@@ -150,7 +156,7 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	    try {
 	    	File directoryToScan = new File(Crossword.GRID_DIRECTORY); 
 	    	File files[] = directoryToScan.listFiles();
-	    	
+	    	boolean found=false;
 	    	this.gridAdapter.clear();
 	    	for (File file: files) {
 	    		//Log.e("FILE NAME", this.filenameplay+"_"+file.getName());
@@ -159,6 +165,10 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 		    	parser.setFileName(file.getName());
 				SAXFileHandler.read((DefaultHandler)parser, file.getAbsolutePath());
 				this.gridAdapter.addGrid(parser.getData());
+				found=true;
+	    	}
+	    	if (!found){
+	    		Toast.makeText(this, "Ô chữ mới đang được biên tập, mời bạn quay lại sau!", Toast.LENGTH_SHORT).show();
 	    	}
 		} catch (CrosswordException e) {
 			Toast.makeText(this, e.getMessage(), Toast.LENGTH_SHORT).show();

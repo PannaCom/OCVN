@@ -9,6 +9,7 @@ import com.crossword.R;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.text.Html;
 import android.view.LayoutInflater;
@@ -29,17 +30,19 @@ public class RankingAdapter extends BaseAdapter{
 	    public static String Main_Domain="http://binhyen.net";
 	    public Context context;
 	    public Typeface typefaceTitle,typefaceInfo;
-	    
+	    private String username;
+	    private int totallaurel;
 	   
-	    public RankingAdapter(Activity a, ArrayList<HashMap<String, String>> d,Context context) {
+	    public RankingAdapter(Activity a, ArrayList<HashMap<String, String>> d,Context context,String username,int totallaurel) {
 	    	//.context=context;
 	        activity = a;
 	        data=d;
 	        inflater = (LayoutInflater)activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-	       
+	        this.username=username;
+	        this.totallaurel=totallaurel;
 	        //currentDateandTime = sdf.format(new Date(ts));
-	        typefaceTitle=Typeface.createFromAsset(context.getAssets(),"fonts/DroidSans-Bold.ttf");
-	        typefaceInfo=Typeface.createFromAsset(context.getAssets(),"fonts/DroidSans.ttf");
+	        typefaceTitle=Typeface.createFromAsset(context.getAssets(),"fonts/Roboto-Bold.ttf");
+	        typefaceInfo=Typeface.createFromAsset(context.getAssets(),"fonts/Roboto-Medium.ttf");
 	        //Log.e("LazyAdapter", "ok2");
 	    }
 	// day se la so luong hien thi len listview
@@ -74,6 +77,7 @@ public class RankingAdapter extends BaseAdapter{
 	        // Setting all values in listview
 	        
 	        username.setTypeface(typefaceTitle);
+	        username.setShadowLayer(12, -4, -4, Color.BLUE);
 	        point.setTypeface(typefaceInfo);
 	        level.setTypeface(typefaceInfo);
 	        no.setTypeface(typefaceInfo);
@@ -83,7 +87,9 @@ public class RankingAdapter extends BaseAdapter{
 	        point.setText(news.get("point"));
 	        no.setText(String.valueOf(position+1));
 	        level.setText(news.get("levels"));
-	        
+	        if (news.get("username").equalsIgnoreCase(this.username) && news.get("point").equalsIgnoreCase(String.valueOf(this.totallaurel))){
+	        	vi.setBackgroundColor(Color.BLUE);
+	        }
 	        return vi;
 	    }
 	    

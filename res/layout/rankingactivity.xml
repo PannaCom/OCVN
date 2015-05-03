@@ -62,8 +62,10 @@
 			        android:layout_toRightOf="@+id/username"
 			        android:gravity="left"
 			        android:width="85dip"    
+			        android:drawableLeft="@drawable/star"
 			        android:singleLine="true"            
 			        android:text="Điểm" />	
+			   
 			     <TextView
 			        android:id="@+id/level"
 			        android:layout_width="wrap_content"
@@ -85,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:alpha="100"
-        android:background="#CC6600"
+        android:background="#0000ff"
         android:dividerPadding="1dip"
         >    
 	
@@ -101,8 +103,8 @@
 			        android:layout_toRightOf="@+id/no"
 			        android:gravity="left"
 			        android:singleLine="true"     
-			        android:width="155dip"       
-			        android:text="Bạn xếp hạng" />
+			        android:width="105dip"       
+			        android:text="Xếp hạng" />
 				 <!--username -->
 			    <TextView
 			        android:id="@+id/rankpos"
@@ -113,22 +115,33 @@
 			        android:textStyle="bold"			       
 			        android:textSize="22dip"			              
 			        android:layout_toRightOf="@+id/ranktitle"
-			        android:gravity="left"
-			        android:width="85dip"    
-			        android:singleLine="true"            
+			        android:gravity="left"			            
+			        android:singleLine="true" 
+			        android:background="#CC6600"
+			        android:drawableLeft="@drawable/cup"  
+			        android:shadowColor="#7F000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"
+                    android:width="105dip"         
 			        android:text="12" />	
 			     <TextView
 			        android:id="@+id/pointpos"
-			        android:layout_width="wrap_content"
+			        android:layout_width="fill_parent"
 			        android:layout_height="wrap_content"
 			        android:layout_marginLeft="10dip"			           
 			        android:textColor="#ffffff"
 			        android:textStyle="bold"			       
-			        android:textSize="18dip"			              
+			        android:textSize="22dip"			              
 			        android:layout_toRightOf="@+id/rankpos"
+			        android:drawableLeft="@drawable/star"
 			        android:gravity="left"
-			        android:width="75dip"    
-			        android:singleLine="true"            
+			        android:background="#0000ff"			        
+			        android:singleLine="true"    
+			        android:shadowColor="#7F000000"
+                    android:shadowDx="1"
+                    android:shadowDy="1"
+                    android:shadowRadius="2"         
 			        android:text="201 điểm" />
 			     
 	</LinearLayout>
