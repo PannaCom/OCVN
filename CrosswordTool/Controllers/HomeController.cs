@@ -118,13 +118,13 @@ namespace CrosswordTool.Controllers
                 return "";
             }
         }
-        public int getRankingPos(int point,int levels) {
+        public int getRankingPos(int point,int levels,string iddevice) {
             try
             {
                 int? rank = (int?)db.crosswords.Count(o => o.point > point && o.levels >= levels);
                 if (rank == null) rank = 0;
-                int? rank2= (int?) db.crosswords.Count(o => o.point ==point && o.levels >= levels);
-                rank=rank+rank2-1;
+                int? rank2 = (int?)db.crosswords.Count(o => o.point == point && o.levels >= levels && !o.iddevice.Equals(iddevice));
+                rank=rank+rank2;
                 rank++;
                 return (int)rank;
             }
