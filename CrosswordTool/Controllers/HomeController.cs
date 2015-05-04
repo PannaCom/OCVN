@@ -110,7 +110,7 @@ namespace CrosswordTool.Controllers
         {
             try
             {
-                var p = (from q in db.crosswords select q).OrderByDescending(o => o.point).ThenBy(o => o.levels).Take(100);
+                var p = (from q in db.crosswords select q).OrderByDescending(o => o.point).ThenByDescending(o => o.levels).Take(100);
                 return JsonConvert.SerializeObject(p.ToList());
             }
             catch (Exception ex)
@@ -123,6 +123,8 @@ namespace CrosswordTool.Controllers
             {
                 int? rank = (int?)db.crosswords.Count(o => o.point > point && o.levels >= levels);
                 if (rank == null) rank = 0;
+                int? rank2= (int?) db.crosswords.Count(o => o.point ==point && o.levels >= levels);
+                rank=rank+rank2-1;
                 rank++;
                 return (int)rank;
             }
