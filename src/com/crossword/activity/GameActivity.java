@@ -41,6 +41,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.SoundPool;
 import android.media.SoundPool.OnLoadCompleteListener;
@@ -104,6 +105,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	private SoundPool soundPool;
 	private AlertDialog.Builder alertDialogBuilder;
 	private AlertDialog alertDialog;
+	public Typeface  typefaceTitle,typefaceInfo;
 	@Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -213,9 +215,10 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	public void onCreate(Bundle savedInstanceState)
 	{
 	    super.onCreate(savedInstanceState);
-	    setContentView(R.layout.game);
-	    
+	    setContentView(R.layout.game);	    
 		readPreferences();
+		typefaceTitle=Typeface.createFromAsset(this.getAssets(),"fonts/Roboto-Bold.ttf");
+		typefaceInfo=Typeface.createFromAsset(this.getAssets(),"fonts/Roboto-Regular.ttf");
 		soundPool = new SoundPool(10, AudioManager.STREAM_MUSIC, 0);
 	    soundPool.setOnLoadCompleteListener(new OnLoadCompleteListener() {
 	      @Override
@@ -266,6 +269,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
         int keyboardHeight = (int)(height / 4.4);
 		
 		this.txtDescription = (TextView)findViewById(R.id.description);
+		txtDescription.setTypeface(typefaceInfo);
 		//this.txtUserinfo = (TextView)findViewById(R.id.userinfo);
         this.gridView = (GridView)findViewById(R.id.grid);
         this.gridView.setOnTouchListener(this);
@@ -444,6 +448,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 			this.keyboardOverlay.setLayoutParams(lp);
 			this.keyboardOverlay.setText(value);
 			this.keyboardOverlay.clearAnimation();
+			this.keyboardOverlay.setTypeface(typefaceTitle);			
 			this.keyboardOverlay.setVisibility(View.VISIBLE);
 		}
 	}

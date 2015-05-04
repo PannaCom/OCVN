@@ -2,7 +2,7 @@
 <resources>
 
     <string name="hello">Hello World, MainActivity!</string>
-    <string name="app_name">Crossword</string>
+    <string name="app_name">Giải Đố Ô Chữ</string>
     <string name="exception_file_not_found">Tập tin không tìm thấy</string>
     <string name="exception_grid_not_found">Level này chưa có</string>
     <string name="exception_sav_not_found">Không tìm thấy bài này</string>

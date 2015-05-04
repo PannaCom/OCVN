@@ -30,6 +30,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,7 +105,7 @@ public class GridListAdapter extends BaseAdapter {
 				
 				TextView name = (TextView)v.findViewById(R.id.name);
 				name.setText(this.data.get(position).getName());
-
+				//Log.e("___________________________", this.data.get(position).getName());
 				if (position + 1 < this.getCount() && this.data.get(position + 1).isSeparator()) {
 					v.setVisibility(View.GONE);
 					name.setVisibility(View.GONE);
@@ -124,6 +125,7 @@ public class GridListAdapter extends BaseAdapter {
 				TextView name = (TextView)v.findViewById(R.id.name);
 				name.setText(this.data.get(position).getName().toUpperCase());
 				name.setTypeface(typefaceTitle);
+				//Log.e("___________________________", this.data.get(position).getName());
 //				// Author
 //				if (this.data.get(position).getAuthor() != null) {
 //					TextView author = (TextView)v.findViewById(R.id.author);

@@ -19,6 +19,7 @@ package com.crossword.parser;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
@@ -82,8 +83,12 @@ public class GridParser extends DefaultHandler {
 			System.out.println(buffer.toString());
 			try {
 				this.grid.setRawDate(buffer.toString());
-				this.grid.setDate((new SimpleDateFormat("dd/MM/yyyy")).parse(buffer.toString()));
-			} catch (ParseException e) {
+				this.grid.setDate((new SimpleDateFormat("MM/dd/yyyy")).parse(buffer.toString()));
+				//String timeStamp = new SimpleDateFormat("MM/dd/yyyy HHmmss").format(Calendar.getInstance().getTime());
+				//this.grid.setDate((new SimpleDateFormat("MM/dd/yyyy")).parse(timeStamp));
+				//this.grid.setDate((new SimpleDateFormat("dd/MM/yyyy")).format(Calendar.getInstance().getTime()));
+				Log.e("______", this.grid.getDate().toString());//this.grid.getDate().toString()
+			} catch (Exception e) {
 				Log.w(Crossword.NAME, "GridParser: Unable to parse grid date");
 			}
 		}

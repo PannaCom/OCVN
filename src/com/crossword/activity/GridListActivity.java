@@ -149,17 +149,47 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 		DownloadFilesTask task = new DownloadFilesTask(this, this);
 		task.execute();
 	}
+	private boolean mycompare(String val1,String val2){
+		//return if val1 file name is smaller than val2 file name
+		try{
+			if (val1==null || val1=="" || val2==null || val2=="") return true;
+			val1=val1.replace(".xml","");
+			val1=val1.replace("o","");
+			val2=val2.replace(".xml","");
+			val2=val2.replace("o","");
+			int nval1,nval2;
+			nval1=Integer.parseInt(val1);
+			nval2=Integer.parseInt(val2);
+			if (nval1<nval2) return true;
+			else return false;
+			
+		}catch(Exception ex){
+			
+			return true;
+		}
 		
+	}	
 	private void readGridDirectory()
 	{
 		// Read grids
 	    try {
 	    	File directoryToScan = new File(Crossword.GRID_DIRECTORY); 
 	    	File files[] = directoryToScan.listFiles();
+	    	//sort by name;
+	    	File temp;
+	    	for(int ii=0;ii<files.length-1;ii++){
+	    		for(int jj=ii+1;jj<files.length;jj++){
+	    			if (mycompare(files[jj].getName(),files[ii].getName())){
+	    				temp=files[jj];
+	    				files[jj]=files[ii];
+	    				files[ii]=temp;
+	    			}
+	    		}
+	    	}
 	    	boolean found=false;
 	    	this.gridAdapter.clear();
 	    	for (File file: files) {
-	    		//Log.e("FILE NAME", this.filenameplay+"_"+file.getName());
+	    		Log.e("FILE NAME", this.filenameplay+"_"+file.getName());
 	    		if (this.filenameplay.toLowerCase().contains(","+file.getName().toLowerCase())) continue;
 		    	GridParser parser = new GridParser();
 		    	parser.setFileName(file.getName());
