@@ -33,15 +33,16 @@ public class RankingActivity extends CrosswordParentActivity{
     private Thread tPr;
     private int levels,totallaurel;
     private String username;
+    private String iddevice;
     TextView rankpos,pointpos;
     public Typeface  typefaceTitle,typefaceInfo;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		Log.e("displayNewsContent", "ok1");
+		//Log.e("displayNewsContent", "ok1");
 		setContentView(R.layout.rankingactivity);
 		list=(ListView)findViewById(R.id.RankingListView);
-		Log.e("displayNewsContent", "ok4");
+		//Log.e("displayNewsContent", "ok4");
 		readPreferences();
 		//UI
 		typefaceTitle=Typeface.createFromAsset(this.getAssets(),"fonts/Roboto-Bold.ttf");
@@ -118,6 +119,7 @@ public class RankingActivity extends CrosswordParentActivity{
 		
 		this.levels=preferences.getInt("levels", 0);
 		this.username=preferences.getString("username", "");	
+		this.iddevice=preferences.getString("iddevice", "");	
 		
 		
 	}
@@ -125,7 +127,7 @@ public class RankingActivity extends CrosswordParentActivity{
 		itemRankList = new ArrayList<HashMap<String, String>>();
 		itemRankList=jsonP.getItemRankList();
 		adapter=new RankingAdapter(this, itemRankList,this.getBaseContext(),this.username,this.totallaurel);  
-        Log.e("displayNewsContent", "ok5");
+        //Log.e("displayNewsContent", "ok5");
         list.setAdapter(adapter);
         rankpos=(TextView)findViewById(R.id.rankpos);
         pointpos=(TextView)findViewById(R.id.pointpos);
@@ -144,15 +146,15 @@ public class RankingActivity extends CrosswordParentActivity{
             try {
             	//Log.e("showNewsFromUrlTask", "1");
             	
-            	Log.e("showNewsFromUrlTask", "ok1");
+            	//Log.e("showNewsFromUrlTask", "ok1");
         		jsonP=new RankingParser(urls[0]);
-        		jsonR=new RankingParser("http://ochu.binhyen.net/Home/getRankingPos?point="+totallaurel+"&levels="+levels);
+        		jsonR=new RankingParser("http://ochu.binhyen.net/Home/getRankingPos?point="+totallaurel+"&levels="+levels+"&iddevice="+iddevice);
         		jsonR.fetchRaw();
-        		Log.e("showNewsFromUrlTask", "ok2");
+        		//Log.e("showNewsFromUrlTask", "ok2");
         		//boolean result=
                 return jsonP.fetchJSON();
             } catch (IOException e) {
-            	Log.e("showNewsFromUrlTask", "can not download");
+            	//Log.e("showNewsFromUrlTask", "can not download");
             	tPr.interrupt();
             	progressBarStatus=-1;            	
             	dialog.dismiss();
@@ -177,11 +179,11 @@ public class RankingActivity extends CrosswordParentActivity{
         		
         	//}
         	if (result.equals("0")){ 
-        		Log.e("onPostExecute", "can not download");
+        		//Log.e("onPostExecute", "can not download");
         		Toast.makeText(RankingActivity.this, "Đường truyền không ổn định. Xin quay lại sau!", Toast.LENGTH_SHORT).show();
         		//showExtProgram("Internet connection",connecMessage);
         	}else{        		
-        		Log.e("onPostExecute", "ok");
+        		//Log.e("onPostExecute", "ok");
         		showRank();
         	}
         	//try{

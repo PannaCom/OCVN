@@ -29,6 +29,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
+import android.graphics.Color;
+import android.graphics.Typeface;
 import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Display;
@@ -59,6 +61,7 @@ public class GameGridAdapter extends BaseAdapter {
 	private ArrayList 					allTheWord=new ArrayList();
 	private ArrayList 					allTheWordPlay=new ArrayList();
 	private ArrayList<Word> AllEntries;
+	public Typeface  typefaceTitle,typefaceInfo;
 	public GameGridAdapter(Activity act, ArrayList<Word> entries, int width, int height) {
 		final SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(act);
 		this.isLower = preferences.getBoolean("grid_is_lower", false);
@@ -71,7 +74,7 @@ public class GameGridAdapter extends BaseAdapter {
 		// Calcul area height
         Display display = act.getWindowManager().getDefaultDisplay();
         this.displayHeight = display.getWidth() / this.width;
-
+        typefaceTitle=Typeface.createFromAsset(this.context.getAssets(),"fonts/Roboto-Bold.ttf");
         // Fill area and areaCorrection
         this.area = new String[this.height][this.width];
         this.correctionArea = new String[this.height][this.width];
@@ -205,10 +208,10 @@ public class GameGridAdapter extends BaseAdapter {
 		for (int y = 0; y < this.height; y++)
 			for (int x = 0; x < this.width; x++)
 				if (this.area[y][x]!=null && this.correctionArea[y][x]!=null && !this.area[y][x].toUpperCase().equals(this.correctionArea[y][x].toUpperCase())) {
-					Log.e("KHAC NHAU", "_______________________");
+					//Log.e("KHAC NHAU", "_______________________");
 					return false;
 				}
-		Log.e("GIONG NHAU", "_______________________");
+		//Log.e("GIONG NHAU", "_______________________");
 		return true;
 //	    // Check for sizes and nulls
 //	    if ((allTheWordPlay.size() != allTheWord.size()) || (allTheWordPlay == null && allTheWord!= null) || (allTheWordPlay != null && allTheWord== null)){
@@ -264,6 +267,8 @@ public class GameGridAdapter extends BaseAdapter {
 //		this.lastPosition = position;
 		
 		TextView v = this.views.get(position);
+		
+        
 		int y = (int)(position / this.width);
 		int x = (int)(position % this.width);
 		String data = this.area[y][x];
@@ -287,6 +292,9 @@ public class GameGridAdapter extends BaseAdapter {
 			}
 			
 			this.views.put(position, v);
+		}else {
+			v.setTypeface(typefaceTitle);
+	        //v.setShadowLayer(12, -4, -4, Color.BLUE);
 		}
 
 		// Si la grille est en mode check, colore les fautes en rouge

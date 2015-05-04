@@ -44,25 +44,26 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 	private List<NameValuePair>nameValuePairs = new ArrayList<NameValuePair>(2);
 	private int totallaurel,levels;
 	private String username;
+	private String iddevice;
 	//private EditText inputname;
 	public void onCreate(Bundle savedInstanceState) {
-		Log.e("SubmitScoreActivity", "1111");
+		//Log.e("SubmitScoreActivity", "1111");
 	    super.onCreate(savedInstanceState);
-	    Log.e("SubmitScoreActivity", "2222");
+	    //Log.e("SubmitScoreActivity", "2222");
 	    //setContentView(R.layout.submitscore);
 	    //Button feedSend = (Button)findViewById(R.id.feed_send);
 	    //feedSend.setOnClickListener(this);
 	    totallaurel=0;
 	    readPreferences();
-	    Log.e("SubmitScoreActivity", "3333");
+	    //Log.e("SubmitScoreActivity", "3333");
 	    final EditText inputname = new EditText(this);//.getApplicationContext()
 	    inputname.setText(this.username);
 	    //levels=totallaurel/60;
-	    Log.e("SubmitScoreActivity", "44444");
+	    //Log.e("SubmitScoreActivity", "44444");
 	    alertDialogBuilder = new AlertDialog.Builder(this);
 		// set title
 		alertDialogBuilder.setTitle("Nhập tên người chơi");
-		Log.e("SubmitScoreActivity", "55555");
+		//Log.e("SubmitScoreActivity", "55555");
 		//alertDialog
 		// set dialog message
 		alertDialogBuilder
@@ -121,6 +122,7 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 
 	    SharedPreferences.Editor editor = preferences.edit();
 	    editor.putString("username", username);
+	    editor.putString("iddevice", this.iddevice);
 	    editor.commit();
 		//preferences.
 		
@@ -162,17 +164,18 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 }
 	public void postMessage(String username) {
 	    // Create a new HttpClient and Post Header
-		setUsernamePreferences(username);
+		
 	    HttpClient httpclient = new DefaultHttpClient();
 	    String getPhoneNumber=getPhoneNumber();
-	    Log.e("runOnUiThreadrunOnUiThread333", getPhoneNumber);
+	    //Log.e("runOnUiThreadrunOnUiThread333", getPhoneNumber);
 	    String getDeviceName=getDeviceName();
 	    Log.e("runOnUiThreadrunOnUiThread444", getDeviceName);
-	    
+	    this.iddevice=getPhoneNumber;
+	    setUsernamePreferences(username);
 	    String url="http://ochu.binhyen.net/Home/updateRanking?iddevice="+getPhoneNumber+"&namedevice="+getDeviceName+"&username="+username+"&point="+totallaurel+"&levels="+levels;//name=hlhlk&number=0909009090&lon=105.803189&lat=20.991513
-	    Log.e("runOnUiThreadrunOnUiThread111", url);
+	    //Log.e("runOnUiThreadrunOnUiThread111", url);
 	    HttpPost httppost = new HttpPost(url);
-	    Log.e("runOnUiThreadrunOnUiThread222", url);
+	    //Log.e("runOnUiThreadrunOnUiThread222", url);
 	    try {
 	        //EditText feedMessage = (EditText)findViewById(R.id.feed_message);
 
@@ -187,7 +190,7 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 	        if (response.getStatusLine().getStatusCode() == 200) {
     		    runOnUiThread(new Runnable() {
     		        public void run() {
-    		        	Log.e("runOnUiThreadrunOnUiThread", "111");
+    		        	//Log.e("runOnUiThreadrunOnUiThread", "111");
     		        	Toast.makeText(SubmitScoreActivity.this, R.string.feedback_send_success, Toast.LENGTH_SHORT).show();
     		        }
     		    });
@@ -201,7 +204,7 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 	        while ((line = rd.readLine()) != null) { 
 	            total.append(line); 
 	        }
-	        Log.e("runOnUiThreadrunOnUiThread", "2222");
+	        //Log.e("runOnUiThreadrunOnUiThread", "2222");
 	        error = Html.fromHtml(total.toString()).toString();
 	    } catch (ClientProtocolException e) {
 	    	error = getResources().getString(R.string.exception_network);
@@ -212,14 +215,14 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 	    }
 	}
 	public void startSend(final String username) {
-		Log.e("startSend", "111");	
+		//Log.e("startSend", "111");	
 	        final ProgressDialog progress = ProgressDialog.show(SubmitScoreActivity.this, "", "Đang cập nhật..", true);
 	        new Thread((new Runnable() {
 	            @Override
 	            public void run() {
-	            	Log.e("startSend", "2222");	
+	            	//Log.e("startSend", "2222");	
 	    			postMessage(username);
-	    			Log.e("startSend", "33333");	
+	    			//Log.e("startSend", "33333");	
 	    			progress.dismiss();
 	    		    runOnUiThread(new Runnable() {
 	    		        public void run() {

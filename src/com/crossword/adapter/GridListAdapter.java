@@ -47,7 +47,7 @@ public class GridListAdapter extends BaseAdapter {
 	private int levels;
 	public GridListAdapter(Context c,int levels) {
 		this.inflater = (LayoutInflater)c.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-		typefaceTitle=Typeface.createFromAsset(c.getAssets(),"fonts/DroidSans-Bold.ttf");
+		typefaceTitle=Typeface.createFromAsset(c.getAssets(),"fonts/Roboto-Bold.ttf");
 		this.levels=levels;
 	}
 //	private void readPreferences() {

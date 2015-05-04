@@ -41,6 +41,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.media.AudioManager;
 import android.media.SoundPool;
@@ -263,13 +264,13 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	    
 	    this.width = this.grid.getWidth();
 	    this.height = this.grid.getHeight();
-	    Log.e("widthheight_________________________________", String.valueOf(this.width)+"x"+String.valueOf(this.height));
+	    //Log.e("widthheight_________________________________", String.valueOf(this.width)+"x"+String.valueOf(this.height));
 	    Display display = getWindowManager().getDefaultDisplay();
         int height = display.getHeight();
         int keyboardHeight = (int)(height / 4.4);
 		
 		this.txtDescription = (TextView)findViewById(R.id.description);
-		txtDescription.setTypeface(typefaceInfo);
+		txtDescription.setTypeface(typefaceTitle);
 		//this.txtUserinfo = (TextView)findViewById(R.id.userinfo);
         this.gridView = (GridView)findViewById(R.id.grid);
         this.gridView.setOnTouchListener(this);
@@ -377,7 +378,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
                 	this.currentPos = this.currentY * this.width + this.currentX;
             	}
 
-            	this.txtDescription.setText(this.currentWord.getDescription().toUpperCase()+"?");
+            	this.txtDescription.setText(this.currentWord.getDescription().toUpperCase()+"? ("+this.currentWord.getText().length()+")");
             	//int tempx=this.currentX;
             	//int tempy= this.currentY;
             	//if (this.horizontal) tempx=0; else tempy=0;
@@ -446,9 +447,10 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 			lp.leftMargin = location[0] - offsetX;
 			lp.topMargin = location[1] - offsetY;
 			this.keyboardOverlay.setLayoutParams(lp);
+			//this.keyboardOverlay.setTypeface(typefaceTitle);	
+			this.keyboardOverlay.setShadowLayer(22, -14, -14, Color.BLACK);
 			this.keyboardOverlay.setText(value);
-			this.keyboardOverlay.clearAnimation();
-			this.keyboardOverlay.setTypeface(typefaceTitle);			
+			this.keyboardOverlay.clearAnimation();			
 			this.keyboardOverlay.setVisibility(View.VISIBLE);
 		}
 	}
@@ -550,14 +552,14 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 //					alertDialog.hide();						
 //	        		GameActivity.this.finish();
 //	        		System.exit(0);	
-					Log.e("_____", "1111");
+					//Log.e("_____", "1111");
 					Intent intent = new Intent(GameActivity.this, SubmitScoreActivity.class);
-					Log.e("_____", "2222");
+					//Log.e("_____", "2222");
 					//intent.putExtra("filename", last);
 					startActivity(intent);
 					GameActivity.this.finish();
 	        		System.exit(0);
-					Log.e("_____", "33333");
+					//Log.e("_____", "33333");
 	        		
 				}
 			  });

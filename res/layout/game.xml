@@ -23,8 +23,9 @@
             android:layout_weight="0"
             android:gravity="center"            
             android:padding="5dp"
-            android:textColor="#ffff00"
-            android:textSize="18dp"
+            android:textColor="#ffffff"
+            android:textSize="18dip"
+            android:background="#808080"
             android:textStyle="bold"/>
         <com.crossword.keyboard.KeyboardView
             android:id="@+id/keyboard"
@@ -41,8 +42,8 @@
         android:layout_marginBottom="110dp"
         android:background="@drawable/keyboard_overlay"
         android:gravity="center"
-        android:textColor="#DDDDDD"
-        android:textSize="26sp"
+        android:textColor="#CC6600"
+        android:textSize="26dip"
         android:visibility="invisible" />
 
 </merge>

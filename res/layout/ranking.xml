@@ -19,6 +19,7 @@
 			        android:textStyle="bold"
 			        android:gravity="left"			        
 			        android:singleLine="true"
+			        android:background="#808080"
 			        android:width="25dip"			        
 			        /> 
 			        <!--username -->
@@ -26,40 +27,43 @@
 			        android:id="@+id/username"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:layout_marginLeft="10dip"			           
-			        android:textColor="#ffff00"
+			        android:layout_marginLeft="5dip"			           
+			        android:textColor="#ffffff"
 			        android:textStyle="bold"			       
 			        android:textSize="18dip"			              
 			        android:layout_toRightOf="@+id/no"
 			        android:gravity="left"
 			        android:singleLine="true"     
-			        android:width="145dip"       
+			        android:width="145dip" 
+			        android:background="#CC6600"      
 			        android:text="cobekinhcan" />
 				 <!--username -->
 			    <TextView
 			        android:id="@+id/point"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:layout_marginLeft="10dip"			           
-			        android:textColor="#ffff00"
+			        android:layout_marginLeft="5dip"			           
+			        android:textColor="#ffffff"
 			        android:textStyle="bold"			       
 			        android:textSize="18dip"			              
 			        android:layout_toRightOf="@+id/username"
 			        android:gravity="left"
 			        android:width="85dip"    
 			        android:singleLine="true"            
+			        android:background="#808080"
 			        android:text="121212" />	
 			     <TextView
 			        android:id="@+id/level"
 			        android:layout_width="wrap_content"
 			        android:layout_height="wrap_content"
-			        android:layout_marginLeft="10dip"			           
+			        android:layout_marginLeft="5dip"			           
 			        android:textColor="#ffffff"
 			        android:textStyle="bold"			       
 			        android:textSize="18dip"			              
 			        android:layout_toRightOf="@+id/point"
 			        android:gravity="left"
 			        android:width="35dip"    
+			        android:background="#808080"
 			        android:singleLine="true"            
 			        android:text="14" />
 </RelativeLayout>

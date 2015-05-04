@@ -189,7 +189,7 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	    	boolean found=false;
 	    	this.gridAdapter.clear();
 	    	for (File file: files) {
-	    		Log.e("FILE NAME", this.filenameplay+"_"+file.getName());
+	    		//Log.e("FILE NAME", this.filenameplay+"_"+file.getName());
 	    		if (this.filenameplay.toLowerCase().contains(","+file.getName().toLowerCase())) continue;
 		    	GridParser parser = new GridParser();
 		    	parser.setFileName(file.getName());
@@ -258,7 +258,7 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	{
 		 
 		   
-		Log.e("Dang download...", "Dang download list o chu");
+		//Log.e("Dang download...", "Dang download list o chu");
 		NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 		
 		int icon = R.drawable.icon;
@@ -327,7 +327,7 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	}
 	@Override
 	public void onDownloadTaskCompleted(boolean completed, int progress, String errorMessage) {
-		Log.e("Download ve...", "Download ve");
+		//Log.e("Download ve...", "Download ve");
 		tPr.interrupt();
     	progressBarStatus=-1;            	
     	dialog.dismiss();
