@@ -6,7 +6,7 @@
     <color name="wrong">#F00</color>
     <color name="right">#0F0</color>
     <color name="solved">#000000</color>
-    <color name="solvedbg">#0000ff</color>
+    <color name="solvedbg">#999</color>
     <color name="gridlist_divider">#BBB</color>
 
 </resources>
