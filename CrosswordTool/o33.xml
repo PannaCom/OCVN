@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 33</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>5/4/2015 2:51:57 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="1" y="0" description="Môn thi gồm Toán, Văn, Ngoại Ngữ">khoid</word>
+    <word x="0" y="1" description="ở Thụy Sĩ, được nhiều người xem như là thành phố toàn cầu, chủ yếu là do sự có mặt của nhiều tổ chức quốc tế ở đây, kể cả tổng hành dinh châu Âu của Liên Hiệp Quốc">geneva</word>
+    <word x="3" y="2" description="truyện ngắn kể những người lính Quân đội Nhân dân Việt Nam tại Quần đảo Trường Sa mà Trần Đăng Khoa gặp trong thời gian quân ngũ tại đây">daochim</word>
+    <word x="1" y="3" description="vua Lê Hoàn sáng lập ra triều đại này">tienle</word>
+    <word x="4" y="4" description="diễn viên nổi danh nhất trong thập niên 1990 của điện ảnh Việt Nam, với những vai diễn hành động và tâm lý">lyhung</word>
+    <word x="0" y="5" description="người đứng đầu trong bảy nhà hiền triết của Hy Lạp cổ đại, được coi là cha đẻ của khoa học">thales</word>
+    <word x="5" y="6" description="Ông là người Mỹ gốc Phi đầu tiên được bầu vào chức vụ tổng thống Hoa Kỳ">obama</word>
+    <word x="4" y="7" description="ban nhạc do nhạc sỹ Anh Quân và Huy Tuấn lập ra tại Đức">anhem</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="Huyện đảo này được mệnh danh là 'Vương quốc tỏi' vì đặc sản gỏi tỏi.">daolyson</word>
+  </vertical>
+</grid>

@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 6</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô Chữ Tổng Hợp</type>
+  <level>3</level>
+  <date>4/27/2015 9:10:09 PM</date>
+  <width>11</width>
+  <height>11</height>
+  <horizontal>
+    <word x="0" y="0" description="một nhà văn khôi hài, tiểu thuyết gia và là nhà diễn thuyết nổi tiếng của Mỹ">marktwain</word>
+    <word x="4" y="1" description="nằm trong máu, với hình dạng giống cái đĩa tròn hoặc hình bầu dục">tieucau</word>
+    <word x="2" y="2" description=" tiến hoá xã hội loài người, ngược lại là hoang dã">vanminh</word>
+    <word x="5" y="3" description="tên khoa học: bos gaurus, tên địa phương con min">botot</word>
+    <word x="1" y="4" description=" là một chất lưu mà các phân tử cấu tạo nên nó có liên kết không chặt so với liên kết rắn">chatlong</word>
+    <word x="3" y="5" description="là người nghệ sĩ biểu diễn, trình bày một vai diễn nhất định">dienvien</word>
+    <word x="2" y="6" description="tên của một nghệ sỹ nhân dân, cựu Giám đốc Nhà hát Nhạc vũ kịch Việt Nam">quyduong</word>
+    <word x="0" y="7" description="ca sĩ đã đạt giải xuất sắc Sao Mai Điểm Hẹn 2006 do hội đồng nghệ thuật trao tặng">anhkhoa</word>
+    <word x="2" y="8" description="là một ngành trong phân loại sinh học có các đặc điểm như cơ thể mềm, có thể có vỏ đá vôi che chở">thanmem</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="giải vô địch quần vợt Anh mở rộng">wimbledon</word>
+  </vertical>
+</grid>

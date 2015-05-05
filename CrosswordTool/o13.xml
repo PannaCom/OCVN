@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 13</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>4/29/2015 4:09:36 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="3" y="0" description=" là đảo đông dân nhất thế giới">java</word>
+    <word x="4" y="1" description="là một thiết bị dùng để quan sát các vật thể có kích thước nhỏ bé mà mắt thường không thể thấy">hienvi</word>
+    <word x="3" y="2" description="Những vận động viên tham gia môn thể thao này được gọi là các đô vật">vattudo</word>
+    <word x="4" y="3" description="là một dòng sản phẩm máy tính cá nhân được thiết kế, phát triển, và đưa ra thị trường bởi Apple Inc">mac</word>
+    <word x="1" y="4" description="khối thi gồm môn Văn, Toán (đề thi khối D) và Năng khiếu (nhân hệ số 1)">khoim</word>
+    <word x="2" y="5" description="khối thi gồm môn Văn, Năng khiếu, nhạc, ký xướng âm">khoin</word>
+    <word x="2" y="6" description="nhạc sỹ, Người ta gọi ông là 'người du ca' của Việt Nam">trantien</word>
+    <word x="0" y="7" description="là đảo lớn nhất nằm trong vịnh Nha Trang">hontre</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="các loại dầu thực vật như cọ dầu, hướng dương, ngô, đậu tương, ô liu chứa nhiều nhất vitamin này">vitamine</word>
+   </vertical>
+</grid>

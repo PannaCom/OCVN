@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grid>
+<name>Ô Chữ 2</name>
+<description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+<author>Ô Chữ Việt Nam</author>
+<type>Ô chữ tổng hợp</type>
+<level>2</level>
+<date>2/24/2015 2:59:54 PM</date>
+<width>9</width>
+<height>9</height>
+<horizontal>
+<word x="0" y="1" description="quốc hiệu nước ta do vua Hùng đặt">vanlang</word>
+<word x="0" y="4" description="kỷ niệm ngày bạn ra đời">sinhnhat</word>
+<word x="6" y="6" description="cố đô của nước ta">hue</word>
+<word x="0" y="8" description="quần đảo ngoài khơi tỉnh Khánh Hòa">truongsa</word>
+</horizontal>
+<vertical>
+<word x="0" y="7" description="trái ăn rất cay">ot</word>
+<word x="1" y="0" description="thủ đô hiện tại của Việt Nam">hanoi</word>
+<word x="2" y="6" description="mùa mát nhất trong năm">thu</word>
+<word x="4" y="0" description="vịnh được coi là kỳ quan thứ 7 thế giới">halong</word>
+<word x="6" y="4" description="United Kingdom là nước này">anh</word>
+<word x="7" y="2" description="Thuế giá trị gia tăng">vat</word>
+<word x="7" y="6" description="viết tắt của Hợp chủng quốc Hoa Kỳ">usa</word>
+</vertical>
+</grid>

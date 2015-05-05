@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 14</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>4/29/2015 4:23:15 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="5" y="0" description="tác giả của bài thơ Nhớ rừng, Tiếng trúc tuyệt vời, Tiếng sáo Thiên Thai..">thelu</word>
+    <word x="2" y="1" description=" nằm cách bến Tam Cốc 2 km, có nghĩa là động xanh">bichdong</word>
+    <word x="0" y="2" description="thủy điện này nằm trên Quốc lộ 29 đi Đắk Lắk">songhinh</word>
+    <word x="0" y="3" description="nơi bảo tồn di tích  trường đại học đầu tiên của Việt Nam">vanmieu</word>
+    <word x="4" y="4" description="Là điểm cực bắc của Việt Nam, nằm ở cao nguyên Đồng Văn, Hà Giang">lungcu</word>
+    <word x="2" y="5" description="là tỉnh cũ bao gồm 2 tỉnh Bắc Kạn và Thái Nguyên">bacthai</word>
+    <word x="2" y="6" description="cũng là một dạng của kịch mà những hành động diễn xuất của nhân vật hầu hết được truyền đạt toàn bộ qua âm nhạc và giọng hát">opera</word>
+    <word x="1" y="7" description="có Công tử ... lừng danh một thuở giàu có và chịu chơi">baclieu</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="là vị Hoàng đế thứ 3 của triều đại nhà Nguyễn">thieutri</word>
+  </vertical>
+</grid>

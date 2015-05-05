@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 10</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>2</level>
+  <date>4/29/2015 9:30:16 AM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="5" y="0" description="là một tổ chức di động được tạo thành từ thành phần hữu hình là các tế bào (hồng cầu, bạch cầu, tiểu cầu) và huyết tương.">mau</word>
+    <word x="4" y="1" description="là một quốc gia không giáp biển duy nhất tại vùng Đông Nam Á">lao</word>
+    <word x="5" y="2" description="mất năm 1924, là một lãnh tụ của phong trào cách mạng vô sản Nga">lenin</word>
+    <word x="1" y="3" description="Họ của cựu nữ thủ tướng Anh, người được mệnh danh là người đàn bà thép">margaret</word>
+    <word x="5" y="4" description="là một trong 3 công cụ tìm kiếm nhiều người dùng nhất ngoài Google và Bing">yahoo</word>
+    <word x="1" y="5" description="là bộ môn khoa học nghiên cứu về quá khứ">lichsu</word>
+    <word x="4" y="6" description=" là tên một nguyên tố hóa học trong bảng tuần hoàn nguyên tố có ký hiệu Si">silic</word>
+    <word x="0" y="7" description="là vị Hoàng đế thứ 2 của triều đại nhà Nguyễn trong lịch sử Việt Nam">minhmang</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="quốc gia có thủ đô là thủ đô là Kuala Lumpur">malaysia</word>
+  </vertical>
+</grid>

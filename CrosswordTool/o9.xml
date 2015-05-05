@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 9</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>4/28/2015 4:21:02 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="2" y="0" description="là quốc hiệu của nước Việt Nam tồn tại từ năm 1054 đến năm 1400">daiviet</word>
+    <word x="0" y="1" description="là một quốc gia nằm ở mũi phía nam lục địa Châu Phi. Nước này giáp biên giới với Namibia, Botswana, Zimbabwe, Mozambique, Swaziland">namphi</word>
+    <word x="5" y="2" description="thủ đô của đất nước Nhật Bản">tokyo</word>
+    <word x="1" y="3" description="đảo quốc sư tử là tên gọi của đất nước này">singapore</word>
+    <word x="1" y="4" description="là một nhóm các secosteroid tan được trong chất béo, có chức năng làm tăng cường khả năng hấp thu canxi và phosphat ở đường ruột">vitamind</word>
+    <word x="0" y="5" description="là một con sông chảy qua địa phận các huyện Minh Hóa, Tuyên Hoá, Quảng Trạch, Bố Trạch để đổ ra biển Đông">songgianh</word>
+    <word x="1" y="6" description="nước này phía bắc giáp Trung Quốc, phía tây giáp Lào và Campuchia, phía tây nam giáp vịnh Thái Lan">vietnam</word>
+    <word x="2" y="7" description="tỉnh cũ được hợp nhất từ tỉnh Phú Yên, tỉnh Khánh Hòa">phukhanh</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="là một nhóm các vitamin hòa tan trong chất béo, giống nhau về cấu trúc mà cần cho có một vai trò quan trọng trong sự điều chỉnh sự đông đặc cúa máu">vitamink</word>
+  </vertical>
+</grid>

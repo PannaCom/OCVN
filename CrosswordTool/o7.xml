@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 7</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>4/6/2015 2:59:54 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="2" y="0" description="Ông là Tổng thư ký đầu tiên của Hội nhạc sĩ Việt Nam khóa I và II từ 1958 đến 1983">donhuan</word>
+    <word x="0" y="1" description="tác giả của nhiều ca khúc nổi tiếng như Sơn nữ ca (1948), Tìm em, Lời người ra đi (1950)">tranhoan</word>
+    <word x="5" y="2" description="là nhà nước thứ hai của Việt Nam kế tiếp sau thời kỳ nhà nước Văn Lang của các vua Hùng">aulac</word>
+    <word x="3" y="3" description="là quốc hiệu của Việt Nam dưới thời nhà Tiền Lý">vanxuan</word>
+    <word x="1" y="4" description="một thời gọi là Cao nguyên Trung phần Việt Nam là khu vực cao nguyên bao gồm 5 tỉnh">taynguyen</word>
+    <word x="2" y="5" description="là quốc hiệu của nước Việt Nam tồn tại từ năm 1054 đến năm 1400">daiviet</word>
+    <word x="4" y="6" description="là một trong những kỳ thi chuẩn hóa cho việc đăng ký vào một số đại học tại Hoa Kỳ">sat</word>
+    <word x="1" y="7" description="viết tắt của Hiệp hội các Quốc gia Đông Nam Á">asean</word>
+  </horizontal>
+  <vertical>    
+    <word x="5" y="0" description="Ông nổi tiếng với hàng loạt ca khúc như 'Bài ca xây dựng', 'Hò kéo pháo'...">hoangvan</word>
+  </vertical>
+</grid>

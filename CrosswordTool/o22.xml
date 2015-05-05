@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 22</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>4/30/2015 4:31:39 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="0" y="0" description="câu lạc bộ bóng đá vô địch UEFA Champions League 2 năm liên tiếp: 1964, 1965">intermilan</word>
+    <word x="4" y="1" description="ca sỹ được mệnh danh là 'Nữ hoàng V-pop'">mytam</word>
+    <word x="1" y="2" description="là một đại kiện tướng cờ vua người Nga và được ví là kì thủ mạnh nhất trong lịch sử, vô địch thế giới từ 1985 đến 1993">kasparov</word>
+    <word x="3" y="3" description="là quốc gia có diện tích lớn thứ hai trên thế giới, và nằm ở cực bắc của Bắc Mỹ">canada</word>
+    <word x="3" y="4" description="là một thành phố chính của phía bắc Ý và là một trong những thành phố phát triển nhất châu Âu">milano</word>
+    <word x="1" y="5" description="được nhiều người ở Đông Nam Á xem như là 'vua của các loại trái cây'">saurieng</word>
+    <word x="0" y="6" description="quốc gia đứng thứ 4 thế giới và dân số">indonesia</word>
+    <word x="3" y="7" description="con sông mà phần đầu nguồn tại Trung Quốc có tên là Bàn Long Giang">songlo</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="là món mì khô chiên trước với dầu cọ, thường ăn sau khi dội nước sôi lên 3-5 phút">myanlien</word>
+  </vertical>
+</grid>

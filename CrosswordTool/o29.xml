@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 29</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>5/2/2015 9:13:02 AM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="2" y="0" description="là quê hương của món thịt bò nổi tiếng thế giới">kobe</word>
+    <word x="3" y="1" description="tỉnh là cửa ngõ nối liền Đông Nam Bộ với khu vực Đồng bằng sông Cửu Long">longan</word>
+    <word x="0" y="2" description="Lý Nam Đế là người sáng lập ra triều đại này">tienly</word>
+    <word x="1" y="3" description="là tỉnh đầu tiên ở Đồng bằng sông Cửu Long có 2 thành phố trực thuộc tỉnh là Long Xuyên và Châu Đốc">angiang</word>
+    <word x="4" y="4" description="là một môn khoa học tự nhiên tập trung vào sự nghiên cứu vật chất và chuyển động của nó trong không gian và thời gian">vatly</word>
+    <word x="2" y="5" description="là những nguyên tố hóa học dễ nhận electron, ngoại trừ hiđrô, nằm bên phải bảng tuần hoàn. Hầu hết không dẫn điện">phikim</word>
+    <word x="0" y="6" description="là người khởi xướng khởi nghĩa Lam Sơn chiến thắng quân đội nhà Minh và trở thành vị Hoàng đế đầu tiên của triều đại Hậu Lê">lethaito</word>   
+  </horizontal>
+  <vertical>
+    <word x="4" y="0" description="quốc gia được đặt theo tên nhà cách mạng Simon Bolivar">bolivia</word>
+  </vertical>
+</grid>

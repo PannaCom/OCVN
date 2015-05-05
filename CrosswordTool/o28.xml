@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 28</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>5/1/2015 4:37:23 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="0" y="0" description="là eo biển nằm giữa bán đảo Mã Lai và đảo Sumatra, nối Biển Đông và Ấn Độ Dương">malacca</word>
+    <word x="3" y="1" description="đây là triệu đại tồn tại lâu đời nhất trong lịch sử Trung Quốc">chu</word>
+    <word x="2" y="2" description="là tổ chức dân cư cấp cơ sở tại các vùng quê Việt Nam, bao gồm nhiều xóm">thon</word>
+    <word x="1" y="3" description="tên của một vị là con của thần Zeus và Maia, cũng là hãng thời trang cao cấp của thế giới">hermes</word>
+    <word x="0" y="4" description="một tên gọi khác của quả Na">mangcauta</word>
+    <word x="0" y="5" description="sông còn có các tên gọi khác như Hồng Hà, hay sông Cái ">songhong</word>
+    <word x="3" y="6" description="bài hát về dòng sông này được Thanh Hóa chọn làm bài tỉnh ca, là nhạc hiệu của đài phát thanh truyền hình tỉnh Thanh Hóa">songma</word>
+    <word x="0" y="7" description="nhà thám hiểm Colombo đã tìm ra châu lục này">chaumy</word>
+  </horizontal>
+  <vertical>
+    <word x="4" y="0" description="Tên gọi là tượng hình cho trạng thái lông của quả loài cây này">chomchom</word>
+  </vertical>
+</grid>

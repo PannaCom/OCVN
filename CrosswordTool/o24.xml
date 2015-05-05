@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 24</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>4/30/2015 9:24:51 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="5" y="0" description="còn gọi là dân tộc Mèo">hmong</word>
+    <word x="0" y="1" description="chùa còn có tên khác là Diên Hựu Tự hoặc Liên Hoa Đài">chuamotcot</word>
+    <word x="0" y="2" description="tên thật của vị hoàng đế đầu tiên của nhà Tiền Lê">lehoan</word>
+    <word x="2" y="3" description="là một quốc gia tại Nam Mỹ, Nước này tiếp giáp với Brasil ở phía bắc, Argentina ở phía tây">uruguay</word>
+    <word x="2" y="4" description="thường mọc trên bãi biển, mọc trên bờ cát trắng rất đẹp">philao</word>
+    <word x="1" y="5" description="ngọn núi này ở Huế, các đời vua chúa Nguyễn đều lấy đó làm án(chắn ngang) giữ thành">ngubinh</word>
+    <word x="3" y="6" description="là con sông quan trọng nhất của tiểu lục địa Ấn Độ, sông linh thiêng nhất của Ấn Độ Giáo">hang</word>
+    <word x="5" y="7" description="là chỉ số so sánh, định lượng về mức thu nhập, tỷ lệ biết chữ, tuổi thọ và một số nhân tố khác của các quốc gia trên thế giới">hdi</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="Là dãy núi nổi tiếng nhất Hà Tĩnh">honglinh</word>
+  </vertical>
+</grid>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 30</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>5/2/2015 9:57:51 AM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="2" y="0" description="Đây là thành phố lớn nhất tại Brasil,  là thành phố đông dân nhất ở Nam Bán Cầu">saopaulo</word>
+    <word x="0" y="1" description="từ này chỉ cố đô Huế, các vua chúa Nguyễn ngày xưa đóng đô ở đây">phuxuan</word>
+    <word x="1" y="2" description="ca sỹ, thường được người hâm mộ gọi thân mật là 'Anh Hai' và thường viết là 'A2'">lamtruong</word>
+    <word x="3" y="3" description="chất này các nguyên tử, phân tử có thể tự do chuyển động trong không gian. Lực tương tác giữa các hạt rất yếu">chatkhi</word>
+    <word x="1" y="4" description="ông là giáo sư, Nghệ sĩ Nhân dân, từng giữ chức vụ Thứ trưởng Bộ văn hóa thông tin Việt Nam">trungkien</word>
+    <word x="4" y="5" description="là loài cây thường xanh, có thể làm cây trồng trong nhà, cây cảnh, bonsai,cây ra trái hay được trưng bày vào dịp Tết">quat</word>
+    <word x="0" y="6" description="là hoạt động thể chất hay kỹ năng dành cho mục đích giải trí, thi đấu, đạt đến vinh quang, rèn luyện bản thân, tăng cường sức khỏe">thethao</word>
+    <word x="2" y="7" description="là thành phố đông dân nhất tại Hoa Kỳ">newyork</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="Đất nước này giáp với Argentina ở phía nam và tây nam, Brasil ở phía đông và đông bắc và Bolivia ở phía tây bắc">paraguay</word>
+  </vertical>
+</grid>

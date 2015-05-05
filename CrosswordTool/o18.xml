@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 18</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+<date>4/29/2015 9:54:43 PM</date>
+<width>10</width>
+<height>10</height>
+<horizontal>
+<word x="0" y="0" description="là Giáo sư, Tiến sĩ Khoa học toán học đầu tiên của Việt Nam">levanthiem</word>
+<word x="2" y="1" description="là người được chọn vào vị trí cao nhất trong 1 cuộc thi nhan sắc dành cho phái nữ">hoahau</word>
+<word x="3" y="2" description="ngày quốc tế phụ nữ nằm trong tháng này">thangba</word>
+<word x="0" y="3" description="là một họa sĩ Việt Nam nổi tiếng, tác giả bức Thiếu nữ bên hoa huệ">tongocvan</word>
+<word x="5" y="4" description="vương quốc hoa tulip">halan</word>
+<word x="1" y="5" description="dấu câu dùng ở cuối câu tường thuật.">daucham</word>
+<word x="4" y="6" description="sinh năm 1623, là nhà toán học, vật lý, nhà phát minh, tác gia, và triết gia Pháp">pascal</word>
+<word x="2" y="7" description="là một đạo diễn phim người Đài Loan đã từng ba lần đoạt giải Oscar">lyan</word>
+</horizontal>
+<vertical>
+<word x="5" y="0" description="là con sông lớn nhất tỉnh Quảng Trị">thachhan</word>
+</vertical>
+</grid>

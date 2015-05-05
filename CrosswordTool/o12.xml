@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 12</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>4/29/2015 3:50:25 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="3" y="0" description="còn gọi là cờ quốc tế">covua</word>
+    <word x="1" y="1" description="một trong 64 dân tộc Việt Nam, còn gọi là Người Bru">vankieu</word>
+    <word x="2" y="2" description="Thủ đô kháng chiến, là nơi trú đóng của đầu não Đảng Cộng sản Việt Nam thời trước khi khởi nghĩa năm 1945">vietbac</word>
+    <word x="1" y="3" description="Nước này tiếp giáp với Slovakia về phía bắc, Áo về phía tây, Slovenia về phía tây nam">hungary</word>
+    <word x="3" y="4" description="nước này giáp với Ukraina và Moldova về phía bắc và đông bắc; giáp với Hungary về phía tây bắc">romania</word>
+    <word x="1" y="5" description="nước này giáp với Liên bang Nga về phía Đông, giáp với Belarus về phía Bắc">ukraina</word>
+    <word x="3" y="6" description="tỉnh này có biệt danh là Xứ Dừa">bentre</word>
+    <word x="0" y="7" description="Năm 1010, vua Lý Công Uẩn rời đô từ...(Ninh Bình) về thành ...(Hà Nội)">hoaludaila</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="cơ thể có thể tổng hợp chất này khi da được tiếp xúc dưới ánh nắng mặt trời">vitamind</word>
+  </vertical>
+</grid>

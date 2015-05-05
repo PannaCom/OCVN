@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 32</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>5/3/2015 4:52:37 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="1" y="0" description="Xét về dân số thì nó là lục địa xếp thứ tư thế giới">chauau</word>
+    <word x="2" y="1" description="có khả năng xuyên qua nhiều vật chất nên thường được dùng trong chụp ảnh y tế, nghiên cứu tinh thể, kiểm tra hành lý hành khách trong ngành hàng không">tiax</word>
+    <word x="3" y="2" description="là thành phố đông dân thứ ba tại Hoa Kỳ">chicago</word>
+    <word x="2" y="3" description="là một ca sĩ Việt Nam đoạt giải nhất Tiếng hát Truyền hình thành phố Hồ Chí Minh năm 2000">ductuan</word>
+    <word x="0" y="4" description="Tỉnh được xem là một tỉnh cửa ngõ đi vào vùng kinh tế Đông Nam Bộ - vùng kinh tế phát triển và năng động nhất cả nước">dongnai</word>
+    <word x="0" y="5" description="nhà bác học Hy Lạp(khoảng 100-178), Các quan điểm của ông về cấu trúc của thế giới đã làm nền tảng cho thuyết địa tâm trong nhiều thế kỷ">ptoleme</word>
+    <word x="1" y="6" description="là một quốc gia cổ có lãnh thổ bao gồm một số phần của các tỉnh Quảng Đông, Quảng Tây của Trung Quốc hiện đại và phần lớn miền Bắc Việt Nam, dưới sự cai trị của Nhà Triệu">namviet</word>
+    <word x="0" y="7" description="là một cây cầu bắc qua sông Hồng Hà Nội, nối quận Hai Bà Trưng và quận Long Biên">cauvinhtuy</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="là một phân tử chứa cả nhóm amin và axít cacboxylic">axitamin</word>
+  </vertical>
+</grid>

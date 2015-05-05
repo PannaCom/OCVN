@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+<name>Ô Chữ 34</name>
+<description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+<author>Ô Chữ Việt Nam</author>
+<type>Ô chữ tổng hợp</type>
+<level>3</level>
+<date>5/5/2015 8:17:38 AM</date>
+<width>10</width>
+<height>10</height>
+<horizontal>
+<word x="1" y="0" description="cầu thủ bóng đá đẹp trai, thời trang, là đội trưởng đội tuyển Anh từ ngày 15 tháng 11 năm 2000 đến ngày 2 tháng 7 năm 2006">beckham</word>
+<word x="7" y="1" description="viết tắt của Liên đoàn bóng đá Đông Nam Á">aff</word>
+<word x="3" y="3" description="viết tắt của tổ chức y tế thế giới">who</word>
+<word x="1" y="4" description="tiếng Hy Lạp có nghĩa là tím, thiếu chất này sẽ dẫn đến bệnh bướu cổ">iot</word>
+<word x="6" y="6" description="viết tắt của Tổ chức Lương thực và Nông nghiệp Liên Hiệp Quốc">fao</word>
+<word x="1" y="8" description="viết tắt của đầu tư trực tiếp nước ngoài">fdi</word>
+<word x="6" y="8" description="viết tắt của Liên đoàn bóng chuyền quốc tế">fivb</word>
+<word x="3" y="9" description="từ đầu tiên của hãng nước ngọt giải khát hàng đầu thế giới được pha chế từ lá của cây này">coca</word>
+</horizontal>
+<vertical>
+<word x="1" y="0" description="thủ đô của nước Đức">berlin</word>
+<word x="3" y="3" description="viết tắt của tổ chức thương mại thế giới">wto</word>
+<word x="3" y="8" description="viết tắt của từ vi mạch, hay còn gọi là chip trong các máy tính">ic</word>
+<word x="4" y="0" description="lời dạy của Đức Phật được ghi chép lại và truyền lại cho các thế hệ sau">kinh</word>
+<word x="6" y="6" description="viết tắt của liên đoàn bóng đá thế giới">fifa</word>
+<word x="7" y="0" description="Vào năm 2000, sách kỷ lục Guinness đã ghi nhận ca sĩ này 'nữ ca sĩ thành công nhất mọi thời đại' với tổng số album đã bán ra trên khắp thế giới là 211.5 triệu">madonna</word>
+<word x="9" y="1" description="viết tắt của Liên đoàn Cờ vua Quốc tế">fide</word>
+</vertical>
+</grid>

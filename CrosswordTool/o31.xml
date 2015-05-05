@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 31</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>5/2/2015 10:45:51 AM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="2" y="0" description="là hành tinh thứ tư tính từ Mặt Trời trong Thái Dương Hệ, Nó thường được gọi với tên khác là 'Hành tinh Đỏ'">saohoa</word>
+    <word x="0" y="1" description="là một sáng tác năm 1979 của nhạc sĩ Thế Song viết về người lính nơi hải đảo">noidaoxa</word>
+    <word x="1" y="2" description="bộ từ điển này là bộ sách tra cứu tổng quát về nhiều lĩnh vực kiến thức nhân loại">bachkhoa</word>
+    <word x="2" y="3" description="là tỉnh ít dân nhất cả nước">backan</word>
+    <word x="0" y="4" description="những người thuộc tổ chức này được gọi là viện sỹ, là nơi tập trung các nhà khoa học hàng đầu quốc gia">vienhanlam</word>
+    <word x="1" y="5" description="Xếp sau Mặt Trăng, nó là thiên thể tự nhiên sáng nhất trong bầu trời tối">saokim</word>
+    <word x="1" y="6" description="Được mệnh danh là biển ấm nhất Trái Đất">bienden</word>
+    <word x="4" y="7" description="được thừa nhận rộng rãi như là giải thưởng quốc tế danh giá nhất một người có thể nhận được trong lĩnh vực được trao">nobel</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description=" là vùng địa lý và là tỉnh có diện tích lớn nhất, cũng lại là đảo lớn thứ hai của Nhật Bản">hokkaido</word>
+  </vertical>
+</grid>

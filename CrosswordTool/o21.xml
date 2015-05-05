@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 21</name>
+  <description>Tổng hợp kiến thức điện ảnh...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ điện ảnh</type>
+  <level>3</level>
+  <date>4/30/2015 10:39:50 AM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="0" y="0" description="diễn viên võ thuật bắt đầu nổi danh với một loạt các phim về Hoàng Phi Hồng">lylienkiet</word>
+    <word x="0" y="3" description="tên của đạo diễn phim Bá Vương biệt cơ, bộ phim đầu tiên của Trung Quốc được giải Cành cọ vàng, LHP Cannes">khaica</word>
+    <word x="1" y="5" description="tên của nữ diễn viên được biết đến nhiều nhất với vai Vương Ngữ Yên trong Tân Thiên Long Bát Bộ và Tiểu Long Nữ trong Thần Điêu Đại Hiệp">diecphi</word>
+    <word x="3" y="7" description="là một trong 2 nữ diễn viên chính phim Họa Bì 2008">chautan</word>
+    <word x="0" y="9" description="Vai diễn này là vị quan chính trực, thanh liêm trong phim này đã giúp Lý Bảo Điền nổi tiếng và được yêu mến.">luugu</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="tên của diễn viên đóng vai Lý Mộ Bạch trong phim Ngọa Hổ Tàng Long năm 2000">nhuanphat</word>
+    <word x="9" y="0" description="nam diễn viên võ thuật, hành động hàng đầu Châu Á với các phim như Túy Quyền, Câu chuyện cảnh sát, Giờ cao điểm..">thanhlong</word>
+  </vertical>
+</grid>

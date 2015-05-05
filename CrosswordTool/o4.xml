@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<grid>
+<name>Ô Chữ 4</name>
+<description>Tổng hợp kiến thức bóng đá</description>
+<author>ô chữ Việt Nam</author>
+<type>Ô chữ bóng đá</type>
+<level>2</level>
+<date>4/11/2015 5:05:19 PM</date>
+<width>10</width>
+<height>10</height>
+<horizontal>
+<word x="1" y="0" description="quả bóng vàng châu âu 2014">ronaldo</word>
+<word x="2" y="1" description="cầu thủ được internet bình chọn là xuất sắc nhất thế kỷ 20">maradona</word>
+<word x="4" y="2" description="có nghĩa là bàn thắng trong tiếng Anh">goal</word>
+<word x="3" y="3" description="worldcup bóng đá năm 1986 được tổ chức ở nước này">mexico</word>
+<word x="0" y="4" description="mùa giải 2003-2004 clb bóng đá này lập kỷ lục 49 trận bất bại">arsenal</word>
+<word x="2" y="5" description="Tên của thủ môn bóng đá Schmeichel">peter</word>
+<word x="4" y="6" description="đội bóng nước này vô địch worldcup 1982">italy</word>
+<word x="3" y="7" description="cầu thủ đội bóng Barcelona và Tây Ban Nha đá ở vị trí tiền vệ trung tâm">iniesta</word>
+<word x="1" y="8" description="quả bóng vàng châu âu và Fifa năm 1998">zidane</word>
+</horizontal>
+<vertical>
+<word x="4" y="0" description="là quốc gia lớn thứ hai ở Nam Mỹ theo diện tích đất">argentina</word>
+</vertical>
+</grid>

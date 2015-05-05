@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 3</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>2</level>
+  <date>2/23/2015 2:59:54 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="3" y="0" description="tỉnh Tây Nguyên có thành phố Đà Lạt">lamdong</word>
+    <word x="4" y="1" description="là thành phố lớn nhất, nổi tiếng nhất và lâu đời nhất của nước Úc">sydney</word>
+    <word x="1" y="2" description="vitamin này chứa nhiều nhất trong Gan, lòng đỏ trứng, bơ, sữa, pho mát, rau muống, rau ngót, rau cải xanh.">vitamina</word>
+    <word x="0" y="3" description="là quá trình biến đổi các chất phức tạp của thức ăn thành các chất có cấu tạo đơn giản">tieuhoa</word>
+    <word x="4" y="4" description="là nguyên tố hóa học kim loại màu trắng thuộc nhóm Actini, có số nguyên tử là 92 trong bảng tuần hoàn, được kí hiệu là U">urani</word>
+    <word x="1" y="5" description="là vị Hoàng đế đã thành lập nhà Nguyễn">gialong</word>
+    <word x="0" y="6" description="tác giả tập thơ Đất nở hoa (1960)">huycan</word>
+    <word x="2" y="7" description="bao gồm các số tự nhiên dương (1, 2, 3, …), các số đối của chúng (−1, −2, −3,...) và số không">songuyen</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="giải quần vợt US Open">mymorong</word>
+  </vertical>
+</grid>

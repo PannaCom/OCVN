@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 23</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>4/30/2015 8:46:01 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="0" y="0" description="ở nơi này mọi hướng đều là hướng Nam">baccuc</word>
+    <word x="0" y="1" description="biển có khu vực chứa nước bị hãm kín, có thể coi là biển có nước có độ mặn cao nhất trên thế giới.">bienchet</word>
+    <word x="3" y="2" description="Australia là nước duy nhất bao trùm châu lục này">chauuc</word>
+    <word x="3" y="3" description="là bức tường thành nổi tiếng của Trung Quốc liên tục được xây dựng bằng đất và đá từ thế kỷ 5 TCN cho tới thế kỷ 16">vanly</word>
+    <word x="1" y="4" description="là nơi có khối lượng bằng không và không có áp suất">chankhong</word>
+    <word x="5" y="5" description="Đây là nơi ra đời của nền dân chủ, triết học phương Tây và Thế vận hội Olympic">hylap</word>
+    <word x="3" y="6" description="là thành phố đông dân thứ 3 của Pháp">lyon</word>
+    <word x="1" y="7" description="là châu lục đứng thứ ba trên thế giới về dân số và diện tích">chauphi</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="là những động vật không có xương sống, có một bộ xương ngoài, một cơ thể chia đốt và những đốt phụ">chankhop</word>
+  </vertical>
+</grid>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 16</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>4/29/2015 9:01:19 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="5" y="0" description="là kinh đô xưa kia của Nhật Bản">kyoto</word>
+    <word x="3" y="1" description="phim năm 2008 có Triệu Vy và Châu Tấn đóng">hoabi</word>
+    <word x="0" y="2" description=" giáp với România về phía bắc, giáp với Serbia và Cộng hòa Macedonia về phía tây">bungaria</word>
+    <word x="0" y="3" description="tỉnh có dân số và diện tích đều đứng thứ 6 trong khu vực Đồng bằng sông Cửu Long">soctrang</word>
+    <word x="2" y="4" description="là dòng sông tuyệt đẹp của vùng đất miền Trung. Tên sông có nghĩa là 'sự rực rỡ của ánh sáng mặt trời'">nhatle</word>
+    <word x="1" y="5" description="thuốc chống tiêu chảy do vi khuẩn, ký sinh trùng đường ruột">berberin</word>
+    <word x="0" y="6" description="từ Hán Việt, có nghĩa là công thức máu">huyetdo</word>
+    <word x="0" y="7" description="môn đấu với nhau bằng cách cố gắng điều khiển một quả bóng hay một đĩa tròn và cứng vào trong lưới hay khung thành của đội kia">khucconcau</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="là một môn võ thuật truyền thống của vùng Okinawa Nhật Bản">karatedo</word>
+  </vertical>
+</grid>

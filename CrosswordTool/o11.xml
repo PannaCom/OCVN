@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 11</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>2</level>
+  <date>4/29/2015 10:12:56 AM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="3" y="0" description="Ông là tướng bơi lặn giỏi, đã sử dụng tài của mình để đục thuyền của quân xâm lược Nguyên Mông.">yetkieu</word>
+    <word x="0" y="1" description="ca sỹ khởi đầu sự nghiệp với bài hit Thì thầm mùa xuân">mylinh</word>
+    <word x="4" y="2" description="màu này tiếng Anh gọi là blue hoặc green">xanh</word>
+    <word x="3" y="3" description="quốc hiệu nước ta do vua Lý Nam Đế đặt">vanxuan</word>
+    <word x="1" y="4" description="là con sông dài thứ hai ở Trung Quốc với chiều dài 5.464 km sau sông Dương Tử">hoangha</word>
+    <word x="3" y="5" description="tác giả của tập thơ Từ Ấy(1946) và Việt Bắc(1954)">tohuu</word>
+    <word x="3" y="6" description="loài hoa biểu tượng cho sự thuần khiết và trong sạch">hoasen</word>
+    <word x="0" y="7" description="bên cạnh hoa đào, hoa này là biểu tượng của ngày Tết Việt Nam">hoamai</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="tháng chỉ có 28 ngày hoặc 29 ngày nếu là năm nhuận">thanghai</word>
+  </vertical>
+</grid>

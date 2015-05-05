@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<grid>
+  <name>Ô Chữ 25</name>
+  <description>Tổng hợp kiến thức văn hóa, địa lý, lịch sử, xã hội...</description>
+  <author>Ô Chữ Việt Nam</author>
+  <type>Ô chữ tổng hợp</type>
+  <level>3</level>
+  <date>4/30/2015 9:53:40 PM</date>
+  <width>10</width>
+  <height>10</height>
+  <horizontal>
+    <word x="2" y="0" description="đã từng là kinh đô của 6 triều đại phong kiến Trung Hoa và là thủ đô của Trung Hoa Dân Quốc">namkinh</word>
+    <word x="4" y="1" description="nước có thủ đô là thành phố Berne và hai trung tâm kinh tế lớn là Geneve và Zurich">thuysi</word>
+    <word x="4" y="2" description="là động vật chạy nhanh nhất hơn bất kỳ động vật nào trên mặt đất">bao</word>
+    <word x="5" y="3" description="là con sông dài nhất trên thế giới">nin</word>
+    <word x="0" y="4" description="động vật có các cơ quan, tổ chức mô rất đơn giản, chỉ với hai lớp tế bào, bên ngoài và bên trong">ruotkhoang</word>
+    <word x="2" y="5" description="là nơi xuất phát phong trào nông dân khởi nghĩa vào thế kỷ 18 với tên tuổi của anh hùng áo vải Nguyễn Huệ">binhdinh</word>
+    <word x="1" y="6" description="là sông dài thứ hai trên thế giới">amazon</word>
+    <word x="0" y="7" description="Nơi đây còn được biết đến với câu chuyện tình lãng mạn của Romeo và Juliet">verona</word>
+  </horizontal>
+  <vertical>
+    <word x="5" y="0" description="Trường Sa và Nha Trang thuộc tỉnh này">khanhhoa</word>
+  </vertical>
+</grid>
