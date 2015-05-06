@@ -320,7 +320,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
             	this.downPos = position;
                 this.downX = this.downPos % this.width;
                 this.downY = this.downPos / this.width;
-                System.out.println("ACTION_DOWN, x:" + this.downX + ", y:" + this.downY + ", position: " + this.downPos);
+                //System.out.println("ACTION_DOWN, x:" + this.downX + ", y:" + this.downY + ", position: " + this.downPos);
 
                 clearSelection();
                 
@@ -437,7 +437,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 
 	@Override
 	public void onKeyDown(String value, int location[], int width) {
-		System.out.println("onKeyDown: " + value + ", insert in: " + currentX + "x" + currentY);
+		//System.out.println("onKeyDown: " + value + ", insert in: " + currentX + "x" + currentY);
 
 		// Deplace l'overlay du clavier
 		if (value.equals(" ") == false) {
@@ -457,7 +457,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 
 	@Override
 	public void onKeyUp(String value) {
-		System.out.println("onKeyUp: " + value + ", insert in: " + currentX + "x" + currentY);
+		//System.out.println("onKeyUp: " + value + ", insert in: " + currentX + "x" + currentY);
 
 		// Efface l'overlay du clavier
 		if (value.equals(" ") == false) {
@@ -631,7 +631,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 			e1.printStackTrace();
 		}
 
-		System.out.println(sb);
+		//System.out.println(sb);
 	}
 
 	@Override
