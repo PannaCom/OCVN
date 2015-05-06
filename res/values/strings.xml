@@ -7,7 +7,7 @@
     <string name="exception_grid_not_found">Level này chưa có</string>
     <string name="exception_sav_not_found">Không tìm thấy bài này</string>
     <string name="exception_unknow">Có lỗi xảy ra</string>
-    <string name="exception_network">Không kết nối được, kiểm tra đường truyền</string>
+    <string name="exception_network">Không kết nối được, kiểm tra đường truyền wifi, 3G</string>
     <string name="dialog_display_correction">Bạn có chắc chắn muốn hiển thị màn hình?</string>
     <string name="yes">Có</string>
     <string name="clear">Xóa</string>

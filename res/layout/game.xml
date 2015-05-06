@@ -27,7 +27,7 @@
             android:textSize="18dip"
             android:background="#808080"
             android:textStyle="bold"/>
-        <com.crossword.keyboard.KeyboardView
+        <com.giaidoochu.keyboard.KeyboardView
             android:id="@+id/keyboard"
             android:layout_width="fill_parent"
             android:layout_height="100dp"

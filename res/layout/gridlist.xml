@@ -40,14 +40,14 @@
 			        android:textStyle="bold"
 			        android:gravity="left"			        
 			        android:singleLine="true"		        
-			        			        
+			        android:visibility="gone"			        
 			        /> 
 			        <!--username -->
 			    <TextView
 			        android:id="@+id/name"
 			        android:layout_width="fill_parent"
 			        android:layout_height="wrap_content"
-			        android:layout_marginLeft="10dip"			           
+			        android:layout_marginLeft="1dip"			           
 			        android:textColor="#ffffff"
 			        android:textStyle="bold"			       
 			        android:textSize="20dip"			              
@@ -67,7 +67,8 @@
 			        android:textSize="18dip"			              
 			        android:layout_toRightOf="@+id/name"
 			        android:gravity="left"			            
-			        android:singleLine="true"            
+			        android:singleLine="true"           
+			        android:visibility="gone" 
 			        android:text="Độ khó" />				     
 			     
 	</LinearLayout>

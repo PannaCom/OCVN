@@ -4,6 +4,7 @@
     android:layout_height="fill_parent"
     android:background="@drawable/background"
     android:baselineAligned="false"
+    android:id="@+id/mainGame"
     android:orientation="vertical" >
 
     <LinearLayout

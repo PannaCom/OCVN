@@ -99,11 +99,11 @@
 			        android:layout_marginLeft="10dip"			           
 			        android:textColor="#ffffff"
 			        android:textStyle="bold"			       
-			        android:textSize="20dip"			              
+			        android:textSize="18dip"			              
 			        android:layout_toRightOf="@+id/no"
 			        android:gravity="left"
 			        android:singleLine="true"     
-			        android:width="105dip"       
+			        android:width="135dip"       
 			        android:text="Xếp hạng" />
 				 <!--username -->
 			    <TextView
@@ -124,7 +124,7 @@
                     android:shadowDy="1"
                     android:shadowRadius="2"
                     android:width="105dip"         
-			        android:text="12" />	
+			        android:text="..." />	
 			     <TextView
 			        android:id="@+id/pointpos"
 			        android:layout_width="fill_parent"
@@ -142,7 +142,7 @@
                     android:shadowDx="1"
                     android:shadowDy="1"
                     android:shadowRadius="2"         
-			        android:text="201 điểm" />
+			        android:text="..." />
 			     
 	</LinearLayout>
 
