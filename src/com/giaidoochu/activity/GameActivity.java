@@ -142,13 +142,13 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
         	else
         		currentMode = GRID_MODE.SOLVE;
         	if (currentX==0) {
-        		Toast.makeText(this, "Báº¡n chÆ°a chá»�n Ă´ chá»¯!", Toast.LENGTH_SHORT).show();
+        		Toast.makeText(this, "Bạn chưa chọn ô chữ!", Toast.LENGTH_SHORT).show();
         		setCurrentMode();
         		return true;
         	}
         	totallaurel-=5;        	
         	setPreferences();
-        	Toast.makeText(this, "Báº¡n vá»«a Ä‘á»•i 5 Ä‘iá»ƒm Ä‘á»ƒ hiá»ƒn thá»‹ Ă´ chá»¯ nĂ y!", Toast.LENGTH_SHORT).show();        	
+        	Toast.makeText(this, "Bạn vừa đổi 5 điểm để hiện đáp án ô này!", Toast.LENGTH_SHORT).show();        	
         	this.gridAdapter.notifyDataSetChanged();
         	//currentMode=GRID_MODE.NORMAL;
         	return true;
@@ -173,7 +173,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
     	super.onActivityResult(requestCode, resultCode, data);
     	switch (requestCode) {
     	case Crossword.REQUEST_PREFERENCES:
-    		if (Crossword.DEBUG) Toast.makeText(this, "Ä�Ăƒ Cáº¬P NHáº¬T", Toast.LENGTH_SHORT).show();
+    		if (Crossword.DEBUG) Toast.makeText(this, "Đã cập nhật", Toast.LENGTH_SHORT).show();
     		readPreferences();
     		this.gridAdapter.setLower(this.gridIsLower);
     		this.gridAdapter.notifyDataSetChanged();
@@ -495,7 +495,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 			totallaurel+=20;
 			setPreferences();
 			setLevelPassed();
-			showNextLevel("Báº¡n Ä‘Ă£ hoĂ n thĂ nh Ă´ chá»¯ nĂ y, Ä‘iá»ƒm thÆ°á»Ÿng 20!");
+			showNextLevel("Bạn đã hoàn thành ô chữ này, điểm thưởng 20!");
 		}else
 		if (gridAdapter.isTheSame(this.currentX, this.currentY,this.horizontal)){
 			//this.txtUserinfo.setText("Giong nhau "+gridAdapter.getTempWord1()+"="+gridAdapter.getTempWord2());
@@ -515,8 +515,8 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	}
 	private void showInfo(){
 		//Context context = getApplicationContext();
-		CharSequence text = "Báº N Ä�Ăƒ GIáº¢I Ä�Ă�NG Má»˜T Ă” CHá»®, THĂ�M 10 Ä�Iá»‚M!\r\nTá»”NG Ä�Iá»‚M: "+totallaurel;
-		int duration = Toast.LENGTH_LONG;
+		CharSequence text = "Bạn đã giải đúng 1 từ, Thêm 10 điểm, Tổng điểm: "+totallaurel;
+		int duration = Toast.LENGTH_SHORT;
 		Toast toast = Toast.makeText(this.getApplicationContext(), text, duration);
 		toast.setGravity(Gravity.CENTER_VERTICAL, 0, 0);
 		toast.show();
@@ -535,9 +535,9 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 		alertDialogBuilder.setTitle(text);
 		// set dialog message
 		alertDialogBuilder
-			.setMessage("Tá»•ng Ä‘iá»ƒm:"+totallaurel+", Báº¡n cĂ³ muá»‘n chÆ¡i tiáº¿p?")
+			.setMessage("Tổng điểm:"+totallaurel+", chơi tiếp?")
 			.setCancelable(false)
-			.setPositiveButton("Chá»�n Ă´ chá»¯ khĂ¡c.",new DialogInterface.OnClickListener() {
+			.setPositiveButton("Chọn ô chữ khác.",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog,int id) {
 					// if this button is clicked, close
 					// current activity
@@ -547,7 +547,7 @@ public class GameActivity extends CrosswordParentActivity implements OnTouchList
 	        		
 				}
 			  })
-			  .setNeutralButton("Cáº­p nháº­p Ä‘iá»ƒm",new DialogInterface.OnClickListener() {
+			  .setNeutralButton("Cập nhật điểm",new DialogInterface.OnClickListener() {
 				public void onClick(DialogInterface dialog,int id) {
 //					alertDialog.hide();						
 //	        		GameActivity.this.finish();

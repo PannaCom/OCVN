@@ -81,7 +81,7 @@ public class SubmitScoreActivity extends CrosswordParentActivity implements OnCl
 						//alertDialog.show();
 					}
 					if (!username.trim().equals("") && username.trim().length()>16){
-						Toast.makeText(SubmitScoreActivity.this.getBaseContext(), "TĂªn user cĂ³ Ä‘á»™ dĂ i khĂ´ng quĂ¡ 16 chá»¯ cĂ¡i!", Toast.LENGTH_SHORT).show();
+						Toast.makeText(SubmitScoreActivity.this.getBaseContext(), "Tên user không dài quá 16 ký tự!", Toast.LENGTH_SHORT).show();
 						SubmitScoreActivity.this.finish();
 						return;
 						//alertDialog = alertDialogBuilder.create();
