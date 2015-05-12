@@ -109,9 +109,9 @@ public class GridListActivity extends CrosswordParentActivity implements OnItemC
 	    TextView name=(TextView)findViewById(R.id.name);
 	    name.setTypeface(typefaceTitle);
 	    name.setShadowLayer(12, -4, 4, Color.BLUE);
-	    if (this.filenameplay!=null && !this.filenameplay.equals("")){
-	    	this.downloadGrid();
-	    }
+//	    if (this.filenameplay!=null && !this.filenameplay.equals("")){
+//	    	this.downloadGrid();
+//	    }
 	}
 	
 	@Override
