@@ -1,2 +1,7 @@
 eclipse.preferences.version=1
-encoding//src/com/crossword/adapter/GameGridAdapter.java=UTF-8
+encoding//src/com/giaidoochu/activity/FeedbackActivity.java=UTF-8
+encoding//src/com/giaidoochu/activity/GameActivity.java=UTF-8
+encoding//src/com/giaidoochu/activity/GridListActivity.java=UTF-8
+encoding//src/com/giaidoochu/activity/RankingActivity.java=UTF-8
+encoding//src/com/giaidoochu/activity/SubmitScoreActivity.java=UTF-8
+encoding//src/com/giaidoochu/adapter/GameGridAdapter.java=UTF-8
